@@ -100,7 +100,7 @@ export default async function CaseStudyPage({
     <main className="case-page">
       <nav className="case-nav">
         <Link href="/" className="brand">J<span>.</span></Link>
-        <Link href="/#work" className="backlink"><ArrowLeft size={15} /> Selected work</Link>
+        <Link href="/" className="backlink"><ArrowLeft size={15} /> Back home</Link>
       </nav>
 
       <header className="case-hero case-wrap">
@@ -186,7 +186,7 @@ export default async function CaseStudyPage({
       </section>
 
       <footer className="case-footer case-wrap">
-        <Link href="/#work"><ArrowLeft size={15} /> Back to selected work</Link>
+        <Link href="/"><ArrowLeft size={15} /> Back to homepage</Link>
         <span>Jesse Briska · Software · Automation · Systems</span>
       </footer>
     </main>
