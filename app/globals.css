@@ -235,3 +235,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .manifesto{padding:100px 0}
   .manifesto h2{font-size:58px}
 }
+
+.projectlink{display:inline-flex;align-items:center;gap:6px;color:var(--paper);text-decoration:none;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.projectlink:hover{color:var(--accent)}
+.projectlink.muted{color:var(--soft)}
