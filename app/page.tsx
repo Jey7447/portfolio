@@ -52,6 +52,17 @@ const projects = [
     href: "/work/bakery",
     linkLabel: "View case study",
   },
+  {
+    number: "04",
+    title: "ProductForge AI",
+    type: "AI product workflow",
+    description:
+      "An AI-focused product workflow exploring how structured product ideas can move from initial input to useful generated output.",
+    stack: ["Next.js", "TypeScript", "AI", "Web App"],
+    accent: "violet",
+    href: "/work/productforge",
+    linkLabel: "View case study",
+  },
 ];
 
 const services = [
@@ -215,8 +226,6 @@ export default function Home() {
                 {project.href ? (
                   <a
                     href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
                     className="projectlink"
                     aria-label={project.linkLabel + ": " + project.title}
                   >
