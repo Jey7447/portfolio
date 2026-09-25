@@ -381,7 +381,7 @@ export default function Home() {
       </section>
 
       <footer className="footer wrap">
-        <span>© 2026 Jesse. Built with intent.</span>
+        <span>© 2026 Jesse Briska. Built with intent.</span>
         <span>Software · Automation · Systems</span>
         <a href="#top">
           Back to top <ArrowUpRight size={14} />
