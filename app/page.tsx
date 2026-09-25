@@ -27,8 +27,8 @@ const projects = [
       "A connected appointment and patient-communication system that orchestrates reminders, Twilio delivery status, patient feedback, and database updates through n8n and Supabase.",
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "Twilio"],
     accent: "lime",
-    href: "https://github.com/Jey7447/careplus-medical-centre",
-    linkLabel: "View repository",
+    href: "/work/careplus",
+    linkLabel: "View case study",
   },
   {
     number: "02",
@@ -38,8 +38,8 @@ const projects = [
       "A code-gated election system with single-use voter access, session controls, ballot validation, participation rules, audit logging, and database-backed results logic.",
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n"],
     accent: "blue",
-    href: null,
-    linkLabel: "Private repository",
+    href: "/work/dmda",
+    linkLabel: "View case study",
   },
   {
     number: "03",
@@ -49,8 +49,8 @@ const projects = [
       "An order-management workflow designed to turn incoming bakery orders into a clearer operational process, with structured order data and automation around status changes.",
     stack: ["TypeScript", "Web App", "Automation"],
     accent: "orange",
-    href: "https://github.com/Jey7447/brendas-bakery-order-tracker",
-    linkLabel: "View repository",
+    href: "/work/bakery",
+    linkLabel: "View case study",
   },
 ];
 
