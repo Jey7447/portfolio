@@ -119,19 +119,26 @@ export default async function CaseStudyPage({
         </div>
       </header>
 
-      <section className="case-visual case-wrap">
+      <section className="case-visual case-wrap" aria-label="System architecture visual">
         <div className="case-grid" />
-        <div className="case-console">
-          <div className="case-console-bar"><i /><i /><i /></div>
-          <div className="case-console-body">
-            <span>~/systems/{slug}</span>
-            <b><CheckCircle2 size={13} /> system architecture</b>
-            <div className="architecture-line">
-              {project.architecture.map((item, index) => (
-                <span key={item}>{item}{index < project.architecture.length - 1 ? " → " : ""}</span>
-              ))}
-            </div>
+        <div className="architecture-map">
+          <div className="architecture-head">
+            <span className="kicker">SYSTEM MAP</span>
+            <span>{project.number} / {slug.toUpperCase()}</span>
           </div>
+          <div className="architecture-flow">
+            {project.architecture.map((item, index) => (
+              <div className="architecture-node-wrap" key={item}>
+                <div className="architecture-node">
+                  <span>0{index + 1}</span>
+                  <strong>{item}</strong>
+                  <small>{index === 0 ? "INPUT" : index === project.architecture.length - 1 ? "OUTPUT" : "LAYER"}</small>
+                </div>
+                {index < project.architecture.length - 1 && <div className="architecture-arrow"><ArrowUpRight size={18} /></div>}
+              </div>
+            ))}
+          </div>
+          <div className="architecture-status"><CheckCircle2 size={14} /> Architecture mapped from the project implementation</div>
         </div>
       </section>
 
