@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Jesse Briska — Software · Automation · Systems",
-  description: "Full-stack development, AI automation and backend systems by Jesse.",
+  description: "Full-stack development, AI automation and backend systems by Jesse Briska.",
 };
 
 export default function RootLayout({
