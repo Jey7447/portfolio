@@ -18,7 +18,14 @@ const cases = {
       "Patient feedback notification workflow and database updates"
     ],
     architecture: ["Appointment data", "n8n orchestration", "Twilio", "Supabase / PostgreSQL", "Feedback workflow"],
-    note: "The portfolio describes the system that was built and tested during development; it does not claim a production deployment or clinical outcome."
+    note: "The portfolio describes the system that was built and tested during development; it does not claim a production deployment or clinical outcome.",
+    evidence: [
+      { src: "/careplus/careplus-dashboard.webp", label: "Product interface", title: "Operations dashboard", text: "A working operations interface for appointments, patients, notifications and feedback." },
+      { src: "/careplus/careplus-orchestrator.webp", label: "Automation architecture", title: "Appointment notification orchestration", text: "Postgres-triggered logic retrieves appointment context, checks status and creates the required patient and doctor notifications." },
+      { src: "/careplus/careplus-sms-tracker.webp", label: "Event-driven messaging", title: "SMS delivery status tracking", text: "Twilio callbacks are routed by delivery state and written back to the notification record." },
+      { src: "/careplus/careplus-schema.webp", label: "Data architecture", title: "Supabase / PostgreSQL schema", text: "Relational data connects appointments, patients, doctors, branches, feedback and notification records." },
+      { src: "/careplus/careplus-feedback.webp", label: "Feedback automation", title: "Patient feedback notifications", text: "Scheduled workflow logic finds pending feedback requests, prepares notifications and hands them to the outbound notification layer." }
+    ]
   },
   dmda: {
     number: "02",
@@ -37,7 +44,8 @@ const cases = {
       "Audit-oriented database structure"
     ],
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
-    note: "The repository is private, so implementation details are summarized here without exposing the source."
+    note: "The repository is private, so implementation details are summarized here without exposing the source.",
+    evidence: []
   },
   productforge: {
     number: "04",
@@ -54,7 +62,8 @@ const cases = {
       "Reusable frontend architecture for an AI product experience"
     ],
     architecture: ["Product idea", "Structured input", "AI workflow", "Generated output"],
-    note: "This case study describes the project implementation without inventing business results or production metrics."
+    note: "This case study describes the project implementation without inventing business results or production metrics.",
+    evidence: []
   },
   bakery: {
     number: "03",
@@ -71,7 +80,8 @@ const cases = {
       "Automation-oriented architecture for reducing manual updates"
     ],
     architecture: ["Incoming order", "Structured record", "Status workflow", "Operations view"],
-    note: "The project is presented as implementation work, without inventing business performance metrics that have not been measured."
+    note: "The project is presented as implementation work, without inventing business performance metrics that have not been measured.",
+    evidence: []
   }
 } as const;
 
@@ -141,6 +151,32 @@ export default async function CaseStudyPage({
           <div className="architecture-status"><CheckCircle2 size={14} /> Architecture mapped from the project implementation</div>
         </div>
       </section>
+
+      {"evidence" in project && project.evidence && project.evidence.length > 0 && (
+        <section className="case-evidence case-wrap" aria-label="Visual evidence">
+          <div className="evidence-head">
+            <div>
+              <span className="kicker">VISUAL EVIDENCE</span>
+              <h2>Show the system, not just the description.</h2>
+            </div>
+            <p>Selected implementation views from the project, covering the product interface, automation layer, messaging flow and data architecture.</p>
+          </div>
+          <div className="evidence-grid">
+            {project.evidence.map((item, index) => (
+              <figure className={index === 0 ? "evidence-card evidence-featured" : "evidence-card"} key={item.src}>
+                <div className="evidence-media">
+                  <img src={item.src} alt={item.title} loading={index === 0 ? "eager" : "lazy"} />
+                </div>
+                <figcaption>
+                  <span>{item.label}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="case-content case-wrap">
         <div className="case-main">
