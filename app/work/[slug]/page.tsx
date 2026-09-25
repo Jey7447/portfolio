@@ -39,6 +39,23 @@ const cases = {
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
     note: "The repository is private, so implementation details are summarized here without exposing the source."
   },
+  productforge: {
+    number: "04",
+    type: "AI product workflow",
+    title: "ProductForge AI",
+    intro: "An AI-focused product workflow project exploring how structured product ideas can move from input to useful generated output.",
+    stack: ["Next.js", "TypeScript", "AI", "Web App"],
+    repo: "https://github.com/Jey7447/productforge-ai",
+    problem: "Product work often starts with scattered ideas and incomplete requirements. ProductForge AI explores a more structured interface for turning an initial product concept into organized, actionable output.",
+    built: [
+      "Product-focused web interface",
+      "Structured input and output workflow",
+      "AI-assisted product generation concepts",
+      "Reusable frontend architecture for an AI product experience"
+    ],
+    architecture: ["Product idea", "Structured input", "AI workflow", "Generated output"],
+    note: "This case study describes the project implementation without inventing business results or production metrics."
+  },
   bakery: {
     number: "03",
     type: "Operations web app",
@@ -92,7 +109,7 @@ export default async function CaseStudyPage({
         <p>{project.intro}</p>
         <div className="case-actions">
           {project.repo ? (
-            <a href={project.repo} target="_blank" rel="noreferrer" className="case-button">
+            <a href={project.repo} className="case-button">
               Repository <ArrowUpRight size={16} />
             </a>
           ) : (
