@@ -1,4 +1,4 @@
-# Jesse Portfolio
+# Jesse Briska — Portfolio
 
 Premium technical portfolio built with Next.js, TypeScript, CSS and Framer Motion.
 
