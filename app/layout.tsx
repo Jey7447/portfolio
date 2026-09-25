@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Jesse — Software · Automation · Systems",
+  title: "Jesse Briska — Software · Automation · Systems",
   description: "Full-stack development, AI automation and backend systems by Jesse.",
 };
 
