@@ -82,7 +82,7 @@ export default function Home() {
       <div className="noise" />
 
       <nav className="nav">
-        <a href="#top" className="brand" aria-label="Jesse home">
+        <a href="#top" className="brand" aria-label="Jesse Briska home">
           J<span>.</span>
         </a>
 
