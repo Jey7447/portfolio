@@ -24,27 +24,33 @@ const projects = [
     title: "CarePlus Medical Centre",
     type: "Healthcare automation system",
     description:
-      "A connected appointment and patient-communication system that orchestrates notifications, delivery status, feedback, and database updates.",
+      "A connected appointment and patient-communication system that orchestrates reminders, Twilio delivery status, patient feedback, and database updates through n8n and Supabase.",
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "Twilio"],
     accent: "lime",
+    href: "https://github.com/Jey7447/careplus-medical-centre",
+    linkLabel: "View repository",
   },
   {
     number: "02",
     title: "DMDA Voting Portal",
     type: "Secure voting platform",
     description:
-      "A code-gated voting experience with one-vote participation rules, session controls, ballot validation, and database-backed election logic.",
+      "A code-gated election system with single-use voter access, session controls, ballot validation, participation rules, audit logging, and database-backed results logic.",
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n"],
     accent: "blue",
+    href: null,
+    linkLabel: "Private repository",
   },
   {
     number: "03",
     title: "Bakery Order Tracker",
     type: "Operations web app",
     description:
-      "A practical order-management workflow designed to turn incoming bakery orders into a clearer operational process.",
+      "An order-management workflow designed to turn incoming bakery orders into a clearer operational process, with structured order data and automation around status changes.",
     stack: ["TypeScript", "Web App", "Automation"],
     accent: "orange",
+    href: "https://github.com/Jey7447/brendas-bakery-order-tracker",
+    linkLabel: "View repository",
   },
 ];
 
@@ -206,7 +212,19 @@ export default function Home() {
             >
               <div className="projecttop">
                 <span>{project.number} / CASE STUDY</span>
-                <ArrowUpRight size={18} />
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="projectlink"
+                    aria-label={project.linkLabel + ": " + project.title}
+                  >
+                    {project.linkLabel} <ArrowUpRight size={16} />
+                  </a>
+                ) : (
+                  <span className="projectlink muted">{project.linkLabel}</span>
+                )}
               </div>
 
               <div className="projectvisual">
