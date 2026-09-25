@@ -128,8 +128,7 @@ export default function Home() {
 
       <section id="top" className="hero wrap">
         <div className="eyebrow">
-          <span className="dot" /> AVAILABLE FOR SELECTED PROJECTS{" "}
-          <span className="line" /> LAGOS · NIGERIA
+          <span className="dot" /> AVAILABLE FOR SELECTED PROJECTS
         </div>
 
         <motion.h1
