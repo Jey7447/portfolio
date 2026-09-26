@@ -1907,7 +1907,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 }
 
 
-/* About — editorial portrait treatment */
+/* About — single editorial portrait */
 .home-about-visual{
   position:relative;
   height:520px;
@@ -1916,6 +1916,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 }
 .home-about-photo{
   position:absolute;
+  inset:0 12% 0 0;
   overflow:hidden;
   border:1px solid var(--line);
   background:var(--surface);
@@ -1923,7 +1924,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 }
 .home-about-photo img{
   object-fit:cover;
-  object-position:center;
+  object-position:center 38%;
   filter:saturate(.58) contrast(1.04);
   transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease;
 }
@@ -1946,42 +1947,17 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   letter-spacing:.14em;
   text-shadow:0 2px 12px rgba(0,0,0,.8);
 }
-.home-about-photo-primary{
-  inset:0 14% 38px 0;
-}
-.home-about-photo-primary img{
-  object-position:center 42%;
-}
-.home-about-photo-secondary{
-  width:38%;
-  height:270px;
-  right:0;
-  bottom:0;
-  z-index:2;
-}
-.home-about-photo-secondary img{
-  object-position:center 38%;
-}
 .home-about-photo:hover img{
   transform:scale(1.025);
   filter:saturate(.72) contrast(1.04);
-}
-.home-about-photo-secondary:hover{
-  z-index:3;
 }
 @media(max-width:760px){
   .home-about-visual{
     height:430px;
     margin-top:40px;
   }
-  .home-about-photo-primary{
-    inset:0 9% 48px 0;
-  }
-  .home-about-photo-secondary{
-    width:44%;
-    height:205px;
-    right:0;
-    bottom:0;
+  .home-about-photo{
+    inset:0 6% 0 0;
   }
   .home-about-photo span{
     left:11px;
