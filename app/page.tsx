@@ -6,8 +6,7 @@ import {
   ArrowUpRight,
   Github,
   Linkedin,
-  Mail,
-  Menu,
+    Menu,
   X,
   Database,
   Globe2,
@@ -23,7 +22,7 @@ const projects = [
     number: "01",
     title: "CarePlus Medical Centre",
     type: "Healthcare · Automation",
-    description: "Connected appointment notifications, SMS delivery tracking, patient feedback and database workflows.",
+    description: "Appointment notifications, SMS delivery tracking, patient feedback and database workflows.",
     stack: ["Next.js", "Supabase", "n8n", "Twilio"],
     href: "/work/careplus",
     image: "/careplus/careplus-dashboard.webp",
@@ -34,7 +33,7 @@ const projects = [
     number: "02",
     title: "DMDA Voting Portal",
     type: "Security · Backend",
-    description: "A code-gated voting system with single-use access, ballot validation, participation rules and audit logging.",
+    description: "Code-gated voting with single-use access, ballot validation and audit logging.",
     stack: ["Next.js", "PostgreSQL", "Supabase", "n8n"],
     href: "/work/dmda",
     visual: "dmda",
@@ -44,7 +43,7 @@ const projects = [
     number: "03",
     title: "Bakery Order Tracker",
     type: "Operations · Web App",
-    description: "An operational order flow designed around structured data, status changes and workflow automation.",
+    description: "Structured order management connected to status changes and workflow automation.",
     stack: ["TypeScript", "Web App", "Automation"],
     href: "/work/bakery",
     visual: "bakery",
@@ -54,7 +53,7 @@ const projects = [
     number: "04",
     title: "ProductForge AI",
     type: "AI · Product",
-    description: "An AI product workflow exploring how structured inputs can become useful generated product output.",
+    description: "An AI product workflow for turning structured inputs into useful product output.",
     stack: ["Next.js", "TypeScript", "AI"],
     href: "/work/productforge",
     visual: "productforge",
@@ -171,7 +170,7 @@ export default function Home() {
         <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 04</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
         <div className="home-projects">
           {projects.map((project, i) => (
-            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
+            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
               <div className="home-project-head"><span>{project.number} / {project.type}</span><a href={project.href}>CASE STUDY <ArrowUpRight size={14} /></a></div>
               <ProjectVisual project={project} />
               <div className="home-project-info"><div><h3>{project.title}</h3><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
@@ -211,12 +210,12 @@ export default function Home() {
 
       <section id="about" className="home-about wrap">
         <div><span className="home-kicker">A LITTLE ABOUT ME</span><h2>Engineering taught me to think in systems. Software gave me another medium to build them.</h2></div>
-        <div className="home-about-copy"><p>I work across interfaces, databases, APIs and automation — looking at the whole flow instead of treating each piece as a separate task.</p><p>I care about clean structure, useful interactions and systems that can actually be understood after they ship.</p><div className="home-stack">{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div></div>
+        <div className="home-about-copy"><p>I work across interfaces, databases, APIs and automation — looking at the whole flow instead of treating each piece as a separate task.</p><p>I care about clean structure, useful interactions and systems that can actually be understood after they ship.</p><div className="home-stack">{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div><div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering · University of Jos</small></div></div>
       </section>
 
       <section id="contact" className="home-contact wrap">
         <div className="home-contact-copy"><span className="home-kicker">HAVE A PROJECT IN MIND?</span><h2>Let&apos;s build<br /><em>something useful.</em></h2><p>Tell me what you&apos;re trying to build, automate or improve. We can turn the idea into a clear technical path.</p></div>
-        <div className="home-contact-card"><div className="home-contact-top"><Terminal size={17} /><span>START A CONVERSATION</span></div><a className="home-contact-link" href="https://github.com/Jey7447" target="_blank" rel="noreferrer">github.com/Jey7447 <ArrowUpRight size={18} /></a><div className="home-socials"><a href="https://github.com/Jey7447" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><a href="#" aria-label="LinkedIn profile coming soon"><Linkedin size={16} /> LinkedIn</a><a href="https://github.com/Jey7447" target="_blank" rel="noreferrer"><Mail size={16} /> Contact</a></div></div>
+        <div className="home-contact-card"><div className="home-contact-top"><Terminal size={17} /><span>START A CONVERSATION</span></div><a className="home-contact-link" href="https://github.com/Jey7447" target="_blank" rel="noreferrer">github.com/Jey7447 <ArrowUpRight size={18} /></a><div className="home-socials"><a href="https://github.com/Jey7447" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><span className="home-social-disabled"><Linkedin size={16} /> LinkedIn soon</span><a href="#work"><ArrowDown size={16} /> View work</a></div></div>
       </section>
 
       <footer className="home-footer wrap"><span>© 2026 Jesse Briska. Built with intent.</span><span>Software · Automation · Systems</span><a href="#top">Back to top <ArrowUpRight size={14} /></a></footer>
