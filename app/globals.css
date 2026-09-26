@@ -1545,3 +1545,30 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 @media(max-width:760px){
   .home-project-case-link{left:12px;bottom:12px;min-height:44px;padding:0 14px;font-size:10px}
 }
+
+
+/* Keep the prominent CTA and evidence metadata visually separate */
+.home-project-image-label{
+  left:auto;
+  right:18px;
+  bottom:18px;
+  width:auto;
+  justify-content:flex-end;
+  gap:18px;
+  padding-left:170px;
+  pointer-events:none;
+}
+
+.home-project-case-link{
+  white-space:nowrap;
+}
+
+@media(max-width:760px){
+  .home-project-image-label{
+    right:12px;
+    bottom:12px;
+    gap:10px;
+    padding-left:145px;
+    font-size:7px;
+  }
+}
