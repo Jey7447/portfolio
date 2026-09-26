@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Database, GitBranch, Workflow } from "lucide-react";
 import CaseStudyInteractive from "@/components/case-study-interactive";
+import InteractiveSystemFlow from "@/components/interactive-system-flow";
 
 const cases = {
   careplus: {
@@ -199,20 +200,16 @@ export default async function CaseStudyPage({
             </ul>
           </article>
 
-          <article>
-            <span className="kicker">SYSTEM FLOW</span>
-            <h2>How the pieces connect.</h2>
-            <p className="flow-intro">Click a stage to see what happens there. The workflow evidence above can also be opened and explored node by node.</p>
-            <div className="flow">
-              {project.architecture.map((item, index) => (
-                <div className="flow-item" key={item}>
-                  <span>0{index + 1}</span>
-                  <strong>{item}</strong>
-                  {index < project.architecture.length - 1 && <ArrowUpRight size={15} />}
-                </div>
-              ))}
-            </div>
-          </article>
+          <InteractiveSystemFlow
+            architecture={project.architecture}
+            descriptions={slug === "careplus" ? [
+              "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
+              "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
+              "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
+              "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
+              "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
+            ] : undefined}
+          />
         </div>
 
         <aside className="case-aside">
