@@ -2371,3 +2371,90 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:7px;
   }
 }
+
+
+/* Case-study footer — make the project ending feel like a deliberate transition. */
+.case-footer{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:end;
+  gap:28px;
+  padding:34px 0 42px;
+}
+.case-footer:before{
+  content:"START A PROJECT";
+  position:absolute;
+  left:0;
+  top:0;
+  padding-top:10px;
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.16em;
+}
+.case-footer-center{
+  align-self:end;
+  color:var(--soft);
+  font-size:10px;
+  letter-spacing:.02em;
+}
+.case-footer-cta{
+  justify-self:end;
+  position:relative;
+  min-width:190px;
+  justify-content:space-between;
+  padding:15px 0 13px;
+  border-bottom:1px solid var(--line);
+  color:var(--paper)!important;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.02em;
+  overflow:hidden;
+}
+.case-footer-cta:before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-1px;
+  width:38%;
+  height:2px;
+  background:var(--accent);
+  transition:width .35s ease;
+}
+.case-footer-cta svg{
+  transition:transform .3s ease,color .3s ease;
+}
+.case-footer-cta:hover{
+  color:var(--accent)!important;
+}
+.case-footer-cta:hover:before{
+  width:100%;
+}
+.case-footer-cta:hover svg{
+  transform:translate(3px,-3px);
+}
+@media(max-width:760px){
+  .case-footer{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:18px;
+    padding:34px 0 30px;
+  }
+  .case-footer:before{
+    position:static;
+    padding:0 0 4px;
+  }
+  .case-footer-center{
+    text-align:left;
+    font-size:9px;
+    order:3;
+  }
+  .case-footer-cta{
+    justify-self:stretch;
+    min-width:0;
+    order:2;
+  }
+  .case-footer>a:first-child{
+    order:1;
+  }
+}
