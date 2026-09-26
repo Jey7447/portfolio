@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { X, Maximize2 } from "lucide-react";
 
@@ -94,7 +95,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                   onClick={() => openEvidence(item)}
                   aria-label={interactive ? `Explore ${item.title} workflow` : `Open ${item.title}`}
                 >
-                  <img src={item.src} alt={item.title} loading={index === 0 ? "eager" : "lazy"} />
+                  <Image src={item.src} alt={item.title} width={1600} height={900} priority={index === 0} />
                   <span className="evidence-expand"><Maximize2 size={15} /> {interactive ? "Explore workflow" : "Open full view"}</span>
                 </button>
                 <figcaption>
@@ -128,7 +129,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                 </div>
 
                 <div className="workflow-canvas">
-                  <img
+                  <Image
                     src={
                       activeWorkflow === "orchestrator"
                         ? "/careplus/careplus-orchestrator.webp"
@@ -137,6 +138,8 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                           : "/careplus/careplus-feedback.webp"
                     }
                     alt=""
+                    width={1600}
+                    height={900}
                   />
                   {(activeWorkflow === "orchestrator" ? workflowNodes.orchestrator : activeWorkflow === "sms" ? workflowNodes.sms : workflowNodes.feedback).map((node) => (
                     <button
@@ -168,7 +171,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
               </div>
             ) : activeImage ? (
               <div className="image-viewer">
-                <img src={activeImage.src} alt={activeImage.title} />
+                <Image src={activeImage.src} alt={activeImage.title} width={1600} height={900} />
                 <div className="image-viewer-caption">
                   <span className="kicker">{activeImage.label}</span>
                   <h3>{activeImage.title}</h3>
