@@ -2109,3 +2109,21 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .nav{padding:0 20px}
   .navcta{padding:10px 12px}
 }
+
+
+/* Case-study footer — close each project with a clear next step. */
+.case-footer-center{text-align:center;color:var(--soft)}
+.case-footer-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--paper)!important;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:.04em;
+}
+.case-footer-cta:hover{color:var(--accent)!important}
+@media(max-width:760px){
+  .case-footer-center{text-align:left}
+  .case-footer-cta{justify-self:start}
+}
