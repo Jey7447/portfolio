@@ -422,3 +422,11 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
  .hero-slide-label{font-size:7px;right:12px;bottom:12px}
  .workflow-node-popover{width:min(270px,68vw);transform:translate(-50%,-108%)}
 }
+
+
+.flow-stage{border-bottom:1px solid var(--line)}
+.flow-stage .flow-item{border-bottom:0}
+.flow-button.active{background:color-mix(in srgb,var(--accent) 6%,transparent);padding-left:10px}
+.flow-detail-inline{margin:0;border:0;border-top:1px solid var(--line);padding:20px 22px 22px;background:color-mix(in srgb,var(--surface) 55%,transparent)}
+.flow-detail-inline .flow-detail-top{align-items:flex-start}
+.flow-detail-inline .flow-detail-top button{flex:none}
