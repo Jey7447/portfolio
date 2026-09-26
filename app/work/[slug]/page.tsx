@@ -35,8 +35,9 @@ const cases = {
     type: "Secure voting platform",
     title: "DMDA Voting Portal",
     intro: "A code-gated election platform designed around single-use voter access, ballot validation and database-backed election rules.",
-    stack: ["Next.js", "Supabase", "PostgreSQL", "n8n"],
+    stack: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "n8n"],
     repo: null,
+    live: "https://dmda-voting-portal.vercel.app/",
     problem: "The portal needed to restrict participation to registered voters, prevent reuse of voting access, validate ballots and keep election state consistent at the database layer.",
     built: [
       "Voter credential and access-code flow",
@@ -134,6 +135,11 @@ export default async function CaseStudyPage({
             </a>
           ) : (
             <span className="case-private">Private repository</span>
+          )}
+          {"live" in project && project.live && (
+            <a href={project.live} className="case-button" target="_blank" rel="noreferrer">
+              Live demo <ArrowUpRight size={16} />
+            </a>
           )}
           <Link href="/#contact" className="case-textlink">Discuss a project <ArrowUpRight size={16} /></Link>
         </div>
