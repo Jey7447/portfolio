@@ -92,6 +92,9 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
       <div className="home-project-image">
         <Image src={project.image} alt={`${project.title} interface preview`} fill sizes="(max-width: 760px) 100vw, (max-width: 1200px) 92vw, 1180px" priority={project.number === "01"} unoptimized />
         <div className="home-project-image-overlay" />
+        <a className="home-project-case-link" href={project.href} aria-label={`View ${project.title} case study`}>
+          View case study <ArrowUpRight size={16} />
+        </a>
         <div className="home-project-image-label"><span>LIVE EVIDENCE</span><span>{project.status}</span></div>
       </div>
     );
@@ -175,7 +178,7 @@ export default function Home() {
         <div className="home-projects">
           {projects.map((project, i) => (
             <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
-              <div className="home-project-head"><span>{project.number} / {project.type}</span><a href={project.href}>CASE STUDY <ArrowUpRight size={14} /></a></div>
+              <div className="home-project-head"><span>{project.number} / {project.type}</span><span>{project.status}</span></div>
               <ProjectVisual project={project} />
               <div className="home-project-info"><div><h3>{project.title}</h3><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
             </motion.article>
