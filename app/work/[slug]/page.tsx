@@ -23,6 +23,7 @@ const cases = {
       "Patient feedback notification workflow and database updates"
     ],
     architecture: ["Appointment data", "n8n orchestration", "Twilio", "Supabase / PostgreSQL", "Feedback workflow"],
+    architectureLabels: ["DATA", "ORCHESTRATION", "DELIVERY", "STATE", "FEEDBACK"],
     note: "The portfolio describes the system that was built and tested during development; it does not claim a production deployment or clinical outcome.",
     evidence: [
       { src: "/careplus/careplus-dashboard.webp", label: "Product interface", title: "Operations dashboard", text: "A working operations interface for appointments, patients, notifications and feedback." },
@@ -52,6 +53,7 @@ const cases = {
       "Audit-oriented database structure"
     ],
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
+    architectureLabels: ["ACCESS", "AUTH", "SESSION", "VALIDATION", "RECORD"],
     note: "The repository is private, so implementation details are summarized here without exposing the source.",
     evidence: [
       { src: "/dmda/voter authentication.webp.png", label: "VOTER ACCESS", title: "Voter authentication", text: "The voter-facing entry point gates access with a one-time voting code before a voting session can be established." },
@@ -79,6 +81,7 @@ const cases = {
       "Reusable frontend architecture for an AI product experience"
     ],
     architecture: ["Product idea", "Structured input", "AI workflow", "Generated output"],
+    architectureLabels: ["IDEA", "STRUCTURE", "AI", "OUTPUT"],
     note: "This case study describes the project implementation without inventing business results or production metrics.",
     evidence: []
   },
@@ -99,6 +102,7 @@ const cases = {
       "Automation-oriented architecture for reducing manual updates"
     ],
     architecture: ["Incoming order", "Structured record", "Status workflow", "Operations view"],
+    architectureLabels: ["INPUT", "RECORD", "STATUS", "OPERATIONS"],
     note: "The project is presented as implementation work, without inventing business performance metrics that have not been measured.",
     evidence: []
   }
@@ -203,7 +207,7 @@ export default async function CaseStudyPage({
                 <div className="architecture-node">
                   <span>0{index + 1}</span>
                   <strong>{item}</strong>
-                  <small>{index === 0 ? "INPUT" : index === project.architecture.length - 1 ? "OUTPUT" : "LAYER"}</small>
+                  <small>{project.architectureLabels[index]}</small>
                 </div>
                 {index < project.architecture.length - 1 && <div className="architecture-arrow"><ArrowUpRight size={18} /></div>}
               </div>
