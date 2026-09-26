@@ -1398,3 +1398,112 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     margin-top:65px;
   }
 }
+
+
+/* DMDA system map — stronger scale and cleaner technical contrast */
+.case-visual{
+  min-height:560px;
+}
+
+.case-visual .architecture-map{
+  padding:42px;
+}
+
+.case-visual .architecture-flow{
+  min-height:250px;
+}
+
+.case-visual .architecture-node{
+  width:170px;
+  min-height:122px;
+  padding:20px;
+}
+
+.case-visual .architecture-node strong{
+  font-size:15px;
+}
+
+.case-visual .architecture-node small{
+  font-size:9px;
+}
+
+.case-visual .architecture-arrow{
+  width:54px;
+}
+
+.case-visual .architecture-status{
+  font-size:10px;
+}
+
+/* Restore more natural detail in the hero evidence while protecting the copy */
+.case-hero .hero-slide{
+  filter:saturate(.96) brightness(.94) contrast(1.04);
+}
+
+.case-hero .hero-evidence-sheen{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10,10,10,.82) 0%,
+      rgba(10,10,10,.58) 24%,
+      rgba(10,10,10,.18) 48%,
+      rgba(10,10,10,.02) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.05) 0%,
+      transparent 35%,
+      rgba(0,0,0,.14) 100%
+    );
+}
+
+[data-theme="light"] .case-hero .hero-evidence-sheen{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(243,241,233,.88) 0%,
+      rgba(243,241,233,.58) 24%,
+      rgba(243,241,233,.18) 48%,
+      rgba(243,241,233,.02) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.04) 0%,
+      transparent 35%,
+      rgba(0,0,0,.08) 100%
+    );
+}
+
+@media(max-width:760px){
+  .case-visual{
+    min-height:390px;
+  }
+
+  .case-visual .architecture-map{
+    padding:26px;
+  }
+
+  .case-visual .architecture-flow{
+    min-height:210px;
+    justify-content:flex-start;
+    overflow-x:auto;
+    padding:25px 6px;
+    scrollbar-width:thin;
+  }
+
+  .case-visual .architecture-node{
+    width:145px;
+    min-width:145px;
+    min-height:112px;
+    padding:16px;
+  }
+
+  .case-visual .architecture-node strong{
+    font-size:13px;
+  }
+
+  .case-visual .architecture-arrow{
+    width:34px;
+    min-width:34px;
+  }
+}
