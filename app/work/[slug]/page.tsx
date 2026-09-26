@@ -118,7 +118,10 @@ export default async function CaseStudyPage({
 
       <header className="case-hero case-wrap">
         {"evidence" in project && project.evidence && project.evidence.length > 0 && (
-          <CaseHeroSlideshow images={project.evidence.map((item) => item.src)} />
+          <CaseHeroSlideshow
+            images={project.evidence.map((item) => item.src)}
+            labels={project.evidence.map((item) => item.title)}
+          />
         )}
         <div className="case-hero-content">
           <span className="kicker">{project.number} / {project.type}</span>
