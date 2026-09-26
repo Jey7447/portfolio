@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 type Props = {
   images: readonly string[];
+  labels?: readonly string[];
 };
 
-export default function CaseHeroSlideshow({ images }: Props) {
+export default function CaseHeroSlideshow({ images, labels }: Props) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -20,16 +21,21 @@ export default function CaseHeroSlideshow({ images }: Props) {
   if (!images.length) return null;
 
   return (
-    <div className="case-hero-slideshow" aria-hidden="true">
-      {images.map((src, index) => (
-        <div
-          className={index === active ? "hero-slide active" : "hero-slide"}
-          key={src}
-          style={{ backgroundImage: `url(${src})` }}
-        />
-      ))}
-      <div className="hero-slide-vignette" />
-      <div className="hero-slide-label">SELECTED PROJECT EVIDENCE · AUTO ROTATING</div>
+    <div className="case-hero-slideshow" aria-label="Selected project evidence">
+      <div className="hero-evidence-frame">
+        {images.map((src, index) => (
+          <div
+            className={index === active ? "hero-slide active" : "hero-slide"}
+            key={src}
+            style={{ backgroundImage: `url(${src})` }}
+          />
+        ))}
+        <div className="hero-evidence-sheen" />
+        <div className="hero-evidence-meta">
+          <span>{String(active + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}</span>
+          <strong>{labels?.[active] ?? "Project evidence"}</strong>
+        </div>
+      </div>
     </div>
   );
 }
