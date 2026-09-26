@@ -142,7 +142,7 @@ export default function Home() {
       <div className="noise" />
       <nav className="nav home-nav">
         <a href="#top" className="brand" aria-label="Jesse Briska home">J<span>.</span></a>
-        <div className="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+        <div className="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
         <div className="nav-actions">
           <ThemeToggle />
           <a href="#contact" className="navcta">Let&apos;s talk <ArrowUpRight size={15} /></a>
@@ -150,7 +150,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {menu && <div className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
+      {menu && <div className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#faq" onClick={() => setMenu(false)}>FAQ</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
 
       <section id="top" className="home-hero wrap">
         <div className="home-hero-topline"><span><i className="home-status-dot" /> AVAILABLE FOR SELECTED PROJECTS</span><span>PORTFOLIO / 2026</span></div>
@@ -251,6 +251,39 @@ export default function Home() {
           </div>
           <div className="home-stack"><div className="home-stack-head"><span>STACK / WORKING LAYERS</span><span>2026</span></div>{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
           <div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering · University of Jos</small></div>
+        </div>
+      </section>
+
+      <section id="faq" className="home-faq wrap">
+        <div className="home-section-head">
+          <div><span className="home-kicker">COMMON QUESTIONS</span><h2>Before we build.</h2></div>
+          <p>A few practical answers about the kind of work I take on, how projects start and what the process looks like.</p>
+        </div>
+        <div className="home-faq-list">
+          <details open>
+            <summary><span>01</span><strong>What can you help me build?</strong><ArrowUpRight size={18} /></summary>
+            <p>I build web applications, internal tools, backend systems and automation workflows — especially where the interface, data and business logic need to work together.</p>
+          </details>
+          <details>
+            <summary><span>02</span><strong>Can you work with an existing project?</strong><ArrowUpRight size={18} /></summary>
+            <p>Yes. An engagement can start from an existing codebase, database or workflow. I can first map what is already there, identify the important constraints and then work on the specific system that needs attention.</p>
+          </details>
+          <details>
+            <summary><span>03</span><strong>What if I only have an idea?</strong><ArrowUpRight size={18} /></summary>
+            <p>That is fine. We can start by clarifying the problem, users, required features and technical constraints before deciding what should actually be built.</p>
+          </details>
+          <details>
+            <summary><span>04</span><strong>What technologies do you work with?</strong><ArrowUpRight size={18} /></summary>
+            <p>My current working stack includes Next.js, React, TypeScript, Tailwind, Supabase, PostgreSQL, n8n, REST APIs, webhooks and AI-assisted workflows.</p>
+          </details>
+          <details>
+            <summary><span>05</span><strong>How long does a project take?</strong><ArrowUpRight size={18} /></summary>
+            <p>It depends on the scope, starting point and number of systems involved. After understanding the requirements, I can break the work into clear stages rather than guessing from a headline feature list.</p>
+          </details>
+          <details>
+            <summary><span>06</span><strong>How do we get started?</strong><ArrowUpRight size={18} /></summary>
+            <p>Send a short description of what you are trying to build, automate or improve. From there, we can clarify the goal, constraints and next technical step.</p>
+          </details>
         </div>
       </section>
 
