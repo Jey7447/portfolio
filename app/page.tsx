@@ -226,8 +226,26 @@ export default function Home() {
       </section>
 
       <section id="about" className="home-about wrap">
-        <div><span className="home-kicker">A LITTLE ABOUT ME</span><h2>Engineering taught me to think in systems. Software gave me another medium to build them.</h2></div>
-        <div className="home-about-copy"><p>I work across interfaces, databases, APIs and automation — looking at the whole flow instead of treating each piece as a separate task.</p><p>I care about clean structure, useful interactions and systems that can actually be understood after they ship.</p><div className="home-stack">{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div><div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering · University of Jos</small></div></div>
+        <div className="home-about-intro">
+          <span className="home-kicker">A LITTLE ABOUT ME</span>
+          <h2>Engineering taught me to think in systems. Software gave me another medium to build them.</h2>
+          <div className="home-about-index" aria-hidden="true"><span>PROFILE / 01</span><span>ENGINEERING → SOFTWARE</span></div>
+        </div>
+        <div className="home-about-copy">
+          <p>I work across interfaces, databases, APIs and automation — looking at the whole flow instead of treating each piece as a separate task.</p>
+          <p>I care about clean structure, useful interactions and systems that can actually be understood after they ship.</p>
+          <div className="home-about-profile">
+            <div className="home-about-profile-head"><span>01 / SYSTEM PROFILE</span><Terminal size={15} /></div>
+            <div className="home-about-profile-grid">
+              <div><span>DISCIPLINE</span><strong>SOFTWARE · AUTOMATION · SYSTEMS</strong></div>
+              <div><span>FOUNDATION</span><strong>MECHANICAL ENGINEERING</strong></div>
+              <div><span>FOCUS</span><strong>INTERFACES · DATA · WORKFLOWS</strong></div>
+              <div><span>APPROACH</span><strong>BUILD · CONNECT · REFINE</strong></div>
+            </div>
+          </div>
+          <div className="home-stack"><div className="home-stack-head"><span>STACK / WORKING LAYERS</span><span>2026</span></div>{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
+          <div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering · University of Jos</small></div>
+        </div>
       </section>
 
       <section id="contact" className="home-contact wrap">
