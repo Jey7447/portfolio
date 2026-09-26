@@ -1572,3 +1572,94 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:7px;
   }
 }
+
+
+/* Services — stronger editorial hierarchy and clearer interaction */
+.home-services{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid color-mix(in srgb,var(--bg) 28%,transparent);
+}
+.home-services:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--bg) 4%,transparent) 50%,transparent 100%);
+}
+.home-service{
+  position:relative;
+  transition:background-color .35s ease;
+}
+.home-service:after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:var(--accent);
+  transform:scaleY(0);
+  transform-origin:center;
+  transition:transform .35s ease;
+}
+.home-service:hover{
+  background:color-mix(in srgb,var(--bg) 4%,transparent);
+}
+.home-service.open{
+  background:color-mix(in srgb,var(--bg) 7%,transparent);
+}
+.home-service.open:after{
+  transform:scaleY(1);
+}
+.home-service>button{
+  min-height:104px;
+  position:relative;
+  z-index:1;
+}
+.home-service-icon{
+  transition:background-color .3s ease,border-color .3s ease,transform .3s ease;
+}
+.home-service:hover .home-service-icon,
+.home-service.open .home-service-icon{
+  border-color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 9%,transparent);
+  transform:translateY(-1px);
+}
+.home-service strong{
+  transition:transform .3s ease,color .3s ease;
+}
+.home-service:hover strong{
+  transform:translateX(5px);
+}
+.home-service.open strong{
+  color:var(--accent);
+}
+.home-service-detail{
+  position:relative;
+  z-index:1;
+}
+.home-service-detail p{
+  max-width:560px;
+}
+.home-service-detail>div{
+  max-width:360px;
+}
+.home-service-detail span{
+  transition:border-color .25s ease,color .25s ease,background-color .25s ease;
+}
+.home-service-detail span:hover{
+  border-color:var(--accent);
+  color:var(--bg);
+  background:var(--accent);
+}
+
+@media(max-width:760px){
+  .home-service>button{
+    min-height:82px;
+  }
+  .home-service:hover strong{
+    transform:none;
+  }
+}
