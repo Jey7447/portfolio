@@ -868,7 +868,12 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .home-project:hover .home-project-image img{transform:scale(1.025)}
 .home-project-image-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6))}
 .home-project-image-label{position:absolute;left:18px;right:18px;bottom:17px;display:flex;justify-content:space-between;color:#f3f2ec;font-size:8px;letter-spacing:.14em;text-shadow:0 2px 15px #000}
-.home-project-standard .home-system-visual{height:390px}
+.home-project-standard .home-system-visual,
+.home-project-standard .home-project-image{height:390px}
+.home-project-standard .home-project-image img{
+  object-fit:cover;
+  object-position:center;
+}
 .home-system-visual{isolation:isolate}
 .home-system-grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:42px 42px;opacity:.8}
 .home-system-visual:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,var(--accent-glow),transparent 44%);z-index:-1}
@@ -1096,7 +1101,8 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .home-project-head{gap:12px}
   .home-project-head a{white-space:nowrap}
   .home-project-image-label{left:12px;right:12px;bottom:12px}
-  .home-project-standard .home-system-visual{height:285px}
+  .home-project-standard .home-system-visual,
+ .home-project-standard .home-project-image{height:285px}
   .home-system-stack{width:78%}
   .home-system-card{padding:13px 14px}
   .home-system-card strong{font-size:11px}
