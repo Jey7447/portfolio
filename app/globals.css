@@ -2307,3 +2307,67 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     margin-top:1px;
   }
 }
+
+
+/* Case-study hero — stronger editorial hierarchy and project metadata. */
+.case-hero-content:before{
+  content:"CASE STUDY";
+  display:block;
+  width:max-content;
+  margin-bottom:18px;
+  padding:6px 9px;
+  border:1px solid var(--line);
+  color:var(--soft);
+  font-size:8px;
+  letter-spacing:.18em;
+}
+.case-hero h1{
+  font-size:clamp(64px,8.5vw,122px);
+  line-height:.86;
+  letter-spacing:-.075em;
+}
+.case-hero-content>p{
+  margin-top:28px;
+  font-size:16px;
+  line-height:1.7;
+  max-width:610px;
+}
+.case-actions{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.case-hero-slideshow:after{
+  content:"SELECTED IMPLEMENTATION VIEWS";
+  position:absolute;
+  right:0;
+  top:8%;
+  color:var(--soft);
+  font-size:8px;
+  letter-spacing:.16em;
+  writing-mode:vertical-rl;
+}
+@media(max-width:760px){
+  .case-hero-content:before{
+    margin-bottom:14px;
+  }
+  .case-hero h1{
+    font-size:clamp(52px,15vw,82px);
+    line-height:.9;
+  }
+  .case-hero-content>p{
+    margin-top:22px;
+    font-size:15px;
+  }
+  .case-actions{
+    margin-top:24px;
+    padding-top:16px;
+  }
+  .case-hero-slideshow:after{
+    top:auto;
+    right:12px;
+    bottom:20px;
+    writing-mode:horizontal-tb;
+    font-size:7px;
+  }
+}
