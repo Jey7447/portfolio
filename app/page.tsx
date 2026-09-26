@@ -8,7 +8,6 @@ import {
   ArrowUpRight,
   Github,
   Linkedin,
-  Mail,
   MessageCircle,
   Menu,
   X,
