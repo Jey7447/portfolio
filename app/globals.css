@@ -1507,3 +1507,41 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     min-width:34px;
   }
 }
+
+
+/* Project case-study CTA — prominent, anchored to the visual */
+.home-project-case-link{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:48px;
+  padding:0 17px;
+  background:#f3f1e9;
+  color:#11120f;
+  border:1px solid rgba(17,18,15,.14);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.01em;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+  transition:transform .25s ease,background-color .25s ease,color .25s ease,box-shadow .25s ease;
+}
+.home-project-case-link svg{transition:transform .25s ease}
+.home-project-case-link:hover{
+  transform:translateY(-3px);
+  background:var(--accent);
+  color:#11120f;
+  box-shadow:0 16px 36px rgba(0,0,0,.38);
+}
+.home-project-case-link:hover svg{transform:translate(2px,-2px)}
+.home-project-case-link:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.home-project-image,.home-system-visual{position:relative}
+[data-theme="dark"] .home-project-case-link{background:#f1efe8;color:#0a0a0a}
+@media(max-width:760px){
+  .home-project-case-link{left:12px;bottom:12px;min-height:44px;padding:0 14px;font-size:10px}
+}
