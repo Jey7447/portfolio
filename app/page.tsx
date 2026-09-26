@@ -171,7 +171,7 @@ export default function Home() {
         <div className="home-hero-meta"><span>01 — BUILD</span><span>02 — AUTOMATE</span><span>03 — CONNECT</span><span>04 — SHIP</span></div>
       </section>
 
-      <div className="home-marquee"><div>SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span> SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div></div>
+      <div className="home-marquee" aria-label="Software, automation, systems"><div className="home-marquee-track"><div className="home-marquee-group">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div><div className="home-marquee-group" aria-hidden="true">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div></div></div>
 
       <section id="work" className="home-section wrap">
         <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 04</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
