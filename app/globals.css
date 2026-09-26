@@ -398,3 +398,27 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .flow-detail-top button{width:32px;height:32px;border:1px solid var(--line);background:transparent;color:var(--paper);display:grid;place-items:center;cursor:pointer}
 .flow-detail-top button:hover{border-color:var(--accent);color:var(--accent)}
 .flow-detail p{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.65;max-width:700px}
+
+
+/* CarePlus interaction refinements */
+.case-hero{position:relative;isolation:isolate;overflow:hidden}
+.case-hero-content{position:relative;z-index:3}
+.case-hero-slideshow{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-slide{position:absolute;width:min(760px,68vw);aspect-ratio:16/9;right:-5%;top:50%;transform:translateY(-50%) translateX(30px) rotate(1.5deg) scale(.97);background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.13);box-shadow:0 35px 100px rgba(0,0,0,.55);opacity:0;filter:saturate(.82) brightness(.58);transition:opacity 1.2s ease,transform 1.2s ease}
+.hero-slide.active{opacity:.25;transform:translateY(-50%) translateX(0) rotate(1.5deg) scale(1)}
+.hero-slide-vignette{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 92%,transparent) 35%,color-mix(in srgb,var(--bg) 58%,transparent) 68%,color-mix(in srgb,var(--bg) 15%,transparent) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%)}
+.hero-slide-label{position:absolute;right:18px;bottom:18px;color:rgba(255,255,255,.36);font-size:8px;letter-spacing:.16em}
+.workflow-canvas{position:relative}
+.workflow-node-popover{position:absolute;z-index:4;width:min(310px,32vw);padding:16px 18px;background:rgba(8,9,8,.96);border:1px solid rgba(201,255,74,.55);box-shadow:0 20px 55px rgba(0,0,0,.55);transform:translate(-50%,-112%);pointer-events:none}
+.workflow-node-popover:after{content:"";position:absolute;left:50%;bottom:-7px;width:12px;height:12px;background:rgba(8,9,8,.96);border-right:1px solid rgba(201,255,74,.55);border-bottom:1px solid rgba(201,255,74,.55);transform:translateX(-50%) rotate(45deg)}
+.workflow-node-popover h4{font-size:17px;line-height:1.2;margin:7px 0 8px;color:#f3f2ec}
+.workflow-node-popover p{font-size:12px;line-height:1.55;color:#a4a49d;margin:0}
+.flow-detail-inline{margin-top:0;border-top:0;position:relative;animation:flowDrop .22s ease}
+@keyframes flowDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+ .hero-slide{width:110%;right:-32%;opacity:0!important}
+ .hero-slide.active{opacity:.16!important}
+ .hero-slide-vignette{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 84%,transparent) 100%),linear-gradient(0deg,var(--bg),transparent 30%,var(--bg))}
+ .hero-slide-label{font-size:7px;right:12px;bottom:12px}
+ .workflow-node-popover{width:min(270px,68vw);transform:translate(-50%,-108%)}
+}
