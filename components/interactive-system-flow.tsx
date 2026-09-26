@@ -35,7 +35,7 @@ export default function InteractiveSystemFlow({ architecture, descriptions }: Pr
       </div>
 
       {active !== null && (
-        <div className="flow-detail">
+        <div className="flow-detail flow-detail-inline">
           <div className="flow-detail-top">
             <div>
               <span className="kicker">STAGE 0{active + 1}</span>
