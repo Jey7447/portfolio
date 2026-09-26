@@ -39,7 +39,7 @@ const projects = [
     description: "Code-gated voting with single-use access, ballot validation and audit logging.",
     stack: ["React", "TypeScript", "Supabase", "n8n"],
     href: "/work/dmda",
-    image: "/dmda/voter-auth.webp",
+    image: "/dmda/voter%20authentication.webp.png",
     visual: "dmda",
     status: "Live deployment",
   },
