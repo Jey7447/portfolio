@@ -135,7 +135,7 @@ export default function Home() {
       <div className="noise" />
       <nav className="nav home-nav">
         <a href="#top" className="brand" aria-label="Jesse Briska home">J<span>.</span></a>
-        <div className="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+        <div className="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
         <div className="nav-actions">
           <ThemeToggle />
           <a href="#contact" className="navcta">Let&apos;s talk <ArrowUpRight size={15} /></a>
@@ -143,7 +143,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {menu && <div className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
+      {menu && <div className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
 
       <section id="top" className="home-hero wrap">
         <div className="home-hero-topline"><span><i className="home-status-dot" /> AVAILABLE FOR SELECTED PROJECTS</span><span>PORTFOLIO / 2026</span></div>
