@@ -430,3 +430,170 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .flow-detail-inline{margin:0;border:0;border-top:1px solid var(--line);padding:20px 22px 22px;background:color-mix(in srgb,var(--surface) 55%,transparent)}
 .flow-detail-inline .flow-detail-top{align-items:flex-start}
 .flow-detail-inline .flow-detail-top button{flex:none}
+
+
+/* Final case-study visual polish */
+.case-hero{
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  padding:90px 0 100px;
+  position:relative;
+}
+.case-hero-content{
+  width:min(780px,72%);
+  position:relative;
+  z-index:4;
+}
+.case-hero-slideshow{
+  inset:7% -2% 5% 34%;
+  overflow:visible;
+  z-index:1;
+}
+.hero-slide{
+  width:min(760px,68vw);
+  right:0;
+  top:50%;
+  border:1px solid color-mix(in srgb,var(--paper) 14%,transparent);
+  border-radius:2px;
+  box-shadow:0 34px 90px rgba(0,0,0,.28);
+  opacity:0;
+  filter:saturate(.9) brightness(.82);
+  background-color:var(--surface);
+}
+.hero-slide.active{
+  opacity:.42;
+  transform:translateY(-50%) translateX(0) rotate(1deg) scale(1);
+}
+.hero-slide-vignette{
+  background:
+    linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 25%,color-mix(in srgb,var(--bg) 28%,transparent) 68%,transparent 100%),
+    linear-gradient(0deg,var(--bg) 0%,transparent 18%,transparent 82%,var(--bg) 100%);
+}
+.hero-slide-label{
+  right:0;
+  bottom:-3px;
+  color:var(--soft);
+  font-size:8px;
+}
+.case-hero h1{
+  max-width:820px;
+  text-wrap:balance;
+}
+.case-hero>p,.case-hero-content>p{
+  max-width:680px;
+  color:var(--muted);
+}
+.case-hero .case-actions{position:relative;z-index:5}
+
+/* Make technical sections feel intentional in both themes */
+.case-visual,
+.evidence-media,
+.workflow-canvas{
+  background:var(--dark-surface);
+  border-color:color-mix(in srgb,var(--paper) 18%,transparent);
+}
+.case-visual{box-shadow:0 25px 80px rgba(0,0,0,.12)}
+.evidence-media{box-shadow:0 22px 60px rgba(0,0,0,.16)}
+.architecture-node{
+  border-color:#42463d;
+  background:#0a0b0aee;
+}
+.case-main article,
+.evidence-head{
+  border-color:var(--line);
+}
+.case-page .kicker{color:var(--soft)}
+.case-page .case-button{
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Dark mode: richer blacks, clearer evidence */
+[data-theme="dark"] .case-hero-slideshow{
+  inset:5% -3% 4% 32%;
+}
+[data-theme="dark"] .hero-slide{
+  opacity:0;
+  filter:saturate(1) brightness(.78) contrast(1.03);
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 38px 100px rgba(0,0,0,.62);
+}
+[data-theme="dark"] .hero-slide.active{opacity:.48}
+[data-theme="dark"] .hero-slide-vignette{
+  background:
+    linear-gradient(90deg,#0a0a0a 0%,rgba(10,10,10,.93) 20%,rgba(10,10,10,.54) 55%,rgba(10,10,10,.08) 100%),
+    linear-gradient(0deg,#0a0a0a 0%,transparent 16%,transparent 84%,#0a0a0a 100%);
+}
+[data-theme="dark"] .hero-slide-label{color:#777a72}
+[data-theme="dark"] .case-visual,
+[data-theme="dark"] .evidence-media{
+  border-color:#30332d;
+  box-shadow:0 30px 90px rgba(0,0,0,.35);
+}
+
+/* Light mode: retain contrast instead of washing technical evidence out */
+[data-theme="light"] .case-hero-slideshow{
+  inset:5% -3% 4% 32%;
+}
+[data-theme="light"] .hero-slide{
+  filter:saturate(.88) brightness(.72) contrast(1.04);
+  border-color:rgba(17,18,15,.18);
+  box-shadow:0 30px 75px rgba(17,18,15,.16);
+}
+[data-theme="light"] .hero-slide.active{opacity:.36}
+[data-theme="light"] .hero-slide-vignette{
+  background:
+    linear-gradient(90deg,#f3f1e9 0%,rgba(243,241,233,.96) 20%,rgba(243,241,233,.60) 54%,rgba(243,241,233,.08) 100%),
+    linear-gradient(0deg,#f3f1e9 0%,transparent 16%,transparent 84%,#f3f1e9 100%);
+}
+[data-theme="light"] .hero-slide-label{color:#6d6e67}
+[data-theme="light"] .case-visual,
+[data-theme="light"] .evidence-media{
+  border-color:#2d302a;
+}
+
+/* Better contrast for the technical cards in light mode */
+[data-theme="light"] .case-visual,
+[data-theme="light"] .evidence-media,
+[data-theme="light"] .workflow-canvas{
+  color:#f3f2ec;
+}
+[data-theme="light"] .architecture-head,
+[data-theme="light"] .architecture-status{
+  color:#9da198;
+}
+
+/* Mobile: turn the slideshow into a visible evidence card instead of a background */
+@media(max-width:760px){
+  .case-hero{
+    min-height:0;
+    display:block;
+    padding:70px 0 70px;
+  }
+  .case-hero-content{width:100%}
+  .case-hero-slideshow{
+    inset:auto 0 0 0;
+    height:230px;
+  }
+  .hero-slide,
+  [data-theme="dark"] .hero-slide,
+  [data-theme="light"] .hero-slide{
+    width:92%;
+    right:4%;
+    top:50%;
+    opacity:0;
+    filter:saturate(.9) brightness(.72);
+  }
+  .hero-slide.active,
+  [data-theme="dark"] .hero-slide.active,
+  [data-theme="light"] .hero-slide.active{
+    opacity:.28;
+    transform:translateY(-50%) rotate(1deg) scale(1);
+  }
+  .hero-slide-vignette,
+  [data-theme="dark"] .hero-slide-vignette,
+  [data-theme="light"] .hero-slide-vignette{
+    background:linear-gradient(0deg,var(--bg) 0%,rgba(0,0,0,0) 55%,var(--bg) 100%);
+  }
+  .case-hero .case-actions{margin-bottom:145px}
+}
