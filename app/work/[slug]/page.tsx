@@ -288,6 +288,7 @@ export default async function CaseStudyPage({
 
           <InteractiveSystemFlow
             architecture={project.architecture}
+            architectureLabels={project.architectureLabels}
             descriptions={flowDescriptions[slug as CaseKey]}
           />
         </div>
