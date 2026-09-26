@@ -371,7 +371,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .workflow-hotspot{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%);border:1px solid rgba(201,255,74,.45);border-radius:50%;background:rgba(201,255,74,.08);box-shadow:0 0 0 0 rgba(201,255,74,.2);cursor:pointer}
 .workflow-hotspot span{display:block;width:8px;height:8px;margin:auto;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
 .workflow-hotspot:hover,.workflow-hotspot.active{border-color:var(--accent);box-shadow:0 0 0 8px rgba(201,255,74,.08)}
-.workflow-node-info{display:grid;grid-template-columns:1fr 1.4fr;gap:35px;border-top:1px solid #292b26;margin-top:18px;padding-top:18px}
+.workflow-node-info{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1.4fr);gap:35px;border-top:1px solid #292b26;margin-top:18px;padding:18px 2px 2px;background:linear-gradient(180deg,rgba(201,255,74,.025),transparent);border-bottom:1px solid rgba(255,255,255,.04);padding-bottom:16px}
 .workflow-node-info h4{margin:7px 0 0;font-size:19px}
 .workflow-node-info p{margin:0;color:#a4a49d;font-size:13px;line-height:1.65;align-self:center}
 .flow-intro{color:var(--muted)!important;font-size:14px!important;line-height:1.6!important;margin:-10px 0 24px!important}
