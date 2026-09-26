@@ -1025,9 +1025,23 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
    Homepage QA polish
    ========================================================= */
 
-/* Keep the editorial ticker intentionally full-bleed without clipping its first item. */
+/* Keep the editorial ticker full-bleed and loop seamlessly from edge to edge. */
 .home-marquee{width:100%;overflow:hidden}
-.home-marquee>div{padding-left:48px;display:flex;align-items:center;min-width:max-content}
+.home-marquee-track{
+  display:flex;
+  width:max-content;
+  min-width:max-content;
+  animation:homeMarquee 26s linear infinite;
+  will-change:transform;
+}
+.home-marquee-group{
+  flex:none;
+  display:flex;
+  align-items:center;
+  min-width:max-content;
+  padding-left:48px;
+  padding-right:48px;
+}
 .home-marquee span{display:inline-block}
 
 /* Give the final case study a deliberate full-width treatment. */
