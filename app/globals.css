@@ -1663,3 +1663,24 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     transform:none;
   }
 }
+
+
+/* Services — soften the active accent on the light services surface */
+[data-theme="dark"] .home-services{
+  --service-accent:#a8c43b;
+}
+[data-theme="dark"] .home-service:after{
+  background:var(--service-accent);
+}
+[data-theme="dark"] .home-service.open strong{
+  color:var(--service-accent);
+}
+[data-theme="dark"] .home-service:hover .home-service-icon,
+[data-theme="dark"] .home-service.open .home-service-icon{
+  border-color:var(--service-accent);
+  background:color-mix(in srgb,var(--service-accent) 9%,transparent);
+}
+[data-theme="dark"] .home-service-detail span:hover{
+  border-color:var(--service-accent);
+  background:var(--service-accent);
+}
