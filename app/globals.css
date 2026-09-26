@@ -2215,3 +2215,35 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     transform:none;
   }
 }
+
+
+/* Case-study flow — connect the interactive stages to the system map. */
+.flow-stage{position:relative}
+.flow-button{position:relative;overflow:hidden}
+.flow-button small{
+  display:block;
+  margin-top:7px;
+  color:var(--accent);
+  font-size:8px;
+  letter-spacing:.14em;
+  line-height:1;
+}
+.flow-button.active{
+  border-color:var(--accent);
+}
+.flow-detail-inline{
+  position:relative;
+}
+.flow-detail-inline:before{
+  content:"";
+  position:absolute;
+  left:19px;
+  top:-16px;
+  width:1px;
+  height:16px;
+  background:var(--accent);
+}
+@media(max-width:760px){
+  .flow-button small{font-size:7px}
+  .flow-detail-inline:before{left:17px}
+}
