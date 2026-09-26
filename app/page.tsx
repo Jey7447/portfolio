@@ -7,7 +7,9 @@ import {
   ArrowUpRight,
   Github,
   Linkedin,
-    Menu,
+  Mail,
+  MessageCircle,
+  Menu,
   X,
   Database,
   Globe2,
@@ -216,7 +218,7 @@ export default function Home() {
 
       <section id="contact" className="home-contact wrap">
         <div className="home-contact-copy"><span className="home-kicker">HAVE A PROJECT IN MIND?</span><h2>Let&apos;s build<br /><em>something useful.</em></h2><p>Tell me what you&apos;re trying to build, automate or improve. We can turn the idea into a clear technical path.</p></div>
-        <div className="home-contact-card"><div className="home-contact-top"><Terminal size={17} /><span>START A CONVERSATION</span></div><a className="home-contact-link" href="https://github.com/Jey7447" target="_blank" rel="noreferrer">github.com/Jey7447 <ArrowUpRight size={18} /></a><div className="home-socials"><a href="https://github.com/Jey7447" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><span className="home-social-disabled"><Linkedin size={16} /> LinkedIn soon</span><a href="#work"><ArrowDown size={16} /> View work</a></div></div>
+        <div className="home-contact-card"><div className="home-contact-top"><Terminal size={17} /><span>START A CONVERSATION</span></div><a className="home-contact-link" href="mailto:jessebriska2@gmail.com">jessebriska2@gmail.com <ArrowUpRight size={18} /></a><div className="home-socials"><a href="https://github.com/Jey7447" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><a href="https://www.linkedin.com/in/briska-jesse-a8b864322/" target="_blank" rel="noreferrer"><Linkedin size={16} /> LinkedIn</a><a href="https://x.com/JBART7447" target="_blank" rel="noreferrer"><span aria-hidden="true" className="home-x-icon">𝕏</span> X</a><a href="https://wa.me/2349033019841" target="_blank" rel="noreferrer"><MessageCircle size={16} /> WhatsApp</a><a href="#work"><ArrowDown size={16} /> View work</a></div></div>
       </section>
 
       <footer className="home-footer wrap"><span>© 2026 Jesse Briska. Built with intent.</span><span>Software · Automation · Systems</span><a href="#top">Back to top <ArrowUpRight size={14} /></a></footer>
