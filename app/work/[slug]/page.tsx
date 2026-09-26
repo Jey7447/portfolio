@@ -50,6 +50,7 @@ const cases = {
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
     note: "The repository is private, so implementation details are summarized here without exposing the source.",
     evidence: [
+      { src: "/dmda/voter-auth.webp", label: "VOTER ACCESS", title: "Voter authentication", text: "The voter-facing entry point gates access with a one-time voting code before a voting session can be established." },
       { src: "/dmda/voter-ballot.webp.png", label: "VOTER EXPERIENCE", title: "Authenticated ballot interface", text: "After authentication, voters receive the official ballot and make selections across the configured election positions." },
       { src: "/dmda/admin-dashboard.webp.png", label: "ADMINISTRATION", title: "Election administration dashboard", text: "An operational view for election state, registered voters, votes cast, remaining voters and turnout activity." },
       { src: "/dmda/authentication-workflow.webp.png", label: "AUTOMATION", title: "Voter authentication workflow", text: "n8n receives the authentication request, executes the PostgreSQL authentication routine and returns the result to the portal." },
