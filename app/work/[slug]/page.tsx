@@ -247,13 +247,21 @@ export default async function CaseStudyPage({
 
           <InteractiveSystemFlow
             architecture={project.architecture}
-            descriptions={slug === "careplus" ? [
-              "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
-              "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
-              "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
-              "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
-              "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
-            ] : undefined}
+            descriptions={
+              slug === "careplus" ? [
+                "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
+                "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
+                "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
+                "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
+                "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
+              ] : slug === "dmda" ? [
+                "The registered voter enters a one-time voting code through the DMDA voter portal. Only eligible credentials can begin the voting flow.",
+                "n8n receives the authentication request and invokes the PostgreSQL authentication routine, which checks the voter credential and election access rules.",
+                "A valid authentication request establishes a voting session that carries the voter's authorized access through the ballot flow.",
+                "The submission path validates the ballot against the configured election positions and candidates before accepting the vote.",
+                "PostgreSQL remains the system of record for voters, credentials, elections, sessions, ballots, choices and participation state."
+              ] : undefined
+            }
           />
         </div>
 
