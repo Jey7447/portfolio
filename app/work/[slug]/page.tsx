@@ -13,6 +13,8 @@ const cases = {
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "Twilio"],
     repo: "https://github.com/Jey7447/careplus-medical-centre",
     problem: "Appointment communication involves several moving parts: patient records, appointment timing, notifications, delivery status and feedback. The project focuses on connecting those pieces into a traceable workflow instead of treating each message as an isolated action.",
+    problemHeading: "Connect the moving parts.",
+    builtHeading: "Turn the workflow into a traceable system.",
     built: [
       "Appointment and patient-facing web interfaces",
       "Supabase/PostgreSQL data model for operational records",
@@ -39,6 +41,8 @@ const cases = {
     repo: null,
     live: "https://dmda-voting-portal.vercel.app/",
     problem: "The portal needed to restrict participation to registered voters, prevent reuse of voting access, validate ballots and keep election state consistent at the database layer.",
+    problemHeading: "Enforce the rules before the vote.",
+    builtHeading: "Put the election logic behind the interface.",
     built: [
       "Voter credential and access-code flow",
       "Single-use voting sessions",
@@ -66,6 +70,8 @@ const cases = {
     stack: ["Next.js", "TypeScript", "AI", "Web App"],
     repo: "https://github.com/Jey7447/productforge-ai",
     problem: "Product work often starts with scattered ideas and incomplete requirements. ProductForge AI explores a more structured interface for turning an initial product concept into organized, actionable output.",
+    problemHeading: "Give the idea a structure.",
+    builtHeading: "Move from input to usable output.",
     built: [
       "Product-focused web interface",
       "Structured input and output workflow",
@@ -84,6 +90,8 @@ const cases = {
     stack: ["TypeScript", "Web App", "Automation"],
     repo: "https://github.com/Jey7447/brendas-bakery-order-tracker",
     problem: "Order information becomes difficult to manage when it is scattered across manual updates and disconnected steps. This project focuses on giving the workflow a structured place to capture, track and update orders.",
+    problemHeading: "Make the order state visible.",
+    builtHeading: "Turn manual steps into a trackable flow.",
     built: [
       "Order-focused web interface",
       "Structured order data and status tracking",
@@ -260,13 +268,13 @@ export default async function CaseStudyPage({
         <div className="case-main">
           <article>
             <span className="kicker">THE PROBLEM</span>
-            <h2>Start with the constraint.</h2>
+            <h2>{project.problemHeading}</h2>
             <p>{project.problem}</p>
           </article>
 
           <article>
             <span className="kicker">WHAT I BUILT</span>
-            <h2>From interface to infrastructure.</h2>
+            <h2>{project.builtHeading}</h2>
             <ul className="case-list">
               {project.built.map((item) => (
                 <li key={item}><CheckCircle2 size={17} /> <span>{item}</span></li>
