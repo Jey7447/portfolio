@@ -2127,3 +2127,48 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .case-footer-center{text-align:left}
   .case-footer-cta{justify-self:start}
 }
+
+
+/* Case-study mobile flow: preserve the architecture as a readable horizontal system map. */
+@media(max-width:760px){
+  .case-visual{
+    height:auto;
+    min-height:330px;
+    overflow:hidden;
+  }
+  .architecture-map{
+    position:relative;
+    inset:auto;
+    min-height:330px;
+    padding:22px 18px;
+  }
+  .architecture-flow{
+    justify-content:flex-start;
+    overflow-x:auto;
+    overflow-y:hidden;
+    min-height:185px;
+    padding:12px 4px 18px;
+    scrollbar-width:thin;
+  }
+  .architecture-node-wrap{
+    flex:none;
+  }
+  .architecture-node{
+    width:132px;
+    min-width:132px;
+    min-height:102px;
+    padding:14px;
+  }
+  .architecture-node strong{font-size:12px}
+  .architecture-arrow{width:30px;min-width:30px}
+  .architecture-status{
+    font-size:8px;
+    line-height:1.4;
+  }
+  .case-content{padding-top:0}
+  .case-main article{padding:42px 0}
+  .case-main h2{font-size:clamp(34px,10vw,48px)}
+  .case-main article>p{font-size:15px}
+  .case-list li{font-size:13px}
+  .aside-card{padding:20px}
+}
