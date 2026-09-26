@@ -1256,7 +1256,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   width:max-content;
   gap:0;
   height:100%;
-  animation:heroEvidenceScroll 56s linear infinite;
+  animation:heroEvidenceScroll 120s linear infinite;
 }
 .hero-evidence-card{
   position:relative;
@@ -1303,16 +1303,16 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   inset:0;
   background:
     linear-gradient(90deg,
-      color-mix(in srgb,var(--bg) 88%,transparent) 0%,
-      color-mix(in srgb,var(--bg) 68%,transparent) 18%,
-      color-mix(in srgb,var(--bg) 28%,transparent) 42%,
-      transparent 68%,
-      color-mix(in srgb,var(--bg) 28%,transparent) 100%),
+      color-mix(in srgb,var(--bg) 82%,transparent) 0%,
+      color-mix(in srgb,var(--bg) 58%,transparent) 16%,
+      color-mix(in srgb,var(--bg) 24%,transparent) 32%,
+      transparent 52%,
+      transparent 100%),
     linear-gradient(180deg,
-      color-mix(in srgb,var(--bg) 42%,transparent) 0%,
-      transparent 30%,
-      transparent 62%,
-      color-mix(in srgb,var(--bg) 72%,transparent) 100%);
+      color-mix(in srgb,var(--bg) 24%,transparent) 0%,
+      transparent 24%,
+      transparent 72%,
+      color-mix(in srgb,var(--bg) 38%,transparent) 100%);
   z-index:2;
 }
 @keyframes heroEvidenceScroll{
@@ -1325,7 +1325,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 @media(max-width:760px){
   .case-hero{min-height:720px;padding:75px 0 60px}
   .case-hero-content{max-width:none}
-  .hero-evidence-track{animation-duration:48s}
+  .hero-evidence-track{animation-duration:90s}
   .hero-evidence-card-meta{left:11px;right:11px;bottom:11px}
   .hero-evidence-card-meta strong{font-size:8px}
 }
