@@ -21,33 +21,34 @@ export default function InteractiveSystemFlow({ architecture, descriptions }: Pr
       <p className="flow-intro">Click a stage to see what happens there. The workflow evidence above can also be opened and explored node by node.</p>
       <div className="flow">
         {architecture.map((item, index) => (
-          <button
-            type="button"
-            className="flow-item flow-button"
-            key={item}
-            onClick={() => setActive(index)}
-          >
-            <span>0{index + 1}</span>
-            <strong>{item}</strong>
-            {index < architecture.length - 1 && <ArrowUpRight size={15} />}
-          </button>
+          <div className="flow-stage" key={item}>
+            <button
+              type="button"
+              className={active === index ? "flow-item flow-button active" : "flow-item flow-button"}
+              onClick={() => setActive(active === index ? null : index)}
+              aria-expanded={active === index}
+            >
+              <span>0{index + 1}</span>
+              <strong>{item}</strong>
+              {index < architecture.length - 1 && <ArrowUpRight size={15} />}
+            </button>
+            {active === index && (
+              <div className="flow-detail flow-detail-inline">
+                <div className="flow-detail-top">
+                  <div>
+                    <span className="kicker">STAGE 0{index + 1}</span>
+                    <h3>{item}</h3>
+                  </div>
+                  <button type="button" onClick={() => setActive(null)} aria-label="Close stage description">
+                    <X size={17} />
+                  </button>
+                </div>
+                <p>{descriptionFor(index, item)}</p>
+              </div>
+            )}
+          </div>
         ))}
       </div>
-
-      {active !== null && (
-        <div className="flow-detail flow-detail-inline">
-          <div className="flow-detail-top">
-            <div>
-              <span className="kicker">STAGE 0{active + 1}</span>
-              <h3>{architecture[active]}</h3>
-            </div>
-            <button type="button" onClick={() => setActive(null)} aria-label="Close stage description">
-              <X size={17} />
-            </button>
-          </div>
-          <p>{descriptionFor(active, architecture[active])}</p>
-        </div>
-      )}
     </article>
   );
 }
