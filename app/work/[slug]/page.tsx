@@ -117,6 +117,35 @@ export default async function CaseStudyPage({
     );
   }
 
+  const flowDescriptions: Record<CaseKey, readonly string[]> = {
+    careplus: [
+      "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
+      "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
+      "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
+      "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
+      "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
+    ],
+    dmda: [
+      "The registered voter enters a one-time voting code through the DMDA voter portal. Only eligible credentials can begin the voting flow.",
+      "n8n receives the authentication request and invokes the PostgreSQL authentication routine, which checks the voter credential and election access rules.",
+      "A valid authentication request establishes a voting session that carries the voter's authorized access through the ballot flow.",
+      "The submission path validates the ballot against the configured election positions and candidates before accepting the vote.",
+      "PostgreSQL remains the system of record for voters, credentials, elections, sessions, ballots, choices and participation state."
+    ],
+    bakery: [
+      "An incoming order enters the system as a structured record instead of remaining as an isolated manual update.",
+      "The order record carries the information needed by the operational workflow, including customer and order details.",
+      "Status changes move the order through defined stages so its current state is visible to the people handling it.",
+      "The operations view provides a single place to review and update active orders."
+    ],
+    productforge: [
+      "A product idea enters through a structured interface rather than an unbounded text prompt.",
+      "The input is organized into the fields and context needed by the product-generation workflow.",
+      "The AI layer processes that structured context to produce an organized product-oriented output.",
+      "The generated result is presented back through the web interface as the next usable artifact."
+    ]
+  };
+
   return (
     <main className="case-page">
       <nav className="case-nav">
@@ -247,21 +276,7 @@ export default async function CaseStudyPage({
 
           <InteractiveSystemFlow
             architecture={project.architecture}
-            descriptions={
-              slug === "careplus" ? [
-                "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
-                "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
-                "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
-                "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
-                "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
-              ] : slug === "dmda" ? [
-                "The registered voter enters a one-time voting code through the DMDA voter portal. Only eligible credentials can begin the voting flow.",
-                "n8n receives the authentication request and invokes the PostgreSQL authentication routine, which checks the voter credential and election access rules.",
-                "A valid authentication request establishes a voting session that carries the voter's authorized access through the ballot flow.",
-                "The submission path validates the ballot against the configured election positions and candidates before accepting the vote.",
-                "PostgreSQL remains the system of record for voters, credentials, elections, sessions, ballots, choices and participation state."
-              ] : undefined
-            }
+            descriptions={flowDescriptions[slug as CaseKey]}
           />
         </div>
 
