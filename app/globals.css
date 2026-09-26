@@ -996,3 +996,21 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
  .home-footer{display:grid;gap:12px}
  .home-footer span:nth-child(2){display:none}
 }
+
+/* Homepage motion polish */
+.home-diagram-orbit{animation:homeOrbit 9s linear infinite}
+.orbit-b{animation-direction:reverse;animation-duration:12s}
+.home-diagram-node.main{animation:homeNodePulse 3.5s ease-in-out infinite}
+.home-system-card,.home-order-board,.home-ai-node{transition:transform .45s ease,border-color .35s ease}
+.home-project-standard:hover .home-system-card.offset{transform:translateX(42px)}
+.home-project-standard:hover .home-system-card{border-color:color-mix(in srgb,var(--accent) 42%,#4a4d45)}
+.home-project-standard:hover .home-order-board{transform:translate(-50%,-50%) scale(1.015)}
+.home-project-standard:hover .home-ai-node.featured{box-shadow:0 0 35px var(--accent-glow)}
+.home-service>button:hover .home-service-icon{border-color:var(--accent)}
+.home-service>button:hover .home-service-arrow{transform:translate(3px,-3px)}
+@keyframes homeOrbit{to{transform:translate(-50%,-50%) rotate(378deg)}}
+@keyframes homeNodePulse{50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 8%,transparent)}}
+@media(prefers-reduced-motion:reduce){
+ .home-diagram-orbit,.home-diagram-node.main,.home-marquee div{animation:none}
+ .home-project-image img,.home-system-card,.home-order-board,.home-ai-node{transition:none}
+}
