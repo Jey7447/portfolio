@@ -1827,3 +1827,81 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     display:none;
   }
 }
+
+
+/* About — technical profile treatment */
+.home-about-intro{min-width:0}
+.home-about-index{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:42px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--soft);
+  font:9px monospace;
+  letter-spacing:.1em;
+}
+.home-about-index span:last-child{text-align:right}
+.home-about-profile{
+  margin-top:38px;
+  border:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 2%,transparent);
+}
+.home-about-profile-head{
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  border-bottom:1px solid var(--line);
+  color:var(--soft);
+  font:9px monospace;
+  letter-spacing:.1em;
+}
+.home-about-profile-head svg{color:var(--accent)}
+.home-about-profile-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.home-about-profile-grid>div{
+  min-height:82px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:9px;
+  padding:15px 16px;
+  border-bottom:1px solid var(--line);
+}
+.home-about-profile-grid>div:nth-child(odd){border-right:1px solid var(--line)}
+.home-about-profile-grid>div:nth-last-child(-n+2){border-bottom:0}
+.home-about-profile-grid span{
+  font:8px monospace;
+  letter-spacing:.12em;
+  color:var(--soft);
+}
+.home-about-profile-grid strong{
+  font-size:10px;
+  line-height:1.35;
+  font-weight:600;
+}
+.home-stack-head{
+  display:flex!important;
+  grid-template-columns:none!important;
+  justify-content:space-between;
+  gap:20px!important;
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.12em;
+  padding:12px 0!important;
+}
+.home-stack-head span:last-child{color:var(--accent)}
+@media(max-width:760px){
+  .home-about-index{display:grid;gap:8px}
+  .home-about-index span:last-child{text-align:left}
+  .home-about-profile-grid{grid-template-columns:1fr}
+  .home-about-profile-grid>div:nth-child(odd){border-right:0}
+  .home-about-profile-grid>div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .home-about-profile-grid>div:last-child{border-bottom:0}
+  .home-about-profile{margin-top:32px}
+}
