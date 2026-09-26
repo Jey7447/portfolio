@@ -846,7 +846,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .home-hero-meta{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:16px 0 24px;color:var(--muted);font-size:9px;letter-spacing:.14em}
 .home-hero-meta span:not(:last-child){border-right:1px solid var(--line)}
 .home-marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:19px 0;color:var(--muted);font-size:11px;letter-spacing:.16em}
-.home-marquee div{width:max-content;animation:homeMarquee 26s linear infinite}
+.home-marquee-track{width:max-content;animation:homeMarquee 26s linear infinite}
 .home-marquee span{color:var(--accent);padding:0 26px}
 @keyframes homeMarquee{to{transform:translateX(-50%)}}
 
@@ -1065,7 +1065,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .home-social-disabled svg{opacity:.7}
 
 @media(max-width:760px){
-  .home-marquee>div{padding-left:24px}
+  .home-marquee-group{padding-left:24px;padding-right:24px}
   .home-project-productforge .home-system-visual{height:330px;min-height:0}
   .home-project-productforge .home-project-info{display:block}
   .home-project-productforge .home-ai-flow{transform:translate(-50%,-50%) scale(.92)}
