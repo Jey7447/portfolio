@@ -19,20 +19,26 @@ type WorkflowNode = {
   description: string;
 };
 
-type WorkflowNodes = {
-  orchestrator: WorkflowNode[];
-  sms: WorkflowNode[];
-  feedback: WorkflowNode[];
-};
+type WorkflowNodes = Record<"orchestrator" | "sms" | "feedback" | "authentication" | "ballot", WorkflowNode[]>;
+
+type WorkflowKey = keyof WorkflowNodes;
 
 type Props = {
   evidence: readonly EvidenceItem[];
-  workflowNodes?: WorkflowNodes;
+  workflowNodes?: Partial<WorkflowNodes>;
+};
+
+const workflowMeta: Record<WorkflowKey, { title: string; image: string }> = {
+  orchestrator: { title: "Appointment notification orchestration", image: "/careplus/careplus-orchestrator.webp" },
+  sms: { title: "SMS delivery status tracking", image: "/careplus/careplus-sms-tracker.webp" },
+  feedback: { title: "Patient feedback notifications", image: "/careplus/careplus-feedback.webp" },
+  authentication: { title: "Voter authentication workflow", image: "/dmda/authentication-workflow.webp.png" },
+  ballot: { title: "Ballot retrieval workflow", image: "/dmda/get-ballot-workflow.webp.png" },
 };
 
 export default function CaseStudyInteractive({ evidence, workflowNodes }: Props) {
   const [activeImage, setActiveImage] = useState<EvidenceItem | null>(null);
-  const [activeWorkflow, setActiveWorkflow] = useState<"orchestrator" | "sms" | "feedback" | null>(null);
+  const [activeWorkflow, setActiveWorkflow] = useState<WorkflowKey | null>(null);
   const [activeNode, setActiveNode] = useState<WorkflowNode | null>(null);
 
   useEffect(() => {
@@ -42,25 +48,17 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
   }, [activeImage, activeWorkflow]);
 
   const openEvidence = (item: EvidenceItem) => {
-    const isOrchestrator = item.src.includes("orchestrator");
-    const isSms = item.src.includes("sms-tracker");
-    const isFeedback = item.src.includes("feedback");
+    const workflow = (Object.keys(workflowMeta) as WorkflowKey[]).find((key) => workflowNodes?.[key]?.length && item.src.includes(
+      key === "orchestrator" ? "orchestrator" :
+      key === "sms" ? "sms-tracker" :
+      key === "feedback" ? "feedback" :
+      key === "authentication" ? "authentication-workflow" :
+      "get-ballot-workflow"
+    ));
 
-    if (workflowNodes && isOrchestrator) {
-      setActiveWorkflow("orchestrator");
-      setActiveNode(workflowNodes.orchestrator[0] ?? null);
-      return;
-    }
-
-    if (workflowNodes && isSms) {
-      setActiveWorkflow("sms");
-      setActiveNode(workflowNodes.sms[0] ?? null);
-      return;
-    }
-
-    if (workflowNodes && isFeedback) {
-      setActiveWorkflow("feedback");
-      setActiveNode(workflowNodes.feedback[0] ?? null);
+    if (workflow && workflowNodes?.[workflow]) {
+      setActiveWorkflow(workflow);
+      setActiveNode(workflowNodes[workflow][0] ?? null);
       return;
     }
 
@@ -86,7 +84,15 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
 
         <div className="evidence-grid">
           {evidence.map((item, index) => {
-            const interactive = Boolean(workflowNodes && (item.src.includes("orchestrator") || item.src.includes("sms-tracker") || item.src.includes("feedback")));
+            const interactive = Boolean(
+              workflowNodes && (
+                (item.src.includes("orchestrator") && workflowNodes.orchestrator) ||
+                (item.src.includes("sms-tracker") && workflowNodes.sms) ||
+                (item.src.includes("feedback") && workflowNodes.feedback) ||
+                (item.src.includes("authentication-workflow") && workflowNodes.authentication) ||
+                (item.src.includes("get-ballot-workflow") && workflowNodes.ballot)
+              )
+            );
             return (
               <figure className={index === 0 ? "evidence-card evidence-featured" : "evidence-card"} key={item.src}>
                 <button
@@ -118,30 +124,19 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
               <X size={20} />
             </button>
 
-            {activeWorkflow && workflowNodes ? (
+            {activeWorkflow && workflowNodes?.[activeWorkflow] ? (
               <div className="workflow-explorer">
                 <div className="workflow-modal-head">
                   <div>
                     <span className="kicker">INTERACTIVE WORKFLOW</span>
-                    <h3>{activeWorkflow === "orchestrator" ? "Appointment notification orchestration" : activeWorkflow === "sms" ? "SMS delivery status tracking" : "Patient feedback notifications"}</h3>
+                    <h3>{workflowMeta[activeWorkflow].title}</h3>
                   </div>
                   <p>Click a node to inspect its role in the workflow.</p>
                 </div>
 
                 <div className="workflow-canvas">
-                  <Image
-                    src={
-                      activeWorkflow === "orchestrator"
-                        ? "/careplus/careplus-orchestrator.webp"
-                        : activeWorkflow === "sms"
-                          ? "/careplus/careplus-sms-tracker.webp"
-                          : "/careplus/careplus-feedback.webp"
-                    }
-                    alt=""
-                    width={1600}
-                    height={900}
-                  />
-                  {(activeWorkflow === "orchestrator" ? workflowNodes.orchestrator : activeWorkflow === "sms" ? workflowNodes.sms : workflowNodes.feedback).map((node) => (
+                  <Image src={workflowMeta[activeWorkflow].image} alt="" width={1600} height={900} />
+                  {workflowNodes[activeWorkflow].map((node) => (
                     <button
                       type="button"
                       key={node.id}
@@ -153,21 +148,17 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                       <span />
                     </button>
                   ))}
+                  {activeNode && (
+                    <div
+                      className="workflow-node-popover"
+                      style={{ left: `${activeNode.x}%`, top: `${activeNode.y}%` }}
+                    >
+                      <span className="kicker">NODE</span>
+                      <h4>{activeNode.label}</h4>
+                      <p>{activeNode.description}</p>
+                    </div>
+                  )}
                 </div>
-
-                {activeNode && (
-                  <div
-                    className="workflow-node-popover"
-                    style={{
-                      left: `${activeNode.x}%`,
-                      top: `${activeNode.y}%`,
-                    }}
-                  >
-                    <span className="kicker">NODE</span>
-                    <h4>{activeNode.label}</h4>
-                    <p>{activeNode.description}</p>
-                  </div>
-                )}
               </div>
             ) : activeImage ? (
               <div className="image-viewer">
