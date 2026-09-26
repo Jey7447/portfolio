@@ -188,8 +188,8 @@ export default function Home() {
               const open = activeService === i;
               return (
                 <div className={"home-service " + (open ? "open" : "")} key={service.title}>
-                  <button onClick={() => setActiveService(open ? -1 : i)} aria-expanded={open}><span className="home-service-number">{service.number}</span><span className="home-service-icon"><Icon size={19} /></span><strong>{service.title}</strong><ArrowUpRight className="home-service-arrow" size={21} /></button>
-                  <div className="home-service-detail"><p>{service.text}</p><div>{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+                  <button id={`service-trigger-${i}`} onClick={() => setActiveService(open ? -1 : i)} aria-expanded={open} aria-controls={`service-detail-${i}`}><span className="home-service-number">{service.number}</span><span className="home-service-icon"><Icon size={19} /></span><strong>{service.title}</strong><ArrowUpRight className="home-service-arrow" size={21} /></button>
+                  <div id={`service-detail-${i}`} className="home-service-detail"><p>{service.text}</p><div>{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
                 </div>
               );
             })}
