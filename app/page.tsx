@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowDown,
@@ -86,7 +87,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
     return (
       <div className="home-project-image">
-        <img src={project.image} alt="" />
+        <Image src={project.image} alt={`${project.title} interface preview`} fill sizes="(max-width: 760px) 100vw, (max-width: 1200px) 92vw, 1180px" priority={project.number === "01"} />
         <div className="home-project-image-overlay" />
         <div className="home-project-image-label"><span>LIVE EVIDENCE</span><span>{project.status}</span></div>
       </div>
