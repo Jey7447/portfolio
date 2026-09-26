@@ -148,17 +148,17 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                       <span />
                     </button>
                   ))}
-                  {activeNode && (
-                    <div
-                      className="workflow-node-popover"
-                      style={{ left: `${activeNode.x}%`, top: `${activeNode.y}%` }}
-                    >
-                      <span className="kicker">NODE</span>
-                      <h4>{activeNode.label}</h4>
-                      <p>{activeNode.description}</p>
-                    </div>
-                  )}
                 </div>
+
+                {activeNode && (
+                  <div className="workflow-node-info">
+                    <div>
+                      <span className="kicker">SELECTED NODE</span>
+                      <h4>{activeNode.label}</h4>
+                    </div>
+                    <p>{activeNode.description}</p>
+                  </div>
+                )}
               </div>
             ) : activeImage ? (
               <div className="image-viewer">
