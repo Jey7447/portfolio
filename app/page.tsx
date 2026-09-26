@@ -206,12 +206,21 @@ export default function Home() {
 
       <section id="process" className="home-section wrap">
         <div className="home-section-head home-process-head"><div><span className="home-kicker">HOW I WORK</span><h2>From problem<br />to production.</h2></div><p>A clear process keeps technical decisions connected to the outcome. No black box, no unnecessary complexity.</p></div>
-        <div className="home-process-list">
-          {process.map((item, i) => (
-            <motion.div className="home-process-row" key={item[0]} initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-              <span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p>{i < process.length - 1 && <ArrowDown size={16} />}
-            </motion.div>
-          ))}
+        <div className="home-process-map">
+          <div className="home-process-line" aria-hidden="true" />
+          <div className="home-process-track">
+            {process.map((item, i) => (
+              <motion.div className="home-process-node" key={item[0]} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+                <div className="home-process-node-top">
+                  <span>{item[0]}</span>
+                  <i aria-hidden="true" />
+                </div>
+                <h3>{item[1]}</h3>
+                <p>{item[2]}</p>
+                {i < process.length - 1 && <ArrowRight className="home-process-arrow" size={15} aria-hidden="true" />}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
