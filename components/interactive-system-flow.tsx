@@ -5,10 +5,11 @@ import { ArrowUpRight, X } from "lucide-react";
 
 type Props = {
   architecture: readonly string[];
+  architectureLabels?: readonly string[];
   descriptions?: readonly string[];
 };
 
-export default function InteractiveSystemFlow({ architecture, descriptions }: Props) {
+export default function InteractiveSystemFlow({ architecture, architectureLabels, descriptions }: Props) {
   const [active, setActive] = useState<number | null>(null);
 
   const descriptionFor = (index: number, item: string) =>
@@ -30,13 +31,14 @@ export default function InteractiveSystemFlow({ architecture, descriptions }: Pr
             >
               <span>0{index + 1}</span>
               <strong>{item}</strong>
+              {architectureLabels?.[index] && <small>{architectureLabels[index]}</small>}
               {index < architecture.length - 1 && <ArrowUpRight size={15} />}
             </button>
             {active === index && (
               <div className="flow-detail flow-detail-inline">
                 <div className="flow-detail-top">
                   <div>
-                    <span className="kicker">STAGE 0{index + 1}</span>
+                    <span className="kicker">{architectureLabels?.[index] ?? `STAGE 0${index + 1}`}</span>
                     <h3>{item}</h3>
                   </div>
                   <button type="button" onClick={() => setActive(null)} aria-label="Close stage description">
