@@ -1331,3 +1331,70 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .hero-evidence-card-meta{left:11px;right:11px;bottom:11px}
   .hero-evidence-card-meta strong{font-size:8px}
 }
+
+
+/* DMDA case-study separation + technical system-map treatment */
+.case-hero + .case-visual{
+  margin-top:110px;
+}
+
+.case-visual{
+  background:
+    radial-gradient(circle at 68% 38%, rgba(201,255,74,.09), transparent 30%),
+    radial-gradient(circle at 18% 72%, rgba(255,255,255,.025), transparent 32%),
+    #0b0c0b;
+  color:#f3f2ec;
+  border:1px solid #292b27;
+  box-shadow:0 28px 90px rgba(0,0,0,.32);
+}
+
+.case-visual .case-grid{
+  opacity:.7;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:52px 52px;
+}
+
+.case-visual:after{
+  background:
+    radial-gradient(circle at 68% 38%, rgba(201,255,74,.11), transparent 28%),
+    linear-gradient(180deg,rgba(255,255,255,.018),transparent 45%,rgba(0,0,0,.18));
+}
+
+.case-visual .architecture-head{
+  color:#777c73;
+}
+
+.case-visual .architecture-status{
+  color:#777c73;
+}
+
+.case-visual .architecture-node{
+  background:rgba(10,11,10,.94);
+  border-color:#3a3e35;
+  box-shadow:0 18px 55px rgba(0,0,0,.55);
+}
+
+.case-visual .architecture-node strong{
+  color:#f3f2ec;
+}
+
+.case-visual .architecture-node small{
+  color:#c9ff4a;
+}
+
+.case-visual .architecture-arrow{
+  background:#555a50;
+  color:#c9ff4a;
+}
+
+.case-visual .architecture-arrow svg{
+  background:#0b0c0b;
+}
+
+@media(max-width:760px){
+  .case-hero + .case-visual{
+    margin-top:65px;
+  }
+}
