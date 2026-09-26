@@ -597,3 +597,78 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   }
   .case-hero .case-actions{margin-bottom:145px}
 }
+
+
+/* Hero evidence — larger, bolder presentation */
+.case-hero-slideshow{
+  inset:2% -7% 2% 27%;
+}
+.hero-slide{
+  width:min(930px,78vw);
+  right:-1%;
+  border-width:1px;
+  box-shadow:0 42px 120px rgba(0,0,0,.34);
+  filter:saturate(1) brightness(.88) contrast(1.06);
+}
+.hero-slide.active{
+  opacity:.58;
+  transform:translateY(-50%) translateX(0) rotate(1.2deg) scale(1.02);
+}
+.hero-slide-vignette{
+  background:
+    linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 76%,transparent) 18%,color-mix(in srgb,var(--bg) 24%,transparent) 55%,transparent 100%),
+    linear-gradient(0deg,var(--bg) 0%,transparent 13%,transparent 87%,var(--bg) 100%);
+}
+[data-theme="dark"] .case-hero-slideshow{
+  inset:0 -8% 0 25%;
+}
+[data-theme="dark"] .hero-slide{
+  width:min(950px,80vw);
+  filter:saturate(1.04) brightness(.9) contrast(1.08);
+  box-shadow:0 44px 120px rgba(0,0,0,.72);
+}
+[data-theme="dark"] .hero-slide.active{opacity:.62}
+[data-theme="dark"] .hero-slide-vignette{
+  background:
+    linear-gradient(90deg,#0a0a0a 0%,rgba(10,10,10,.78) 17%,rgba(10,10,10,.24) 52%,rgba(10,10,10,.02) 100%),
+    linear-gradient(0deg,#0a0a0a 0%,transparent 12%,transparent 88%,#0a0a0a 100%);
+}
+[data-theme="light"] .case-hero-slideshow{
+  inset:0 -8% 0 25%;
+}
+[data-theme="light"] .hero-slide{
+  width:min(950px,80vw);
+  filter:saturate(.96) brightness(.82) contrast(1.08);
+  box-shadow:0 38px 100px rgba(17,18,15,.22);
+}
+[data-theme="light"] .hero-slide.active{opacity:.52}
+[data-theme="light"] .hero-slide-vignette{
+  background:
+    linear-gradient(90deg,#f3f1e9 0%,rgba(243,241,233,.78) 17%,rgba(243,241,233,.25) 52%,rgba(243,241,233,.02) 100%),
+    linear-gradient(0deg,#f3f1e9 0%,transparent 12%,transparent 88%,#f3f1e9 100%);
+}
+.case-hero-content{
+  width:min(760px,67%);
+}
+@media(max-width:760px){
+  .case-hero-slideshow,
+  [data-theme="dark"] .case-hero-slideshow,
+  [data-theme="light"] .case-hero-slideshow{
+    inset:auto -8% 0 -8%;
+    height:260px;
+  }
+  .hero-slide,
+  [data-theme="dark"] .hero-slide,
+  [data-theme="light"] .hero-slide{
+    width:100%;
+    right:0;
+    filter:saturate(.95) brightness(.82) contrast(1.06);
+  }
+  .hero-slide.active,
+  [data-theme="dark"] .hero-slide.active,
+  [data-theme="light"] .hero-slide.active{
+    opacity:.34;
+    transform:translateY(-50%) rotate(1deg) scale(1.01);
+  }
+  .case-hero-content{width:100%}
+}
