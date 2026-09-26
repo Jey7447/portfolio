@@ -230,6 +230,16 @@ export default function Home() {
           <span className="home-kicker">A LITTLE ABOUT ME</span>
           <h2>Engineering taught me to think in systems. Software gave me another medium to build them.</h2>
           <div className="home-about-index" aria-hidden="true"><span>PROFILE / 01</span><span>ENGINEERING → SOFTWARE</span></div>
+          <div className="home-about-visual">
+            <div className="home-about-photo home-about-photo-primary">
+              <Image src="/about/jesse-about-primary.webp" alt="Portrait" fill sizes="(max-width: 760px) 100vw, 48vw" />
+              <span>PORTRAIT / 01</span>
+            </div>
+            <div className="home-about-photo home-about-photo-secondary">
+              <Image src="/about/jesse-about-secondary.webp" alt="Portrait" fill sizes="(max-width: 760px) 42vw, 22vw" />
+              <span>PROFILE / 02</span>
+            </div>
+          </div>
         </div>
         <div className="home-about-copy">
           <p>I work across interfaces, databases, APIs and automation — looking at the whole flow instead of treating each piece as a separate task.</p>
