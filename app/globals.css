@@ -247,7 +247,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .backlink{display:inline-flex;align-items:center;gap:7px;color:var(--muted);text-decoration:none;font-size:12px}
 .backlink:hover,.case-footer a:hover{color:var(--accent)}
 .case-wrap{width:min(1120px,calc(100% - 48px));margin:auto}
-.case-hero{padding:110px 0 80px}
+.case-hero{position:relative;isolation:isolate;overflow:hidden;padding:110px 0 80px}
 .case-hero h1{font-size:clamp(62px,9vw,128px);line-height:.88;letter-spacing:-.075em;margin:28px 0 30px;max-width:1000px}
 .case-hero>p{max-width:700px;color:var(--muted);font-size:19px;line-height:1.55;margin:0}
 .case-actions{display:flex;align-items:center;gap:24px;margin-top:38px}
@@ -288,7 +288,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 @media(max-width:760px){
  .case-wrap{width:min(100% - 32px,600px)}
  .case-nav{padding:0 16px}
- .case-hero{padding:75px 0 60px}
+ .case-hero{padding:75px 0 60px;min-height:520px;display:flex;align-items:center}
  .case-hero h1{font-size:clamp(54px,16vw,86px)}
  .case-hero>p{font-size:16px}
  .case-actions{flex-wrap:wrap}
