@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Database, GitBranch, Workflow } from "lucide-react";
 import CaseStudyInteractive from "@/components/case-study-interactive";
+import CaseHeroSlideshow from "@/components/case-hero-slideshow";
 import InteractiveSystemFlow from "@/components/interactive-system-flow";
 
 const cases = {
@@ -116,8 +117,12 @@ export default async function CaseStudyPage({
       </nav>
 
       <header className="case-hero case-wrap">
-        <span className="kicker">{project.number} / {project.type}</span>
-        <h1>{project.title}</h1>
+        {"evidence" in project && project.evidence && project.evidence.length > 0 && (
+          <CaseHeroSlideshow images={project.evidence.map((item) => item.src)} />
+        )}
+        <div className="case-hero-content">
+          <span className="kicker">{project.number} / {project.type}</span>
+          <h1>{project.title}</h1>
         <p>{project.intro}</p>
         <div className="case-actions">
           {project.repo ? (
@@ -128,6 +133,7 @@ export default async function CaseStudyPage({
             <span className="case-private">Private repository</span>
           )}
           <Link href="/#contact" className="case-textlink">Discuss a project <ArrowUpRight size={16} /></Link>
+        </div>
         </div>
       </header>
 
@@ -165,6 +171,12 @@ export default async function CaseStudyPage({
               { id: "doctor-notification", label: "Create Doctor Notification", x: 64.5, y: 25, description: "Creates the doctor-facing notification record when the scheduled branch requires it." },
               { id: "patient-notification", label: "Create Patient Notification", x: 64.5, y: 78, description: "Creates the patient-facing notification record for the appointment." },
               { id: "outbound-notification", label: "Call CarePlus — Outbound Notification", x: 84, y: 56, description: "Hands the prepared notification records to the outbound notification workflow for delivery." }
+            ],
+            feedback: [
+              { id: "schedule-trigger", label: "Schedule Trigger", x: 25.5, y: 55, description: "Runs the feedback workflow on its configured schedule so pending feedback requests can be processed without a manual trigger." },
+              { id: "find-feedback", label: "Find Pending Feedback Notifications", x: 42, y: 55, description: "Queries the database for feedback requests that are ready for notification." },
+              { id: "prepare-feedback", label: "Prepare Feedback Notification", x: 59, y: 55, description: "Builds the notification payload and prepares it for the outbound notification layer." },
+              { id: "call-outbound", label: "Call CarePlus — Outbound Notification", x: 75, y: 55, description: "Passes the prepared feedback notification into the outbound notification workflow for delivery." }
             ],
             sms: [
               { id: "twilio-callback", label: "Twilio SMS Status Callback", x: 31, y: 54, description: "Receives Twilio's delivery-status callback for an outbound message." },
