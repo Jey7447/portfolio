@@ -2100,3 +2100,12 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     line-height:1.65;
   }
 }
+
+
+/* Navigation — keep the expanded desktop menu comfortable at laptop widths. */
+@media (min-width:761px) and (max-width:1100px){
+  .navlinks{gap:18px}
+  .nav a{font-size:12px}
+  .nav{padding:0 20px}
+  .navcta{padding:10px 12px}
+}
