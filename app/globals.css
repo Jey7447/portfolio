@@ -386,3 +386,15 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
  .workflow-node-info p{font-size:12px}
  .workflow-hotspot{width:30px;height:30px}
 }
+
+
+.flow-button{width:100%;border:0;border-bottom:1px solid var(--line);border-top:0;background:transparent;color:var(--paper);font:inherit;text-align:left;cursor:pointer;transition:padding-left .25s ease,background-color .25s ease}
+.flow-button:hover{padding-left:10px;background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.flow-button:hover svg{transform:translate(2px,-2px)}
+.flow-button svg{transition:transform .25s ease}
+.flow-detail{margin-top:20px;border:1px solid var(--line);padding:22px 24px;background:color-mix(in srgb,var(--surface) 65%,transparent)}
+.flow-detail-top{display:flex;justify-content:space-between;gap:25px;align-items:flex-start}
+.flow-detail h3{font-size:21px;letter-spacing:-.035em;margin:7px 0 0}
+.flow-detail-top button{width:32px;height:32px;border:1px solid var(--line);background:transparent;color:var(--paper);display:grid;place-items:center;cursor:pointer}
+.flow-detail-top button:hover{border-color:var(--accent);color:var(--accent)}
+.flow-detail p{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.65;max-width:700px}
