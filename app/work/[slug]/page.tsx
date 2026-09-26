@@ -284,7 +284,8 @@ export default async function CaseStudyPage({
 
       <footer className="case-footer case-wrap">
         <Link href="/"><ArrowLeft size={15} /> Back to homepage</Link>
-        <span>Jesse Briska · Software · Automation · Systems</span>
+        <div className="case-footer-center">Jesse Briska · Software · Automation · Systems</div>
+        <Link href="/#contact" className="case-footer-cta">Start a project <ArrowUpRight size={15} /></Link>
       </footer>
     </main>
   );
