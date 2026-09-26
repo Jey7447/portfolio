@@ -1910,7 +1910,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 /* About — single editorial portrait */
 .home-about-visual{
   position:relative;
-  height:520px;
+  height:470px;
   margin-top:52px;
   overflow:visible;
 }
@@ -1925,7 +1925,7 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 .home-about-photo img{
   object-fit:cover;
   object-position:center 38%;
-  filter:saturate(.58) contrast(1.04);
+  filter:grayscale(1) contrast(1.08) brightness(.98);
   transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease;
 }
 .home-about-photo:after{
@@ -1949,11 +1949,11 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 }
 .home-about-photo:hover img{
   transform:scale(1.025);
-  filter:saturate(.72) contrast(1.04);
+  filter:grayscale(1) contrast(1.12) brightness(1);
 }
 @media(max-width:760px){
   .home-about-visual{
-    height:430px;
+    height:390px;
     margin-top:40px;
   }
   .home-about-photo{
