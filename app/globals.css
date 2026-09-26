@@ -2172,3 +2172,46 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .case-list li{font-size:13px}
   .aside-card{padding:20px}
 }
+
+
+/* System-map interaction — make the architecture feel connected, not static. */
+.architecture-node{
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.architecture-node:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:2px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .25s ease;
+}
+.architecture-node-wrap:hover .architecture-node,
+.architecture-node-wrap:focus-within .architecture-node{
+  transform:translateY(-5px);
+  border-color:#5b614f;
+  box-shadow:0 22px 65px rgba(0,0,0,.62);
+}
+.architecture-node-wrap:hover .architecture-node:after,
+.architecture-node-wrap:focus-within .architecture-node:after{
+  transform:scaleX(1);
+}
+.architecture-node-wrap:hover + .architecture-node-wrap .architecture-arrow,
+.architecture-node-wrap:has(+ .architecture-node-wrap:hover) .architecture-arrow{
+  background:#737968;
+}
+@media(max-width:760px){
+  .architecture-node{
+    transition:none;
+  }
+  .architecture-node-wrap:hover .architecture-node,
+  .architecture-node-wrap:focus-within .architecture-node{
+    transform:none;
+  }
+}
