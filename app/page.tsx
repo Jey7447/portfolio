@@ -37,10 +37,10 @@ const projects = [
     title: "DMDA Voting Portal",
     type: "Security · Backend",
     description: "Code-gated voting with single-use access, ballot validation and audit logging.",
-    stack: ["Next.js", "PostgreSQL", "Supabase", "n8n"],
+    stack: ["React", "TypeScript", "Supabase", "n8n"],
     href: "/work/dmda",
     visual: "dmda",
-    status: "System case study",
+    status: "Live deployment",
   },
   {
     number: "03",
