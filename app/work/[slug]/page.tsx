@@ -49,14 +49,7 @@ const cases = {
     ],
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
     note: "The repository is private, so implementation details are summarized here without exposing the source.",
-    evidence: [
-      {
-        src: "/dmda/dmda-live-portal.webp",
-        label: "Live deployment",
-        title: "Production voter portal",
-        text: "The deployed voter-facing interface for the DMDA 2026 election portal, running on Vercel."
-      }
-    ]
+    evidence: []
   },
   productforge: {
     number: "04",
