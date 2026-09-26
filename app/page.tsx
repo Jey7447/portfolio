@@ -232,12 +232,8 @@ export default function Home() {
           <div className="home-about-index" aria-hidden="true"><span>PROFILE / 01</span><span>ENGINEERING → SOFTWARE</span></div>
           <div className="home-about-visual">
             <div className="home-about-photo home-about-photo-primary">
-              <Image src="/about/jesse-about-primary.webp" alt="Portrait" fill sizes="(max-width: 760px) 100vw, 48vw" />
-              <span>PORTRAIT / 01</span>
-            </div>
-            <div className="home-about-photo home-about-photo-secondary">
-              <Image src="/about/jesse-about-secondary.webp" alt="Portrait" fill sizes="(max-width: 760px) 42vw, 22vw" />
-              <span>PROFILE / 02</span>
+              <Image src="/about/jesse-about-secondary.webp" alt="Portrait" fill sizes="(max-width: 760px) 100vw, 48vw" />
+              <span>PROFILE / 01</span>
             </div>
           </div>
         </div>
