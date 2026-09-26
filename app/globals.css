@@ -1014,3 +1014,41 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
  .home-diagram-orbit,.home-diagram-node.main,.home-marquee div{animation:none}
  .home-project-image img,.home-system-card,.home-order-board,.home-ai-node{transition:none}
 }
+
+
+/* =========================================================
+   Homepage QA polish
+   ========================================================= */
+
+/* Keep the editorial ticker intentionally full-bleed without clipping its first item. */
+.home-marquee{width:100%;overflow:hidden}
+.home-marquee>div{padding-left:48px;display:flex;align-items:center;min-width:max-content}
+.home-marquee span{display:inline-block}
+
+/* Give the final case study a deliberate full-width treatment. */
+.home-project-productforge{grid-column:1 / -1}
+.home-project-productforge .home-system-visual{height:min(48vw,500px);min-height:390px}
+.home-project-productforge .home-ai-flow{transform:translate(-50%,-50%) scale(1.08)}
+.home-project-productforge .home-project-info{grid-template-columns:1fr 1fr}
+
+/* Slightly clearer labels inside the hero system diagram. */
+.home-diagram-branch{font-size:9px;padding:10px 12px}
+.home-diagram-node{font-size:12px}
+
+/* Small identity block keeps the About section personal without adding a portrait. */
+.home-identity{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;display:grid;gap:5px}
+.home-identity span{font-size:9px;letter-spacing:.15em;color:var(--soft)}
+.home-identity strong{font-size:13px;font-weight:600}
+.home-identity small{font-size:10px;color:var(--muted);letter-spacing:.04em}
+
+/* Never present an unverified social destination as a live link. */
+.home-social-disabled{display:flex;align-items:center;gap:6px;color:var(--soft);font-size:10px}
+.home-social-disabled svg{opacity:.7}
+
+@media(max-width:760px){
+  .home-marquee>div{padding-left:24px}
+  .home-project-productforge .home-system-visual{height:330px;min-height:0}
+  .home-project-productforge .home-project-info{display:block}
+  .home-project-productforge .home-ai-flow{transform:translate(-50%,-50%) scale(.92)}
+  .home-identity{margin-top:36px}
+}
