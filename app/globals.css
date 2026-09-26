@@ -1905,3 +1905,87 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .home-about-profile-grid>div:last-child{border-bottom:0}
   .home-about-profile{margin-top:32px}
 }
+
+
+/* About — editorial portrait treatment */
+.home-about-visual{
+  position:relative;
+  height:520px;
+  margin-top:52px;
+  overflow:visible;
+}
+.home-about-photo{
+  position:absolute;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--surface);
+  box-shadow:0 28px 70px rgba(0,0,0,.16);
+}
+.home-about-photo img{
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.58) contrast(1.04);
+  transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease;
+}
+.home-about-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,transparent 48%,rgba(0,0,0,.52) 100%),
+    linear-gradient(135deg,rgba(255,255,255,.05),transparent 35%);
+  pointer-events:none;
+}
+.home-about-photo span{
+  position:absolute;
+  z-index:2;
+  left:14px;
+  bottom:13px;
+  color:#f3f2ec;
+  font:8px monospace;
+  letter-spacing:.14em;
+  text-shadow:0 2px 12px rgba(0,0,0,.8);
+}
+.home-about-photo-primary{
+  inset:0 14% 38px 0;
+}
+.home-about-photo-primary img{
+  object-position:center 42%;
+}
+.home-about-photo-secondary{
+  width:38%;
+  height:270px;
+  right:0;
+  bottom:0;
+  z-index:2;
+}
+.home-about-photo-secondary img{
+  object-position:center 38%;
+}
+.home-about-photo:hover img{
+  transform:scale(1.025);
+  filter:saturate(.72) contrast(1.04);
+}
+.home-about-photo-secondary:hover{
+  z-index:3;
+}
+@media(max-width:760px){
+  .home-about-visual{
+    height:430px;
+    margin-top:40px;
+  }
+  .home-about-photo-primary{
+    inset:0 9% 48px 0;
+  }
+  .home-about-photo-secondary{
+    width:44%;
+    height:205px;
+    right:0;
+    bottom:0;
+  }
+  .home-about-photo span{
+    left:11px;
+    bottom:10px;
+    font-size:7px;
+  }
+}
