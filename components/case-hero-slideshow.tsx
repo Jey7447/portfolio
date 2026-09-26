@@ -30,7 +30,7 @@ export default function CaseHeroSlideshow({ images, labels }: Props) {
             style={{ backgroundImage: `url(${src})` }}
           />
         ))}
-        <div className="hero-evidence-sheen" />
+        <div className="hero-evidence-overlay" />
         <div className="hero-evidence-meta">
           <span>{String(active + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}</span>
           <strong>{labels?.[active] ?? "Project evidence"}</strong>
