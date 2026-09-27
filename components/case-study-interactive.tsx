@@ -77,9 +77,9 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
         <div className="evidence-head">
           <div>
             <span className="kicker">VISUAL EVIDENCE</span>
-            <h2>Show the system, not just the description.</h2>
+            <h2>A closer look at the work.</h2>
           </div>
-          <p>Selected implementation views from the project, covering the product interface, automation layer, messaging flow and data architecture.</p>
+          <p>Real views from the project, showing the parts people would actually use and the behind-the-scenes work that helps everything stay connected.</p>
         </div>
 
         <div className="evidence-grid">
