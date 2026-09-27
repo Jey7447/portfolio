@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { X, Maximize2 } from "lucide-react";
 
 type EvidenceItem = {
@@ -41,12 +41,22 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
   const [activeWorkflow, setActiveWorkflow] = useState<WorkflowKey | null>(null);
   const [activeNode, setActiveNode] = useState<WorkflowNode | null>(null);
 
+  const closeAll = useCallback(() => {
+    setActiveImage(null);
+    setActiveWorkflow(null);
+    setActiveNode(null);
+  }, []);
+
   useEffect(() => {
     const locked = Boolean(activeImage || activeWorkflow);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = locked ? "hidden" : "";
 
-    if (!locked) return () => { document.body.style.overflow = previousOverflow; };
+    if (!locked) {
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeAll();
@@ -57,7 +67,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [activeImage, activeWorkflow]);
+  }, [activeImage, activeWorkflow, closeAll]);
 
   const openEvidence = (item: EvidenceItem) => {
     const workflow = (Object.keys(workflowMeta) as WorkflowKey[]).find((key) => workflowNodes?.[key]?.length && item.src.includes(
@@ -75,12 +85,6 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
     }
 
     setActiveImage(item);
-  };
-
-  const closeAll = () => {
-    setActiveImage(null);
-    setActiveWorkflow(null);
-    setActiveNode(null);
   };
 
   return (
