@@ -43,8 +43,20 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
 
   useEffect(() => {
     const locked = Boolean(activeImage || activeWorkflow);
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = locked ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+
+    if (!locked) return () => { document.body.style.overflow = previousOverflow; };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeAll();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [activeImage, activeWorkflow]);
 
   const openEvidence = (item: EvidenceItem) => {
@@ -120,7 +132,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
           if (event.target === event.currentTarget) closeAll();
         }}>
           <div className={activeWorkflow ? "workflow-modal workflow-modal-wide" : "image-modal"}>
-            <button type="button" className="modal-close" onClick={closeAll} aria-label="Close">
+            <button type="button" className="modal-close" onClick={closeAll} aria-label="Close evidence viewer">
               <X size={20} />
             </button>
 
