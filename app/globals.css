@@ -2478,3 +2478,33 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:7px;
   }
 }
+
+
+/* Case-study hero — give the evidence rail a precise technical index. */
+.hero-evidence-index{
+  position:absolute;
+  z-index:4;
+  top:28px;
+  right:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding-left:14px;
+  border-left:1px solid var(--line);
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.14em;
+}
+.hero-evidence-index strong{
+  color:var(--accent);
+  font-weight:500;
+}
+@media(max-width:760px){
+  .hero-evidence-index{
+    top:18px;
+    right:12px;
+    padding-left:10px;
+    font-size:7px;
+    gap:9px;
+  }
+}
