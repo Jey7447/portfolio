@@ -2721,3 +2721,16 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     margin:-6px 0 22px;
   }
 }
+
+
+/* Case-study motion — respect reduced-motion preferences. */
+@media(prefers-reduced-motion:reduce){
+  .case-page *,
+  .case-page *::before,
+  .case-page *::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
