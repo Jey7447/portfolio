@@ -258,43 +258,43 @@ export default async function CaseStudyPage({
             slug === "careplus"
               ? {
                   orchestrator: [
-                    { id: "postgres-trigger", label: "Postgres Trigger", x: 14.5, y: 54, description: "Starts the appointment notification workflow when the relevant database event fires." },
-                    { id: "get-appointment", label: "Get Appointment with Patient and Doctor", x: 31.5, y: 54, description: "Queries the appointment context needed to determine who should be notified and why." },
-                    { id: "status-check", label: "Appointment Status is Scheduled?", x: 48.5, y: 54, description: "Branches the workflow so notifications are only created for appointments that meet the expected status condition." },
-                    { id: "doctor-notification", label: "Create Doctor Notification", x: 64.5, y: 25, description: "Creates the doctor-facing notification record when the scheduled branch requires it." },
-                    { id: "patient-notification", label: "Create Patient Notification", x: 64.5, y: 78, description: "Creates the patient-facing notification record for the appointment." },
-                    { id: "outbound-notification", label: "Call CarePlus — Outbound Notification", x: 84, y: 56, description: "Hands the prepared notification records to the outbound notification workflow for delivery." }
+                    { id: "postgres-trigger", label: "Postgres Trigger", x: 14.5, y: 54, description: "Starts the appointment communication process when the relevant appointment event occurs." },
+                    { id: "get-appointment", label: "Get Appointment with Patient and Doctor", x: 31.5, y: 54, description: "Gathers the appointment details needed to understand who should receive a message and what the message is about." },
+                    { id: "status-check", label: "Appointment Status is Scheduled?", x: 48.5, y: 54, description: "Checks whether the appointment is ready for notification before creating any messages." },
+                    { id: "doctor-notification", label: "Create Doctor Notification", x: 64.5, y: 25, description: "Prepares a notification for the doctor when the appointment requires one." },
+                    { id: "patient-notification", label: "Create Patient Notification", x: 64.5, y: 78, description: "Prepares a notification for the patient about the appointment." },
+                    { id: "outbound-notification", label: "Call CarePlus — Outbound Notification", x: 84, y: 56, description: "Passes the prepared messages to the part of the system responsible for sending them." }
                   ],
                   feedback: [
-                    { id: "schedule-trigger", label: "Schedule Trigger", x: 25.5, y: 55, description: "Runs the feedback workflow on its configured schedule so pending feedback requests can be processed without a manual trigger." },
-                    { id: "find-feedback", label: "Find Pending Feedback Notifications", x: 42, y: 55, description: "Queries the database for feedback requests that are ready for notification." },
-                    { id: "prepare-feedback", label: "Prepare Feedback Notification", x: 59, y: 55, description: "Builds the notification payload and prepares it for the outbound notification layer." },
-                    { id: "call-outbound", label: "Call CarePlus — Outbound Notification", x: 75, y: 55, description: "Passes the prepared feedback notification into the outbound notification workflow for delivery." }
+                    { id: "schedule-trigger", label: "Schedule Trigger", x: 25.5, y: 55, description: "Runs on its schedule so the system can look for patients who are ready to receive a feedback request." },
+                    { id: "find-feedback", label: "Find Pending Feedback Notifications", x: 42, y: 55, description: "Finds feedback requests that are waiting to be sent." },
+                    { id: "prepare-feedback", label: "Prepare Feedback Notification", x: 59, y: 55, description: "Prepares the feedback message with the information needed for delivery." },
+                    { id: "call-outbound", label: "Call CarePlus — Outbound Notification", x: 75, y: 55, description: "Sends the prepared feedback request into the same message-delivery process." }
                   ],
                   sms: [
-                    { id: "twilio-callback", label: "Twilio SMS Status Callback", x: 31, y: 54, description: "Receives Twilio's delivery-status callback for an outbound message." },
-                    { id: "route-status", label: "Route SMS Status", x: 46, y: 54, description: "Reads the Twilio status and routes the callback into the matching delivery-state branch." },
-                    { id: "find-sent", label: "Find Notification by Twilio SID", x: 58, y: 21, description: "Finds the notification record associated with the Twilio Message SID for the sent state." },
-                    { id: "update-sent", label: "Update Notification — Sent", x: 72, y: 21, description: "Writes the sent state and related delivery metadata back to the notification record." },
-                    { id: "find-delivered", label: "Find Notification by Twilio SID1", x: 58, y: 43, description: "Looks up the notification record for a delivered callback." },
-                    { id: "mark-delivered", label: "Mark Patient Notification Delivered", x: 72, y: 43, description: "Marks the patient notification as delivered in the database." },
-                    { id: "find-failed", label: "Find Notification by Twilio SID2", x: 58, y: 64, description: "Looks up the notification record for a failed callback." },
-                    { id: "mark-failed", label: "Mark Patient Notification Failed", x: 72, y: 64, description: "Records the failed delivery state against the patient notification." },
-                    { id: "find-undelivered", label: "Find Notification by Twilio SID3", x: 58, y: 84, description: "Looks up the notification record for an undelivered callback." },
-                    { id: "mark-undelivered", label: "Mark Patient Notification Undelivered", x: 72, y: 84, description: "Records the undelivered state so the notification lifecycle remains traceable." }
+                    { id: "twilio-callback", label: "Twilio SMS Status Callback", x: 31, y: 54, description: "Receives an update from the messaging service about what happened to an outgoing text." },
+                    { id: "route-status", label: "Route SMS Status", x: 46, y: 54, description: "Looks at the message update and sends it to the correct status path." },
+                    { id: "find-sent", label: "Find Notification by Twilio SID", x: 58, y: 21, description: "Finds the original message record so its latest status can be saved." },
+                    { id: "update-sent", label: "Update Notification — Sent", x: 72, y: 21, description: "Records that the message was sent and keeps the related delivery information." },
+                    { id: "find-delivered", label: "Find Notification by Twilio SID1", x: 58, y: 43, description: "Finds the original message when the delivery service reports that it arrived." },
+                    { id: "mark-delivered", label: "Mark Patient Notification Delivered", x: 72, y: 43, description: "Records that the patient message was delivered." },
+                    { id: "find-failed", label: "Find Notification by Twilio SID2", x: 58, y: 64, description: "Finds the original message when delivery was unsuccessful." },
+                    { id: "mark-failed", label: "Mark Patient Notification Failed", x: 72, y: 64, description: "Records that the patient message could not be delivered successfully." },
+                    { id: "find-undelivered", label: "Find Notification by Twilio SID3", x: 58, y: 84, description: "Finds the original message when the delivery service reports that it remains undelivered." },
+                    { id: "mark-undelivered", label: "Mark Patient Notification Undelivered", x: 72, y: 84, description: "Records the undelivered status so the team can see what happened to the message." }
                   ]
                 }
               : slug === "dmda"
                 ? {
                     authentication: [
-                      { id: "auth-webhook", label: "Voter Authentication Webhook", x: 25, y: 54, description: "Receives the voter code from the portal and starts the authentication request." },
-                      { id: "auth-postgres", label: "Authenticate Voter", x: 50, y: 54, description: "Runs the PostgreSQL authentication routine that validates the voter credential and election access." },
-                      { id: "auth-return", label: "Return Authentication Result", x: 75, y: 54, description: "Returns the authentication result to the voter portal so an approved session can continue." }
+                      { id: "auth-webhook", label: "Voter Authentication Webhook", x: 25, y: 54, description: "Receives the voter's one-time code and starts the access check." },
+                      { id: "auth-postgres", label: "Authenticate Voter", x: 50, y: 54, description: "Checks that the code belongs to an eligible voter and that the voter can access this election." },
+                      { id: "auth-return", label: "Return Authentication Result", x: 75, y: 54, description: "Tells the voting portal whether access was approved so the voter can continue when authorised." }
                     ],
                     ballot: [
-                      { id: "ballot-webhook", label: "Get Ballot Webhook", x: 25, y: 54, description: "Receives the authenticated voting session from the portal and starts ballot retrieval." },
-                      { id: "ballot-postgres", label: "Get Ballot", x: 50, y: 54, description: "Runs the PostgreSQL ballot routine to retrieve the active election positions and candidates for the session." },
-                      { id: "ballot-return", label: "Return Ballot", x: 75, y: 54, description: "Returns the validated ballot payload to the voter interface for selection and review." }
+                      { id: "ballot-webhook", label: "Get Ballot Webhook", x: 25, y: 54, description: "Receives the approved voting session and starts preparing the correct ballot." },
+                      { id: "ballot-postgres", label: "Get Ballot", x: 50, y: 54, description: "Gets the positions and choices that belong to the current election and voting session." },
+                      { id: "ballot-return", label: "Return Ballot", x: 75, y: 54, description: "Sends the correct ballot back to the voter so they can review and make their selections." }
                     ]
                   }
                 : undefined
