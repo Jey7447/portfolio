@@ -20,11 +20,11 @@ const cases = {
     problemHeading: "Connect the moving parts.",
     builtHeading: "Turn the workflow into a traceable system.",
     built: [
-      "Appointment and patient-facing web interfaces",
-      "Supabase/PostgreSQL data model for operational records",
-      "n8n orchestration for appointment notifications",
-      "Twilio delivery-status tracking for sent, delivered, failed and undelivered messages",
-      "Patient feedback notification workflow and database updates"
+      "A central interface for keeping track of patients, doctors and appointments",
+      "Organised records that keep important medical-centre information together",
+      "Automatic appointment reminders and notifications for the people who need them",
+      "Message delivery tracking so staff can see whether important notifications went through",
+      "A feedback process that helps the centre follow up with patients after their appointments"
     ],
     architecture: ["Appointment data", "n8n orchestration", "Twilio", "Supabase / PostgreSQL", "Feedback workflow"],
     architectureLabels: ["DATA", "ORCHESTRATION", "DELIVERY", "STATE", "FEEDBACK"],
@@ -53,12 +53,12 @@ const cases = {
     problemHeading: "Enforce the rules before the vote.",
     builtHeading: "Put the election logic behind the interface.",
     built: [
-      "Voter credential and access-code flow",
-      "Single-use voting sessions",
-      "Ballot validation against positions and candidates",
-      "Database routines for authentication, ballot submission and results",
-      "Election open/close state and participation controls",
-      "Audit-oriented database structure"
+      "A simple voter entry point using a one-time access code",
+      "A protected voting session that keeps each voter's access tied to their participation",
+      "A ballot that only shows the positions and choices configured for the election",
+      "Checks that make sure submitted votes follow the election's rules before they are recorded",
+      "Controls for opening, closing and tracking participation in an election",
+      "A clear record of voters, elections and votes so the organisers have one place to refer back to"
     ],
     architecture: ["Voter access code", "Authentication routine", "Voting session", "Ballot validation", "PostgreSQL"],
     architectureLabels: ["ACCESS", "AUTH", "SESSION", "VALIDATION", "RECORD"],
@@ -87,10 +87,10 @@ const cases = {
     problemHeading: "Give the idea a structure.",
     builtHeading: "Move from input to usable output.",
     built: [
-      "Product-focused web interface",
-      "Structured input and output workflow",
-      "AI-assisted product generation concepts",
-      "Reusable frontend architecture for an AI product experience"
+      "A guided place for someone to describe and shape a product idea",
+      "A structured way to organise the important information behind the idea",
+      "An AI-assisted step that turns the supplied context into more useful product output",
+      "A reusable interface designed to make the experience clear from the first idea through to the generated result"
     ],
     architecture: ["Product idea", "Structured input", "AI workflow", "Generated output"],
     architectureLabels: ["IDEA", "STRUCTURE", "AI", "OUTPUT"],
@@ -112,10 +112,10 @@ const cases = {
     problemHeading: "Make the order state visible.",
     builtHeading: "Turn manual steps into a trackable flow.",
     built: [
-      "Order-focused web interface",
-      "Structured order data and status tracking",
-      "Operational workflow for moving orders through stages",
-      "Automation-oriented architecture for reducing manual updates"
+      "A clear place to receive and review customer orders",
+      "A consistent record for each order and the information needed to fulfil it",
+      "Visible order stages so staff can quickly see what is waiting, in progress or completed",
+      "A workflow designed to reduce repetitive manual updates and keep the team working from the same information"
     ],
     architecture: ["Incoming order", "Structured record", "Status workflow", "Operations view"],
     architectureLabels: ["INPUT", "RECORD", "STATUS", "OPERATIONS"],
