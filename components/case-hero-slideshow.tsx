@@ -14,6 +14,10 @@ export default function CaseHeroSlideshow({ images, labels }: Props) {
 
   return (
     <div className="case-hero-slideshow" aria-label="Selected project evidence">
+      <div className="hero-evidence-index">
+        <span>SELECTED EVIDENCE</span>
+        <strong>{String(images.length).padStart(2, "0")} VIEWS</strong>
+      </div>
       <div className="hero-evidence-rail">
         <div className="hero-evidence-track">
           {items.map((src, index) => {
