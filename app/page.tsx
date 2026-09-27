@@ -135,7 +135,21 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
-  const [activeService, setActiveService] = useState(0);\n\n  useEffect(() => {\n    const previousOverflow = document.body.style.overflow;\n    document.body.style.overflow = menu ? "hidden" : previousOverflow;\n    if (!menu) return () => { document.body.style.overflow = previousOverflow; };\n    const handleKeyDown = (event: KeyboardEvent) => {\n      if (event.key === "Escape") setMenu(false);\n    };\n    window.addEventListener("keydown", handleKeyDown);\n    return () => {\n      window.removeEventListener("keydown", handleKeyDown);\n      document.body.style.overflow = previousOverflow;\n    };\n  }, [menu]);
+  const [activeService, setActiveService] = useState(0);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = menu ? "hidden" : previousOverflow;
+    if (!menu) return () => { document.body.style.overflow = previousOverflow; };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenu(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menu]);
 
   return (
     <main className="home-page">
