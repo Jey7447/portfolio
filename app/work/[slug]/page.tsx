@@ -10,6 +10,10 @@ const cases = {
     type: "Healthcare automation system",
     title: "CarePlus Medical Centre",
     intro: "A connected appointment and patient-communication system built around automation, delivery tracking and structured clinical operations.",
+    brief: {
+      problem: "The goal was to make appointment communication easier to manage. Patient details, appointment times, messages and delivery updates were spread across different parts of the workflow, making it harder to see what had happened.",
+      solution: "I connected those pieces into one workflow: appointment data triggers the right notifications, Twilio reports delivery status, and the database keeps the activity traceable from appointment to message to feedback."
+    },
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "Twilio"],
     repo: "https://github.com/Jey7447/careplus-medical-centre",
     problem: "Appointment communication involves several moving parts: patient records, appointment timing, notifications, delivery status and feedback. The project focuses on connecting those pieces into a traceable workflow instead of treating each message as an isolated action.",
@@ -38,6 +42,10 @@ const cases = {
     type: "Secure voting platform",
     title: "DMDA Voting Portal",
     intro: "A code-gated election platform designed around single-use voter access, ballot validation and database-backed election rules.",
+    brief: {
+      problem: "The voting portal needed a simple way to make sure only registered voters could vote, each voter could use their access only once, and every ballot followed the election's rules.",
+      solution: "I built the voting flow around one-time access codes, authenticated voting sessions and database validation. The interface handles the voter experience while the backend enforces who can vote and what can be submitted."
+    },
     stack: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "n8n"],
     repo: null,
     live: "https://dmda-voting-portal.vercel.app/",
@@ -69,6 +77,10 @@ const cases = {
     type: "AI product workflow",
     title: "ProductForge AI",
     intro: "An AI-focused product workflow project exploring how structured product ideas can move from input to useful generated output.",
+    brief: {
+      problem: "Product ideas often begin as scattered notes or incomplete requirements, which makes it difficult to turn an idea into something structured and actionable.",
+      solution: "I designed a structured input-to-output workflow that gives the idea a clear shape before the AI layer processes it, making the generated result easier to understand and use."
+    },
     stack: ["Next.js", "TypeScript", "AI", "Web App"],
     repo: "https://github.com/Jey7447/productforge-ai",
     problem: "Product work often starts with scattered ideas and incomplete requirements. ProductForge AI explores a more structured interface for turning an initial product concept into organized, actionable output.",
@@ -90,6 +102,10 @@ const cases = {
     type: "Operations web app",
     title: "Bakery Order Tracker",
     intro: "A practical order-management system focused on turning incoming bakery orders into a clearer, trackable operational workflow.",
+    brief: {
+      problem: "The bakery needed a clearer way to keep track of incoming orders, their details and their current status without relying on disconnected manual updates.",
+      solution: "I created a structured order workflow where each order becomes a visible record that can move through defined stages, giving the people handling orders a clearer operational view."
+    },
     stack: ["TypeScript", "Web App", "Automation"],
     repo: "https://github.com/Jey7447/brendas-bakery-order-tracker",
     problem: "Order information becomes difficult to manage when it is scattered across manual updates and disconnected steps. This project focuses on giving the workflow a structured place to capture, track and update orders.",
@@ -193,6 +209,24 @@ export default async function CaseStudyPage({
         </div>
         </div>
       </header>
+
+      <section className="case-brief case-wrap" aria-labelledby="case-brief-title">
+        <div className="case-brief-head">
+          <span className="kicker">PROJECT BRIEF</span>
+          <h2 id="case-brief-title">The problem, in plain language.</h2>
+          <p>A short overview of what the project needed to solve and how the system addressed it.</p>
+        </div>
+        <div className="case-brief-grid">
+          <article>
+            <span className="case-brief-index">01 / THE PROBLEM</span>
+            <p>{project.brief.problem}</p>
+          </article>
+          <article>
+            <span className="case-brief-index">02 / THE SOLUTION</span>
+            <p>{project.brief.solution}</p>
+          </article>
+        </div>
+      </section>
 
       <section className="case-visual case-wrap" aria-label="System architecture visual">
         <div className="case-grid" />
