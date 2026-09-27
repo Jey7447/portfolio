@@ -2597,3 +2597,127 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     line-height:1.7;
   }
 }
+
+
+/* Case-study editorial rhythm — make the page read as one continuous story. */
+.case-brief{
+  position:relative;
+}
+.case-brief:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:1px;
+  height:36px;
+  background:var(--accent);
+  opacity:.65;
+}
+.case-brief-grid article{
+  position:relative;
+}
+.case-brief-grid article:first-child:after{
+  content:"01";
+  position:absolute;
+  right:0;
+  top:25px;
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.12em;
+}
+.case-brief-grid article+article:after{
+  content:"02";
+  position:absolute;
+  right:0;
+  top:25px;
+  color:var(--accent);
+  font:8px monospace;
+  letter-spacing:.12em;
+}
+.case-visual{
+  margin-top:12px;
+  box-shadow:0 35px 90px rgba(0,0,0,.18);
+}
+.architecture-head{
+  position:relative;
+}
+.architecture-head:after{
+  content:"CONNECTED SYSTEM";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  color:#656a61;
+  font:8px monospace;
+  letter-spacing:.14em;
+}
+.architecture-head .kicker{
+  position:relative;
+  z-index:1;
+}
+.architecture-head>span:last-child{
+  position:relative;
+  z-index:1;
+}
+.case-content{
+  position:relative;
+}
+.case-aside{
+  position:sticky;
+  top:104px;
+  align-self:start;
+}
+.case-main article{
+  position:relative;
+}
+.case-main article:not(:first-child):before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:28px;
+  height:2px;
+  background:var(--accent);
+}
+.flow-intro{
+  max-width:650px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+  margin:-8px 0 28px;
+}
+.case-tags span{
+  transition:color .25s ease,border-color .25s ease,background-color .25s ease;
+}
+.case-tags span:hover{
+  color:var(--paper);
+  border-color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 6%,transparent);
+}
+@media(max-width:760px){
+  .case-brief:after{
+    left:16px;
+    height:24px;
+  }
+  .case-brief-grid article:first-child:after,
+  .case-brief-grid article+article:after{
+    top:22px;
+    right:0;
+  }
+  .case-visual{
+    margin-top:0;
+    box-shadow:0 22px 55px rgba(0,0,0,.16);
+  }
+  .architecture-head:after{
+    display:none;
+  }
+  .case-aside{
+    position:static;
+  }
+  .case-main article:not(:first-child):before{
+    width:22px;
+  }
+  .flow-intro{
+    font-size:12px;
+    margin:-6px 0 22px;
+  }
+}
