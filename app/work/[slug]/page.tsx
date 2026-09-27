@@ -120,7 +120,14 @@ const cases = {
     architecture: ["Incoming order", "Structured record", "Status workflow", "Operations view"],
     architectureLabels: ["INPUT", "RECORD", "STATUS", "OPERATIONS"],
     note: "The project is presented as implementation work, without inventing business performance metrics that have not been measured.",
-    evidence: []
+    evidence: [
+      { src: "/bakery/01-storefront.png", label: "CUSTOMER EXPERIENCE", title: "Bakery storefront", text: "A customer-facing bakery experience with a clear menu, product discovery and a direct path into ordering." },
+      { src: "/bakery/02-menu.png", label: "PRODUCT CATALOG", title: "Product menu", text: "The menu organizes cakes, cupcakes and pastries into a visual catalog with category filtering and add-to-order actions." },
+      { src: "/bakery/03-checkout.png", label: "ORDER FLOW", title: "Customer checkout", text: "A structured checkout collects customer details, delivery timing and address information while keeping the order summary visible." },
+      { src: "/bakery/04-order-tracking.png", label: "ORDER TRACKING", title: "Order journey", text: "Customers receive an order reference and a visible progress journey from order received through delivery." },
+      { src: "/bakery/05-dashboard.png", label: "OPERATIONS", title: "Order management dashboard", text: "The internal workspace gives Brenda a single place to review orders, search, filter, track payment and update order status." },
+      { src: "/bakery/06-new-order-automation.png", label: "AUTOMATION", title: "New order workflow", text: "An n8n workflow receives a new order, prepares the data, records it in Google Sheets and sends confirmation messages." }
+    ]
   }
 } as const;
 
