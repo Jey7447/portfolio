@@ -329,16 +329,16 @@ export default async function CaseStudyPage({
 
         <aside className="case-aside">
           <div className="aside-card">
-            <span className="kicker">STACK</span>
+            <span className="kicker">TECHNOLOGY</span>
             <div className="case-tags">
               {project.stack.map((item) => <span key={item}>{item}</span>)}
             </div>
           </div>
           <div className="aside-card">
-            <span className="kicker">SYSTEM LAYERS</span>
-            <div className="layer"><Workflow size={17} /><span>Workflow orchestration</span></div>
-            <div className="layer"><Database size={17} /><span>Data & application state</span></div>
-            <div className="layer"><GitBranch size={17} /><span>Integration & delivery</span></div>
+            <span className="kicker">HOW IT WORKS</span>
+            <div className="layer"><Workflow size={17} /><span>Automation & workflow</span></div>
+            <div className="layer"><Database size={17} /><span>Data & records</span></div>
+            <div className="layer"><GitBranch size={17} /><span>Connected services</span></div>
           </div>
           <div className="aside-note">{project.note}</div>
         </aside>
