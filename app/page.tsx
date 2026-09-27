@@ -134,7 +134,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
-  const [activeService, setActiveService] = useState(0);\n\n  useEffect(() => {\n    if (!menu) return;\n    const handleKeyDown = (event: KeyboardEvent) => {\n      if (event.key === "Escape") setMenu(false);\n    };\n    window.addEventListener("keydown", handleKeyDown);\n    return () => window.removeEventListener("keydown", handleKeyDown);\n  }, [menu]);
+  const [activeService, setActiveService] = useState(0);\n\n  useEffect(() => {\n    const previousOverflow = document.body.style.overflow;\n    document.body.style.overflow = menu ? "hidden" : previousOverflow;\n    if (!menu) return () => { document.body.style.overflow = previousOverflow; };\n    const handleKeyDown = (event: KeyboardEvent) => {\n      if (event.key === "Escape") setMenu(false);\n    };\n    window.addEventListener("keydown", handleKeyDown);\n    return () => {\n      window.removeEventListener("keydown", handleKeyDown);\n      document.body.style.overflow = previousOverflow;\n    };\n  }, [menu]);
 
   return (
     <main className="home-page">
@@ -145,11 +145,11 @@ export default function Home() {
         <div className="nav-actions">
           <ThemeToggle />
           <a href="#contact" className="navcta">Let&apos;s talk <ArrowUpRight size={15} /></a>
-          <button className="menubtn" onClick={() => setMenu(!menu)} aria-label={menu ? "Close menu" : "Open menu"} aria-expanded={menu}>{menu ? <X size={20} /> : <Menu size={20} />}</button>
+          <button className="menubtn" onClick={() => setMenu(!menu)} aria-label={menu ? "Close menu" : "Open menu"} aria-expanded={menu} aria-controls="mobile-navigation">{menu ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
       </nav>
 
-      {menu && <div className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#faq" onClick={() => setMenu(false)}>FAQ</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
+      {menu && <div id="mobile-navigation" className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#faq" onClick={() => setMenu(false)}>FAQ</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
 
       <section id="top" className="home-hero wrap">
         <div className="home-hero-topline"><span><i className="home-status-dot" /> AVAILABLE FOR SELECTED PROJECTS</span><span>PORTFOLIO / 2026</span></div>
