@@ -17,7 +17,7 @@ import {
   Terminal,
   Check,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const projects = [
@@ -134,7 +134,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
-  const [activeService, setActiveService] = useState(0);
+  const [activeService, setActiveService] = useState(0);\n\n  useEffect(() => {\n    if (!menu) return;\n    const handleKeyDown = (event: KeyboardEvent) => {\n      if (event.key === "Escape") setMenu(false);\n    };\n    window.addEventListener("keydown", handleKeyDown);\n    return () => window.removeEventListener("keydown", handleKeyDown);\n  }, [menu]);
 
   return (
     <main className="home-page">
