@@ -147,30 +147,30 @@ export default async function CaseStudyPage({
 
   const flowDescriptions: Record<CaseKey, readonly string[]> = {
     careplus: [
-      "Appointment context enters from the operational data layer, providing the timing and people needed for the communication workflow.",
-      "n8n coordinates the notification logic, checks appointment state and creates the required notification records.",
-      "Twilio handles outbound SMS delivery and sends status callbacks back into the system.",
-      "Supabase / PostgreSQL stores the operational records and notification lifecycle state.",
-      "The feedback workflow finds pending feedback requests and hands prepared notifications to the outbound layer."
+      "An appointment enters the system with the timing and people involved, giving the workflow the information it needs to act.",
+      "The automation checks the appointment and prepares the right notifications without requiring each step to be handled manually.",
+      "Text messages are sent through Twilio, which also reports back whether each message was sent or delivered.",
+      "The database keeps the appointments, people and notification history together so the team can trace what happened.",
+      "After an appointment, the feedback process can find people who still need a follow-up message and send the request through the same notification system."
     ],
     dmda: [
-      "The registered voter enters a one-time voting code through the DMDA voter portal. Only eligible credentials can begin the voting flow.",
-      "n8n receives the authentication request and invokes the PostgreSQL authentication routine, which checks the voter credential and election access rules.",
-      "A valid authentication request establishes a voting session that carries the voter's authorized access through the ballot flow.",
-      "The submission path validates the ballot against the configured election positions and candidates before accepting the vote.",
-      "PostgreSQL remains the system of record for voters, credentials, elections, sessions, ballots, choices and participation state."
+      "A registered voter starts by entering a one-time access code through the voting portal. The system checks that the code belongs to an eligible voter.",
+      "The access request is checked against the election rules before the voter is allowed to continue.",
+      "Once approved, the voter gets a secure session that carries their authorised access through the voting process.",
+      "Before a vote is accepted, the system checks that the selections match the positions and choices configured for that election.",
+      "The database keeps the election, voter participation and vote records together so there is one consistent record of what happened."
     ],
     bakery: [
-      "An incoming order enters the system as a structured record instead of remaining as an isolated manual update.",
-      "The order record carries the information needed by the operational workflow, including customer and order details.",
-      "Status changes move the order through defined stages so its current state is visible to the people handling it.",
-      "The operations view provides a single place to review and update active orders."
+      "A new bakery order is captured in one organised record instead of being left across separate messages or notes.",
+      "The order keeps the customer and order details together so the people handling it have the information they need in one place.",
+      "As work progresses, the order moves through clear stages so everyone can see what is waiting, being prepared or completed.",
+      "The operations view gives the team one place to review active orders and keep their status up to date."
     ],
     productforge: [
-      "A product idea enters through a structured interface rather than an unbounded text prompt.",
-      "The input is organized into the fields and context needed by the product-generation workflow.",
-      "The AI layer processes that structured context to produce an organized product-oriented output.",
-      "The generated result is presented back through the web interface as the next usable artifact."
+      "Someone starts with a product idea and explains it through a guided interface instead of needing to know how to write a technical specification.",
+      "The important details are organised into a clear structure so the idea has enough context to work with.",
+      "The AI uses that context to turn the starting idea into a more organised and useful product output.",
+      "The result is returned through the web interface so the person can review and continue working from it."
     ]
   };
 
