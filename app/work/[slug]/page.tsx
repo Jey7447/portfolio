@@ -11,8 +11,8 @@ const cases = {
     title: "CarePlus Medical Centre",
     intro: "A connected appointment and patient-communication system built around automation, delivery tracking and structured clinical operations.",
     brief: {
-      problem: "The goal was to make appointment communication easier to manage. Patient details, appointment times, messages and delivery updates were spread across different parts of the workflow, making it harder to see what had happened.",
-      solution: "I connected those pieces into one workflow: appointment data triggers the right notifications, Twilio reports delivery status, and the database keeps the activity traceable from appointment to message to feedback."
+      problem: "Imagine running a medical centre where patient information, doctors, appointments, notifications and feedback all have to be kept up to date every day. When those records live in different places or depend too much on manual follow-up, it becomes difficult for the people running the centre to know what is happening at a glance. An appointment can be scheduled, a patient may need a reminder, a doctor may need to be notified, and later the patient may need to receive a feedback request. The real need was not simply another website. It was a central place for the team to keep operational information organised and a system that could help move important tasks forward without someone having to remember every step.",
+      solution: "I approached the project as an operations system rather than just a collection of pages. The centre gets a structured place to manage patients, doctors and appointments, while the communication side is connected to those records. When an appointment reaches the right point, the system can prepare the appropriate notifications, keep track of whether messages were sent or delivered, and record what happened afterwards. Feedback requests can also be picked up as part of the wider process. The result is a clearer picture of the patient journey and the work around each appointment, giving the people operating the centre a more organised foundation to work from."
     },
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "Twilio"],
     repo: "https://github.com/Jey7447/careplus-medical-centre",
@@ -43,8 +43,8 @@ const cases = {
     title: "DMDA Voting Portal",
     intro: "A code-gated election platform designed around single-use voter access, ballot validation and database-backed election rules.",
     brief: {
-      problem: "The voting portal needed a simple way to make sure only registered voters could vote, each voter could use their access only once, and every ballot followed the election's rules.",
-      solution: "I built the voting flow around one-time access codes, authenticated voting sessions and database validation. The interface handles the voter experience while the backend enforces who can vote and what can be submitted."
+      problem: "For a community election, the challenge is bigger than putting candidates on a screen. The organisers need to know that the people entering the election are actually registered to vote, that a voting code cannot simply be passed around and reused, and that each person is given the correct ballot. At the same time, the process needs to feel simple for the voter: receive access, enter the code, see the ballot, make the selections and submit once. The project was about turning those rules into a voting experience that ordinary participants could understand while giving the people managing the election a reliable record of what was happening.",
+      solution: "I built the portal so the complicated rules stay behind a straightforward voter experience. A registered voter enters a one-time access code, the system checks that access against the election, and an authorised voting session is created. The ballot is then generated from the actual election configuration, while the database checks the submitted choices before accepting the vote. Election state, voter participation and voting records are kept together so the process has a clear source of truth. The goal was to make the experience feel simple on the surface while making the important rules difficult to bypass underneath."
     },
     stack: ["React", "TypeScript", "Vite", "Supabase", "PostgreSQL", "n8n"],
     repo: null,
@@ -78,8 +78,8 @@ const cases = {
     title: "ProductForge AI",
     intro: "An AI-focused product workflow project exploring how structured product ideas can move from input to useful generated output.",
     brief: {
-      problem: "Product ideas often begin as scattered notes or incomplete requirements, which makes it difficult to turn an idea into something structured and actionable.",
-      solution: "I designed a structured input-to-output workflow that gives the idea a clear shape before the AI layer processes it, making the generated result easier to understand and use."
+      problem: "A product idea can start with something as simple as, “I have an idea for an app,” but turning that thought into something useful usually takes much more work. Important details can be missing, requirements can be scattered across notes, and it can be difficult to know what to define first. The idea behind ProductForge AI was to make that early stage less overwhelming by giving someone a clearer way to explain what they want to build. Instead of expecting a person to know exactly how to write a technical specification, the experience guides the idea into a more organised form.",
+      solution: "I created a structured experience where a person can provide the important parts of a product idea, organise the context around it, and then pass that information into an AI-assisted generation process. The AI is not treated as a replacement for the person with the idea; it is used to help turn the starting point into something more organised and actionable. The result is presented back through the web interface so the user can move from a rough concept toward a clearer product direction without having to understand all of the technical work happening underneath."
     },
     stack: ["Next.js", "TypeScript", "AI", "Web App"],
     repo: "https://github.com/Jey7447/productforge-ai",
@@ -103,8 +103,8 @@ const cases = {
     title: "Bakery Order Tracker",
     intro: "A practical order-management system focused on turning incoming bakery orders into a clearer, trackable operational workflow.",
     brief: {
-      problem: "The bakery needed a clearer way to keep track of incoming orders, their details and their current status without relying on disconnected manual updates.",
-      solution: "I created a structured order workflow where each order becomes a visible record that can move through defined stages, giving the people handling orders a clearer operational view."
+      problem: "For a bakery, an order is more than a name and a list of items. Someone has to receive it, understand what the customer asked for, keep track of when it is needed, prepare it, and know whether it is still waiting or already handled. When that information is spread across messages, notes or separate manual updates, it is easy for the people working behind the scenes to lose track of what needs attention. The project was built around a simple operational need: give the bakery one clear place to see its orders and understand where each one currently stands.",
+      solution: "I turned each incoming order into a structured record that can be followed through its different stages. Instead of asking staff to remember the latest update or search through conversations, the system gives them an operational view of the orders that need attention and their current status. The aim is straightforward: make the state of the work visible, reduce unnecessary manual coordination, and give the people handling orders a clearer picture of what has come in, what is being worked on, and what still needs to be completed."
     },
     stack: ["TypeScript", "Web App", "Automation"],
     repo: "https://github.com/Jey7447/brendas-bakery-order-tracker",
