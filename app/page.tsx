@@ -50,6 +50,7 @@ const projects = [
     description: "Structured order management connected to status changes and workflow automation.",
     stack: ["TypeScript", "Web App", "Automation"],
     href: "/work/bakery",
+    image: "/bakery/05-dashboard.png",
     visual: "bakery",
     status: "System case study",
   },
