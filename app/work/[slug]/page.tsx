@@ -190,14 +190,7 @@ export default async function CaseStudyPage({
   const project = cases[slug as CaseKey];
 
   if (!project) {
-    return (
-      <main className="case-page">
-        <div className="case-wrap">
-          <Link href="/" className="backlink"><ArrowLeft size={16} /> Back home</Link>
-          <h1>Case study not found.</h1>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   const flowDescriptions: Record<CaseKey, readonly string[]> = {
