@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Database, GitBranch, Workflow } from "lucide-react";
 import CaseStudyInteractive from "@/components/case-study-interactive";
 import CaseHeroSlideshow from "@/components/case-hero-slideshow";
@@ -132,6 +134,52 @@ const cases = {
 } as const;
 
 type CaseKey = keyof typeof cases;
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return (Object.keys(cases) as CaseKey[]).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = cases[slug as CaseKey];
+
+  if (!project) {
+    return {
+      title: "Case study not found — Jesse Briska",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const evidenceImage = "evidence" in project && project.evidence.length > 0
+    ? project.evidence[0].src
+    : undefined;
+
+  return {
+    title: `${project.title} — Jesse Briska`,
+    description: project.intro,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: {
+      title: `${project.title} — Jesse Briska`,
+      description: project.intro,
+      url: `/work/${slug}`,
+      siteName: "Jesse Briska",
+      type: "article",
+      images: evidenceImage ? [{ url: evidenceImage }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Jesse Briska`,
+      description: project.intro,
+      images: evidenceImage ? [evidenceImage] : undefined,
+    },
+  };
+}
 
 export default async function CaseStudyPage({
   params,
