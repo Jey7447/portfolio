@@ -2910,3 +2910,89 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:7px;
   }
 }
+
+
+/* Case-study Phase 3 — stronger project-to-project navigation. */
+.case-footer{
+  grid-template-columns:minmax(0,1fr) minmax(280px,1.1fr) auto;
+  align-items:end;
+}
+.case-footer-nav{
+  min-width:0;
+}
+.case-footer-nav>a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:10px;
+}
+.case-footer-nav>a:hover{
+  color:var(--accent);
+}
+.case-footer-next{
+  min-width:0;
+}
+.case-footer-project{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:12px 0 11px;
+  border-bottom:1px solid var(--line);
+  color:var(--paper);
+  text-decoration:none;
+}
+.case-footer-project span{
+  min-width:0;
+  display:grid;
+  gap:6px;
+}
+.case-footer-project small{
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.14em;
+}
+.case-footer-project strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:-.015em;
+}
+.case-footer-project>svg{
+  flex:none;
+  color:var(--accent);
+  transition:transform .25s ease;
+}
+.case-footer-project:hover strong{
+  color:var(--accent);
+}
+.case-footer-project:hover>svg{
+  transform:translate(3px,-3px);
+}
+@media(max-width:760px){
+  .case-footer{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .case-footer-nav{
+    display:grid;
+    gap:18px;
+  }
+  .case-footer-center{
+    order:initial;
+    text-align:left;
+  }
+  .case-footer-next{
+    order:initial;
+  }
+  .case-footer-project strong{
+    white-space:normal;
+  }
+  .case-footer-cta{
+    justify-self:stretch;
+  }
+}
