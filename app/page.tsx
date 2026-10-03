@@ -73,7 +73,8 @@ const projects = [
     href: "/work/reputation-feedback",
     visual: "capstone",
     status: "Completed capstone",
-
+  },
+];
 
 const services = [
   { icon: Globe2, number: "01", title: "FULL-STACK DEVELOPMENT", text: "Websites and applications that connect a strong interface to the data, APIs and logic underneath.", tags: ["Next.js", "TypeScript", "React", "Supabase"] },
