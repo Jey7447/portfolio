@@ -19,7 +19,7 @@ type WorkflowNode = {
   description: string;
 };
 
-type WorkflowNodes = Record<"orchestrator" | "sms" | "feedback" | "authentication" | "ballot", WorkflowNode[]>;
+type WorkflowNodes = Record<"orchestrator" | "sms" | "feedback" | "authentication" | "ballot" | "feedbackIntelligence" | "responseDelivery" | "requestOrchestrator", WorkflowNode[]>;
 
 type WorkflowKey = keyof WorkflowNodes;
 
@@ -34,6 +34,9 @@ const workflowMeta: Record<WorkflowKey, { title: string; image: string }> = {
   feedback: { title: "Patient feedback notifications", image: "/careplus/careplus-feedback.webp" },
   authentication: { title: "Voter authentication workflow", image: "/dmda/authentication-workflow.webp.png" },
   ballot: { title: "Ballot retrieval workflow", image: "/dmda/get-ballot-workflow.webp.png" },
+  feedbackIntelligence: { title: "Feedback intelligence and routing", image: "/capstone/05-feedback-intelligence-and-routing-workflow.png" },
+  responseDelivery: { title: "Approved response delivery", image: "/capstone/04-approved-response-delivery-workflow.png" },
+  requestOrchestrator: { title: "Feedback request orchestrator", image: "/capstone/06-feedback-request-orchestrator-workflow.png" },
 };
 
 export default function CaseStudyInteractive({ evidence, workflowNodes }: Props) {
@@ -75,7 +78,10 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
       key === "sms" ? "sms-tracker" :
       key === "feedback" ? "feedback" :
       key === "authentication" ? "authentication-workflow" :
-      "get-ballot-workflow"
+      key === "ballot" ? "get-ballot-workflow" :
+      key === "feedbackIntelligence" ? "feedback-intelligence-and-routing-workflow" :
+      key === "responseDelivery" ? "approved-response-delivery-workflow" :
+      "feedback-request-orchestrator-workflow"
     ));
 
     if (workflow && workflowNodes?.[workflow]) {
@@ -104,9 +110,12 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
               workflowNodes && (
                 (item.src.includes("orchestrator") && workflowNodes.orchestrator) ||
                 (item.src.includes("sms-tracker") && workflowNodes.sms) ||
-                (item.src.includes("feedback") && workflowNodes.feedback) ||
+                (item.src.includes("feedback") && !item.src.includes("feedback-intelligence-and-routing-workflow") && workflowNodes.feedback) ||
                 (item.src.includes("authentication-workflow") && workflowNodes.authentication) ||
-                (item.src.includes("get-ballot-workflow") && workflowNodes.ballot)
+                (item.src.includes("get-ballot-workflow") && workflowNodes.ballot) ||
+                (item.src.includes("feedback-intelligence-and-routing-workflow") && workflowNodes.feedbackIntelligence) ||
+                (item.src.includes("approved-response-delivery-workflow") && workflowNodes.responseDelivery) ||
+                (item.src.includes("feedback-request-orchestrator-workflow") && workflowNodes.requestOrchestrator)
               )
             );
             return (
