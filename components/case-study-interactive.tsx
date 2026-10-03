@@ -36,7 +36,7 @@ const workflowMeta: Record<WorkflowKey, { title: string; image: string }> = {
   ballot: { title: "Ballot retrieval workflow", image: "/dmda/get-ballot-workflow.webp.png" },
   feedbackIntelligence: { title: "Feedback intelligence and routing", image: "/capstone/05-feedback-intelligence-and-routing-workflow.png" },
   responseDelivery: { title: "Approved response delivery", image: "/capstone/04-approved-response-delivery-workflow.png" },
-  requestOrchestrator: { title: "Feedback request orchestrator", image: "/capstone/06-feedback-request-orchestrator-workflow.png" },
+  requestOrchestrator: { title: "Feedback request orchestrator", image: "/capstone/06-feedback-request-orchestrator.png" },
 };
 
 export default function CaseStudyInteractive({ evidence, workflowNodes }: Props) {
@@ -81,7 +81,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
       key === "ballot" ? "get-ballot-workflow" :
       key === "feedbackIntelligence" ? "feedback-intelligence-and-routing-workflow" :
       key === "responseDelivery" ? "approved-response-delivery-workflow" :
-      "feedback-request-orchestrator-workflow"
+      "feedback-request-orchestrator"
     ));
 
     if (workflow && workflowNodes?.[workflow]) {
@@ -115,7 +115,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
                 (item.src.includes("get-ballot-workflow") && workflowNodes.ballot) ||
                 (item.src.includes("feedback-intelligence-and-routing-workflow") && workflowNodes.feedbackIntelligence) ||
                 (item.src.includes("approved-response-delivery-workflow") && workflowNodes.responseDelivery) ||
-                (item.src.includes("feedback-request-orchestrator-workflow") && workflowNodes.requestOrchestrator)
+                (item.src.includes("feedback-request-orchestrator") && workflowNodes.requestOrchestrator)
               )
             );
             return (
