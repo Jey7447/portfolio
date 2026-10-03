@@ -64,7 +64,16 @@ const projects = [
     visual: "productforge",
     status: "System case study",
   },
-];
+  {
+    number: "05",
+    title: "Reputation & Feedback Intelligence Engine",
+    type: "AI · Automation · Operations",
+    description: "A feedback intelligence system that analyzes customer feedback, routes issues and gives managers a structured review workflow.",
+    stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "AI"],
+    href: "/work/reputation-feedback",
+    visual: "capstone",
+    status: "Completed capstone",
+
 
 const services = [
   { icon: Globe2, number: "01", title: "FULL-STACK DEVELOPMENT", text: "Websites and applications that connect a strong interface to the data, APIs and logic underneath.", tags: ["Next.js", "TypeScript", "React", "Supabase"] },
@@ -129,6 +138,17 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
           <div className="home-ai-node">OUTPUT</div>
         </div>
       )}
+      {project.visual === "capstone" && (
+        <div className="home-feedback-flow">
+          <div className="home-feedback-node"><span>01</span><b>FEEDBACK</b><small>COLLECT</small></div>
+          <ArrowRight className="home-feedback-arrow" size={16} />
+          <div className="home-feedback-node featured"><span>02</span><b>AI ANALYSIS</b><small>SENTIMENT · SEVERITY</small></div>
+          <ArrowRight className="home-feedback-arrow" size={16} />
+          <div className="home-feedback-node"><span>03</span><b>ROUTING</b><small>HISTORY · ALERTS</small></div>
+          <ArrowRight className="home-feedback-arrow" size={16} />
+          <div className="home-feedback-node"><span>04</span><b>REVIEW</b><small>RESPONSE DRAFT</small></div>
+        </div>
+      )}
     </div>
   );
 }
@@ -189,10 +209,10 @@ export default function Home() {
       <div className="home-marquee" aria-label="Software, automation, systems"><div className="home-marquee-track"><div className="home-marquee-group">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div><div className="home-marquee-group" aria-hidden="true">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div></div></div>
 
       <section id="work" className="home-section wrap">
-        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 04</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
+        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 05</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
         <div className="home-projects">
           {projects.map((project, i) => (
-            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
+            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : i === 4 ? "home-project-capstone" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
               <div className="home-project-head"><span>{project.number} / {project.type}</span><span>{project.status}</span></div>
               <ProjectVisual project={project} />
               <div className="home-project-info"><div><h3>{project.title}</h3><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
