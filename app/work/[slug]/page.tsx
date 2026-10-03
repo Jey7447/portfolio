@@ -129,6 +129,34 @@ const cases = {
       { src: "/bakery/06-new-order-automation.png", label: "AUTOMATION", title: "New order workflow", text: "An n8n workflow receives a new order, prepares the data, records it in Google Sheets and sends confirmation messages." }
     ]
   }
+  reputation: {
+    number: "05",
+    type: "AI · Automation · Operations",
+    title: "Reputation & Feedback Intelligence Engine",
+    intro: "A multi-location feedback intelligence system that turns customer feedback into structured analysis, routing, alerts and human-reviewed response workflows.",
+    brief: {
+      problem: "Customer feedback is useful only when the team can understand it and act on it. Raw comments and ratings can quickly become difficult to review when feedback comes from multiple locations and needs to be assessed for sentiment, severity and follow-up. The capstone focused on creating a central system that could take incoming feedback, add structured AI analysis, consider previous negative feedback when deciding how to route an issue, and give managers a clear place to review what needs attention.",
+      solution: "I built the project as a connected feedback intelligence workflow rather than a standalone dashboard. Feedback is stored in Supabase/PostgreSQL, analyzed for sentiment, severity and confidence, then routed according to the resulting context and feedback history. Higher-risk cases can create manager alerts, while the system can prepare response drafts for human review. The dashboard brings those records together so managers can see feedback, alerts, analysis and response-review state from one operational view."
+    },
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "n8n", "AI"],
+    repo: "https://github.com/Jey7447/reputation-feedback-dashboard",
+    problem: "The system needed to turn raw customer feedback into structured intelligence that could be reviewed, routed and acted on across multiple locations without losing the original record or the history behind a repeated issue.",
+    problemHeading: "Turn feedback into something the team can act on.",
+    builtHeading: "Connect analysis, routing and human review.",
+    built: [
+      "A protected manager dashboard for reviewing feedback and operational alerts",
+      "Structured feedback records tied back to visits, customers and locations",
+      "AI-assisted sentiment, severity and confidence analysis stored with the feedback",
+      "History-aware routing that can recognise repeated negative feedback instead of treating each submission in isolation",
+      "Manager alerts for higher-severity cases and a clear alert lifecycle",
+      "AI-generated response drafts that remain in human review before they are treated as final responses"
+    ],
+    architecture: ["Customer feedback", "AI analysis", "History & routing", "Alerts / response draft", "Manager review"],
+    architectureLabels: ["INPUT", "INTELLIGENCE", "CONTEXT", "ACTION", "HUMAN"],
+    note: "This is a completed TS Academy capstone project. The case study describes the implemented workflow and tested application behavior without inventing customer outcomes or production-scale performance claims.",
+    evidence: []
+  },
+
 } as const;
 
 type CaseKey = keyof typeof cases;
@@ -178,6 +206,13 @@ export default async function CaseStudyPage({
       "The important details are organised into a clear structure so the idea has enough context to work with.",
       "The AI uses that context to turn the starting idea into a more organised and useful product output.",
       "The result is returned through the web interface so the person can review and continue working from it."
+    ],
+    reputation: [
+      "A customer feedback submission is stored with the location and visit context needed to understand where the issue came from.",
+      "The analysis workflow adds structured sentiment, severity and confidence information so the feedback can be interpreted consistently.",
+      "Previous feedback history can be considered when routing repeated negative issues instead of treating every submission as an isolated event.",
+      "Higher-severity cases can create manager alerts while the response workflow prepares a draft for human review.",
+      "Managers use the dashboard to review feedback, alerts and response status from one operational view."
     ]
   };
 
@@ -304,7 +339,18 @@ export default async function CaseStudyPage({
                       { id: "ballot-return", label: "Return Ballot", x: 75, y: 54, description: "Sends the correct ballot back to the voter so they can review and make their selections." }
                     ]
                   }
-                : undefined
+                : slug === "reputation"
+                  ? {
+                      intelligence: [
+                        { id: "feedback-received", label: "Feedback Received", x: 14, y: 54, description: "A new feedback record enters the system with the customer, visit and location context needed for processing." },
+                        { id: "ai-analysis", label: "AI Sentiment / Severity Analysis", x: 33, y: 54, description: "The analysis workflow adds structured sentiment, severity and confidence information to the feedback record." },
+                        { id: "history-check", label: "Check Feedback History", x: 51, y: 54, description: "Previous feedback can be checked so repeated negative issues are understood in context." },
+                        { id: "route-feedback", label: "Route Feedback", x: 68, y: 54, description: "The workflow assigns the feedback to the appropriate routing path based on its analysis and context." },
+                        { id: "alert-or-draft", label: "Alert / Response Draft", x: 85, y: 30, description: "Higher-severity cases can create an alert while the response workflow prepares a draft for manager review." },
+                        { id: "manager-review", label: "Manager Review", x: 85, y: 78, description: "Managers review the feedback, alert state and response draft before deciding the next action." }
+                      ]
+                    }
+                  : undefined
           }
         />
       )}
