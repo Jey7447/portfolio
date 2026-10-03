@@ -36,7 +36,7 @@ const workflowMeta: Record<WorkflowKey, { title: string; image: string }> = {
   ballot: { title: "Ballot retrieval workflow", image: "/dmda/get-ballot-workflow.webp.png" },
   feedbackIntelligence: { title: "Feedback intelligence and routing", image: "/capstone/05-feedback-intelligence-and-routing-workflow.png" },
   responseDelivery: { title: "Approved response delivery", image: "/capstone/04-approved-response-delivery-workflow.png" },
-  requestOrchestrator: { title: "Feedback request orchestrator", image: "/capstone/06-feedback-request-orchestrator.png" },
+  requestOrchestrator: { title: "Feedback request orchestrator", image: "/capstone/06-feedback-request-orchestrator-workflow.png" },
 };
 
 export default function CaseStudyInteractive({ evidence, workflowNodes }: Props) {
