@@ -154,7 +154,11 @@ const cases = {
     architecture: ["Customer feedback", "AI analysis", "History & routing", "Alerts / response draft", "Manager review"],
     architectureLabels: ["INPUT", "INTELLIGENCE", "CONTEXT", "ACTION", "HUMAN"],
     note: "This is a completed TS Academy capstone project. The case study describes the implemented workflow and tested application behavior without inventing customer outcomes or production-scale performance claims.",
-    evidence: []
+    evidence: [
+      { src: "/capstone/reputation-dashboard.webp", label: "COMMAND CENTER", title: "Reputation Command Center", text: "A manager-facing dashboard that brings feedback volume, sentiment, routing state and open work into one operational view." },
+      { src: "/capstone/feedback-intelligence-routing.webp", label: "AI + ROUTING", title: "Feedback intelligence and routing", text: "The n8n workflow receives feedback, runs AI analysis, checks confidence and history, then routes the case toward review, alerts or response handling." },
+      { src: "/capstone/manager-alert.webp", label: "ESCALATION", title: "Manager alert detail", text: "A high-severity feedback case is surfaced with its analysis, routing context, response state and resolution history." }
+    ]
   },
 } as const;
 
