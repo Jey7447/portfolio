@@ -2808,3 +2808,105 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   .home-feedback-node b{font-size:9px}
   .home-feedback-node small{font-size:7px}
 }
+
+
+/* Homepage Phase 2 — sharpen the first-screen conversion path. */
+.home-hero-proof{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  margin-top:38px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  width:min(620px,100%);
+}
+.home-hero-proof>div{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 14px 13px 0;
+}
+.home-hero-proof>div+div{
+  border-left:1px solid var(--line);
+  padding-left:14px;
+}
+.home-hero-proof strong{
+  color:var(--paper);
+  font:600 21px/1 monospace;
+  letter-spacing:-.04em;
+}
+.home-hero-proof span{
+  color:var(--soft);
+  font:8px/1.3 monospace;
+  letter-spacing:.09em;
+}
+.home-hero-note-link{
+  margin-top:18px;
+  padding-top:13px;
+  border-top:1px solid var(--line);
+}
+.home-hero-note-link a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--paper);
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:.04em;
+}
+.home-hero-note-link a:hover{
+  color:var(--accent);
+}
+.home-hero-note-link svg{
+  transition:transform .25s ease;
+}
+.home-hero-note-link a:hover svg{
+  transform:translateX(3px);
+}
+.home-button{
+  position:relative;
+  overflow:hidden;
+}
+.home-button:after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:30%;
+  height:2px;
+  background:var(--accent);
+  transition:width .35s ease;
+}
+.home-button:hover:after{
+  width:100%;
+}
+@media(max-width:900px){
+  .home-hero-proof{
+    width:100%;
+    max-width:620px;
+  }
+}
+@media(max-width:760px){
+  .home-hero-proof{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    margin-top:30px;
+  }
+  .home-hero-proof>div{
+    display:block;
+    padding:11px 9px 11px 0;
+  }
+  .home-hero-proof>div+div{
+    padding-left:9px;
+  }
+  .home-hero-proof strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:7px;
+  }
+  .home-hero-proof span{
+    font-size:7px;
+  }
+}
