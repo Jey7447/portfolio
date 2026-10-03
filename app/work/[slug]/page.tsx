@@ -156,7 +156,12 @@ const cases = {
     note: "This is a completed TS Academy capstone project. The case study describes the implemented workflow and tested application behavior without inventing customer outcomes or production-scale performance claims.",
     evidence: [
       { src: "/capstone/01-reputation-command-center.png", label: "COMMAND CENTER", title: "Reputation Command Center", text: "A manager-facing dashboard that brings feedback volume, sentiment, routing state and open work into one operational view." },
+      { src: "/capstone/02-feedback-records.png", label: "FEEDBACK RECORDS", title: "Feedback records and AI analysis", text: "Feedback submissions are shown with ratings, sentiment, severity, confidence and routing state so each case can be reviewed with its analysis attached." },
+      { src: "/capstone/03-response-draft-and-approval.png", label: "RESPONSE REVIEW", title: "AI response draft and approval", text: "A generated response moves through human review before approval and delivery, keeping the final customer response under manager control." },
+      { src: "/capstone/04-approved-response-delivery-workflow.png", label: "DELIVERY AUTOMATION", title: "Approved response delivery", text: "The approved response workflow retrieves the reviewed response, sends it through the outbound channel and records the delivery state." },
       { src: "/capstone/05-feedback-intelligence-and-routing-workflow.png", label: "AI + ROUTING", title: "Feedback intelligence and routing", text: "The n8n workflow receives feedback, runs AI analysis, checks confidence and history, then routes the case toward review, alerts or response handling." },
+      { src: "/capstone/06-feedback-request-orchestrator.png", label: "REQUEST ORCHESTRATION", title: "Feedback request orchestrator", text: "The request workflow prepares the feedback link, retrieves customer details, sends the request and records that the notification was sent." },
+      { src: "/capstone/07-latest-feedback-and-manager-alerts.png", label: "OPERATIONS", title: "Latest feedback and manager alerts", text: "The operational view brings recent feedback, routing states and manager alert activity together for follow-up." },
       { src: "/capstone/08-manager-alert-detail.png", label: "ESCALATION", title: "Manager alert detail", text: "A high-severity feedback case is surfaced with its analysis, routing context, response state and resolution history." }
     ]
   },
@@ -329,7 +334,35 @@ export default async function CaseStudyPage({
                     { id: "mark-undelivered", label: "Mark Patient Notification Undelivered", x: 72, y: 84, description: "Records the undelivered status so the team can see what happened to the message." }
                   ]
                 }
-              : slug === "dmda"
+              : slug === "reputation"
+                ? {
+                    feedbackIntelligence: [
+                      { id: "feedback-webhook", label: "Feedback Submitted", x: 10, y: 52, description: "Receives the submitted feedback and starts the intelligence workflow." },
+                      { id: "prepare-feedback", label: "Recover / Prepare Feedback", x: 19, y: 52, description: "Loads the feedback context needed for analysis and downstream routing." },
+                      { id: "claim-feedback", label: "Claim Feedback for Processing", x: 29, y: 52, description: "Claims the record so the same feedback is not processed repeatedly." },
+                      { id: "analyze-feedback", label: "Analyze Feedback with AI", x: 40, y: 52, description: "Generates sentiment, severity, confidence and supporting analysis from the submitted feedback." },
+                      { id: "parse-analysis", label: "Parse AI Analysis", x: 50, y: 52, description: "Converts the model response into structured fields the workflow and database can use." },
+                      { id: "update-analysis", label: "Update Feedback Analysis", x: 60, y: 52, description: "Stores the AI analysis alongside the original feedback record." },
+                      { id: "confidence-check", label: "Check Analysis Confidence", x: 69, y: 52, description: "Checks whether the analysis meets the confidence threshold before automated routing continues." },
+                      { id: "history-check", label: "Check Negative History", x: 79, y: 34, description: "Checks prior feedback history to identify repeated negative issues instead of treating each submission in isolation." },
+                      { id: "severity-route", label: "High Severity / Manager Alert", x: 79, y: 69, description: "Routes higher-severity cases toward manager attention and escalation handling." },
+                      { id: "response-route", label: "Response Draft / Human Review", x: 91, y: 52, description: "Moves eligible cases toward response drafting and human review." }
+                    ],
+                    responseDelivery: [
+                      { id: "approved-webhook", label: "Response Approved", x: 22, y: 54, description: "Starts delivery when a manager approves a response for sending." },
+                      { id: "get-response", label: "Get Approved Response", x: 50, y: 54, description: "Retrieves the approved response and its delivery details from PostgreSQL." },
+                      { id: "send-response", label: "Send Approved Response", x: 72, y: 54, description: "Sends the approved customer response through the configured outbound channel." },
+                      { id: "mark-sent", label: "Mark Response Sent", x: 88, y: 54, description: "Records the response as sent so the workflow has a traceable delivery state." }
+                    ],
+                    requestOrchestrator: [
+                      { id: "request-webhook", label: "Feedback Request Created", x: 20, y: 54, description: "Starts the workflow when a feedback request record is created." },
+                      { id: "build-link", label: "Build Feedback Link", x: 38, y: 54, description: "Builds the customer-facing feedback link associated with the request." },
+                      { id: "customer-details", label: "Get Customer Details", x: 55, y: 54, description: "Retrieves the customer information needed to address and personalize the outgoing message." },
+                      { id: "send-request", label: "Send Feedback Request", x: 73, y: 54, description: "Sends the feedback request through the configured communication channel." },
+                      { id: "mark-request-sent", label: "Mark Feedback Request Sent", x: 90, y: 54, description: "Records that the feedback request was sent and keeps the workflow state traceable." }
+                    ]
+                  }
+                : slug === "dmda"
                 ? {
                     authentication: [
                       { id: "auth-webhook", label: "Voter Authentication Webhook", x: 25, y: 54, description: "Receives the voter's one-time code and starts the access check." },
