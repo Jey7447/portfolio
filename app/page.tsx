@@ -71,6 +71,7 @@ const projects = [
     description: "A feedback intelligence system that analyzes customer feedback, routes issues and gives managers a structured review workflow.",
     stack: ["Next.js", "Supabase", "PostgreSQL", "n8n", "AI"],
     href: "/work/reputation-feedback",
+    image: "/capstone/reputation-dashboard.webp",
     visual: "capstone",
     status: "Completed capstone",
   },
