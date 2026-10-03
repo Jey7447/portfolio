@@ -192,12 +192,17 @@ export default function Home() {
         <div className="home-hero-topline"><span><i className="home-status-dot" /> AVAILABLE FOR SELECTED PROJECTS</span><span>PORTFOLIO / 2026</span></div>
         <div className="home-hero-grid">
           <div className="home-hero-copy">
-            <motion.p className="home-hero-intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>Jesse Briska · Software · Automation · Systems</motion.p>
+            <motion.p className="home-hero-intro" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>Jesse Briska · Full-stack developer · AI automation · Systems</motion.p>
             <motion.h1 initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}>I build<br /><em>digital systems</em><br />that work.</motion.h1>
-            <div className="home-hero-actions"><a className="home-button" href="#work">View selected work <ArrowDown size={16} /></a><a className="home-textlink" href="#contact">Let&apos;s talk <ArrowUpRight size={16} /></a></div>
+            <div className="home-hero-actions"><a className="home-button" href="#work">Explore selected work <ArrowDown size={16} /></a><a className="home-textlink" href="#contact">Start a project <ArrowUpRight size={16} /></a></div>
+            <div className="home-hero-proof" aria-label="Portfolio proof points">
+              <div><strong>05</strong><span>SELECTED<br />SYSTEMS</span></div>
+              <div><strong>08</strong><span>CAPSTONE<br />EVIDENCE VIEWS</span></div>
+              <div><strong>03</strong><span>CORE<br />DISCIPLINES</span></div>
+            </div>
           </div>
           <div className="home-hero-aside">
-            <div className="home-hero-note"><span>WHAT I DO</span><p>Full-stack development, AI automation and backend systems for people and businesses that need useful software — not just a pretty screen.</p></div>
+            <div className="home-hero-note"><span>WHAT I DO</span><p>Full-stack development, AI automation and backend systems for people and businesses that need useful software — not just a pretty screen.</p><div className="home-hero-note-link"><a href="#services">See capabilities <ArrowRight size={13} /></a></div></div>
             <div className="home-hero-diagram">
               <div className="home-diagram-label">SYSTEM / 001</div><div className="home-diagram-line" />
               <div className="home-diagram-node main">BUILD</div><div className="home-diagram-branch branch-a">AUTOMATE</div><div className="home-diagram-branch branch-b">CONNECT</div><div className="home-diagram-branch branch-c">SHIP</div>
