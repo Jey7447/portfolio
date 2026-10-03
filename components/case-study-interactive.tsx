@@ -95,7 +95,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
 
   return (
     <>
-      <section className="case-evidence case-wrap" aria-label="Visual evidence">
+      <section id="visual-evidence" className="case-evidence case-wrap" aria-label="Visual evidence">
         <div className="evidence-head">
           <div>
             <span className="kicker">VISUAL EVIDENCE</span>
