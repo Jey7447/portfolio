@@ -334,7 +334,7 @@ export default async function CaseStudyPage({
                     { id: "mark-undelivered", label: "Mark Patient Notification Undelivered", x: 72, y: 84, description: "Records the undelivered status so the team can see what happened to the message." }
                   ]
                 }
-              : slug === "reputation"
+              : slug === "reputation-feedback"
                 ? {
                     feedbackIntelligence: [
                       { id: "feedback-webhook", label: "Feedback Submitted", x: 10, y: 52, description: "Receives the submitted feedback and starts the intelligence workflow." },
@@ -423,8 +423,24 @@ export default async function CaseStudyPage({
       </section>
 
       <footer className="case-footer case-wrap">
-        <Link href="/"><ArrowLeft size={15} /> Back to homepage</Link>
-        <div className="case-footer-center">Jesse Briska · Software · Automation · Systems</div>
+        <div className="case-footer-nav">
+          <Link href="/"><ArrowLeft size={15} /> Back to homepage</Link>
+          <div className="case-footer-center">Jesse Briska · Software · Automation · Systems</div>
+        </div>
+        <div className="case-footer-next">
+          {(() => {
+            const order = ["careplus", "dmda", "bakery", "productforge", "reputation-feedback"] as const;
+            const index = order.indexOf(slug as (typeof order)[number]);
+            const nextSlug = order[(index + 1) % order.length];
+            const nextProject = cases[nextSlug];
+            return (
+              <Link href={`/work/${nextSlug}`} className="case-footer-project">
+                <span><small>NEXT CASE STUDY</small><strong>{nextProject.number} / {nextProject.title}</strong></span>
+                <ArrowUpRight size={17} />
+              </Link>
+            );
+          })()}
+        </div>
         <Link href="/#contact" className="case-footer-cta">Start a project <ArrowUpRight size={15} /></Link>
       </footer>
     </main>
