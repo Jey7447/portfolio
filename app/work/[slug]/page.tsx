@@ -128,8 +128,7 @@ const cases = {
       { src: "/bakery/05-dashboard.png", label: "OPERATIONS", title: "Order management dashboard", text: "The internal workspace gives Brenda a single place to review orders, search, filter, track payment and update order status." },
       { src: "/bakery/06-new-order-automation.png", label: "AUTOMATION", title: "New order workflow", text: "An n8n workflow receives a new order, prepares the data, records it in Google Sheets and sends confirmation messages." }
     ]
-  }
-
+  },
   reputation: {
     number: "05",
     type: "AI · Automation · Operations",
