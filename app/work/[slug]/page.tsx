@@ -241,22 +241,30 @@ export default async function CaseStudyPage({
         <div className="case-hero-content">
           <span className="kicker">{project.number} / {project.type}</span>
           <h1>{project.title}</h1>
-        <p>{project.intro}</p>
-        <div className="case-actions">
-          {project.repo ? (
-            <a href={project.repo} className="case-button">
-              Repository <ArrowUpRight size={16} />
-            </a>
-          ) : (
-            <span className="case-private">Private repository</span>
-          )}
-          {"live" in project && project.live && (
-            <a href={project.live} className="case-button" target="_blank" rel="noreferrer">
-              Live demo <ArrowUpRight size={16} />
-            </a>
-          )}
-          <Link href="/#contact" className="case-textlink">Discuss a project <ArrowUpRight size={16} /></Link>
-        </div>
+          <p>{project.intro}</p>
+          <div className="case-hero-meta" aria-label="Project facts">
+            <div><span>STACK</span><strong>{project.stack.slice(0, 4).join(" · ")}{project.stack.length > 4 ? " · +" + (project.stack.length - 4) : ""}</strong></div>
+            <div><span>EVIDENCE</span><strong>{"evidence" in project && project.evidence ? project.evidence.length + " views" : "Implementation"}</strong></div>
+            <div><span>CASE</span><strong>{project.number} / 05</strong></div>
+          </div>
+          <div className="case-actions">
+            {project.repo ? (
+              <a href={project.repo} className="case-button" target="_blank" rel="noreferrer">
+                Repository <ArrowUpRight size={16} />
+              </a>
+            ) : (
+              <span className="case-private">Private repository</span>
+            )}
+            {"live" in project && project.live && (
+              <a href={project.live} className="case-button" target="_blank" rel="noreferrer">
+                Live demo <ArrowUpRight size={16} />
+              </a>
+            )}
+            {"evidence" in project && project.evidence && project.evidence.length > 0 && (
+              <a href="#visual-evidence" className="case-textlink">Inspect evidence <ArrowUpRight size={16} /></a>
+            )}
+            <Link href="/#contact" className="case-textlink">Discuss a project <ArrowUpRight size={16} /></Link>
+          </div>
         </div>
       </header>
 
