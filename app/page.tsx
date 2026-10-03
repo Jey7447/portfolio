@@ -102,7 +102,7 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
     return (
       <div className="home-project-image">
-        <Image src={project.image} alt={`${project.title} interface preview`} fill sizes="(max-width: 760px) 100vw, (max-width: 1200px) 92vw, 1180px" priority={project.number === "01"} unoptimized />
+        <img src={project.image} alt={`${project.title} interface preview`} loading={project.number === "01" ? "eager" : "lazy"} decoding="async" />
         <div className="home-project-image-overlay" />
         <a className="home-project-case-link" href={project.href} aria-label={`View ${project.title} case study`}>
           View case study <ArrowUpRight size={16} />
