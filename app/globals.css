@@ -2738,7 +2738,8 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
 
 /* Capstone project visual */
 .home-project-capstone{grid-column:1 / -1}
-.home-project-capstone .home-system-visual{height:min(42vw,460px);min-height:340px}
+.home-project-capstone .home-system-visual,
+.home-project-capstone .home-project-image{height:min(42vw,460px);min-height:340px}
 .home-feedback-flow{
   position:absolute;
   left:50%;
@@ -2790,7 +2791,8 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
   transform:translateY(-3px);
 }
 @media(max-width:760px){
-  .home-project-capstone .home-system-visual{height:360px;min-height:0}
+  .home-project-capstone .home-system-visual,
+ .home-project-capstone .home-project-image{height:360px;min-height:0}
   .home-feedback-flow{
     width:78%;
     grid-template-columns:1fr;
