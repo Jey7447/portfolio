@@ -129,7 +129,7 @@ const cases = {
       { src: "/bakery/06-new-order-automation.png", label: "AUTOMATION", title: "New order workflow", text: "An n8n workflow receives a new order, prepares the data, records it in Google Sheets and sends confirmation messages." }
     ]
   },
-  reputation: {
+  "reputation-feedback": {
     number: "05",
     type: "AI · Automation · Operations",
     title: "Reputation & Feedback Intelligence Engine",
@@ -210,7 +210,7 @@ export default async function CaseStudyPage({
       "The AI uses that context to turn the starting idea into a more organised and useful product output.",
       "The result is returned through the web interface so the person can review and continue working from it."
     ],
-    reputation: [
+    "reputation-feedback": [
       "A customer feedback submission is stored with the location and visit context needed to understand where the issue came from.",
       "The analysis workflow adds structured sentiment, severity and confidence information so the feedback can be interpreted consistently.",
       "Previous feedback history can be considered when routing repeated negative issues instead of treating every submission as an isolated event.",
