@@ -178,6 +178,9 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
           <div className="home-feedback-node"><span>04</span><b>REVIEW</b><small>RESPONSE DRAFT</small></div>
         </div>
       )}
+      <a className="home-system-case-link" href={project.href} aria-label={`Open ${project.title} case study`}>
+        <span>OPEN CASE STUDY</span><ArrowUpRight size={15} />
+      </a>
     </div>
   );
 }
@@ -316,7 +319,7 @@ export default function Home() {
             <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : i === 4 ? "home-project-capstone" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
               <div className="home-project-head"><span>{project.number} / {project.type}</span><span>{project.status}</span></div>
               <ProjectVisual project={project} />
-              <div className="home-project-info"><div><h3>{project.title}</h3><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
+              <div className="home-project-info"><div><div className="home-project-title-row"><h3>{project.title}</h3><ArrowUpRight className="home-project-title-arrow" size={19} aria-hidden="true" /></div><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
             </motion.article>
           ))}
         </div>
