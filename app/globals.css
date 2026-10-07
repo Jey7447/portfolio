@@ -3850,3 +3850,45 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     gap:9px;
   }
 }
+
+/* Case-study closing transition. */
+.case-footer-topline{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:0 0 18px;
+  margin-bottom:18px;
+  border-bottom:1px solid var(--line);
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.14em;
+}
+.case-footer-topline span:last-child{
+  text-align:right;
+}
+.case-footer-next{
+  position:relative;
+  overflow:hidden;
+}
+.case-footer-project{
+  transition:padding .3s ease,background .3s ease;
+}
+.case-footer-project:hover{
+  padding-left:12px;
+  background:color-mix(in srgb,var(--panel) 70%,transparent);
+}
+.case-footer-cta{
+  transition:transform .25s ease,background .25s ease;
+}
+.case-footer-cta:hover{
+  transform:translateY(-2px);
+}
+@media(max-width:760px){
+  .case-footer-topline{
+    flex-direction:column;
+    gap:7px;
+  }
+  .case-footer-topline span:last-child{
+    text-align:left;
+  }
+}
