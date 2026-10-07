@@ -3056,3 +3056,26 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     padding-right:10px;
   }
 }
+
+
+/* Shared theme control on case-study pages. */
+.case-nav-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.case-nav-actions .theme-toggle{
+  flex:none;
+}
+@media(max-width:760px){
+  .case-nav-actions{
+    gap:8px;
+  }
+  .case-nav-actions .backlink{
+    font-size:0;
+  }
+  .case-nav-actions .backlink svg{
+    width:16px;
+    height:16px;
+  }
+}
