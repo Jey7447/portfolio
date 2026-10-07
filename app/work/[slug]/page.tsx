@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2, Database, GitBranch, Workflow } 
 import CaseStudyInteractive from "@/components/case-study-interactive";
 import CaseHeroSlideshow from "@/components/case-hero-slideshow";
 import InteractiveSystemFlow from "@/components/interactive-system-flow";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const cases = {
   careplus: {
@@ -228,7 +229,10 @@ export default async function CaseStudyPage({
     <main className="case-page">
       <nav className="case-nav">
         <Link href="/" className="brand">J<span>.</span></Link>
-        <Link href="/" className="backlink"><ArrowLeft size={15} /> Back home</Link>
+        <div className="case-nav-actions">
+          <ThemeToggle />
+          <Link href="/" className="backlink"><ArrowLeft size={15} /> Back home</Link>
+        </div>
       </nav>
 
       <header className="case-hero case-wrap">
