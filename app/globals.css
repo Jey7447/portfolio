@@ -3892,3 +3892,55 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     text-align:left;
   }
 }
+
+/* Accessibility and touch-target polish. */
+.theme-toggle,
+.modal-close,
+.evidence-nav,
+.workflow-hotspot,
+.flow-button{
+  -webkit-tap-highlight-color:transparent;
+}
+.theme-toggle:focus-visible,
+.modal-close:focus-visible,
+.evidence-nav:focus-visible,
+.workflow-hotspot:focus-visible,
+.flow-button:focus-visible,
+.evidence-button:focus-visible,
+.case-footer-project:focus-visible,
+.case-progress a:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:4px;
+}
+.workflow-hotspot{
+  min-width:36px;
+  min-height:36px;
+  transform:translate(-50%,-50%);
+}
+.workflow-hotspot span{
+  width:14px;
+  height:14px;
+}
+@media(max-width:760px){
+  .workflow-hotspot{
+    min-width:44px;
+    min-height:44px;
+  }
+  .workflow-hotspot span{
+    width:12px;
+    height:12px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    scroll-behavior:auto!important;
+  }
+  .evidence-card,
+  .evidence-button img,
+  .evidence-expand,
+  .case-progress a:after,
+  .case-footer-project,
+  .case-footer-cta{
+    transition:none!important;
+  }
+}
