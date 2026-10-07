@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { X, Maximize2 } from "lucide-react";
 
 type EvidenceItem = {
@@ -43,12 +43,21 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
   const [activeImage, setActiveImage] = useState<EvidenceItem | null>(null);
   const [activeWorkflow, setActiveWorkflow] = useState<WorkflowKey | null>(null);
   const [activeNode, setActiveNode] = useState<WorkflowNode | null>(null);
+  const [activeEvidenceIndex, setActiveEvidenceIndex] = useState(0);
+  const evidenceGridRef = useRef<HTMLDivElement>(null);
 
   const closeAll = useCallback(() => {
     setActiveImage(null);
     setActiveWorkflow(null);
     setActiveNode(null);
   }, []);
+
+  const openAdjacentEvidence = (direction: -1 | 1) => {
+    if (!evidence.length) return;
+    const next = (activeEvidenceIndex + direction + evidence.length) % evidence.length;
+    setActiveEvidenceIndex(next);
+    setActiveImage(evidence[next]);
+  };
 
   useEffect(() => {
     const locked = Boolean(activeImage || activeWorkflow);
@@ -90,6 +99,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
       return;
     }
 
+    setActiveEvidenceIndex(Math.max(0, evidence.findIndex((entry) => entry.src === item.src)));
     setActiveImage(item);
   };
 
@@ -102,9 +112,10 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
             <h2>A closer look at the work.</h2>
           </div>
           <p>Real views from the project, showing the parts people would actually use and the behind-the-scenes work that helps everything stay connected.</p>
+          <span className="evidence-count">{String(evidence.length).padStart(2, "0")} VIEWS · CLICK ANY FRAME TO EXPLORE</span>
         </div>
 
-        <div className="evidence-grid">
+        <div ref={evidenceGridRef} className="evidence-grid">
           {evidence.map((item, index) => {
             const interactive = Boolean(
               workflowNodes && (
@@ -187,11 +198,16 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
               </div>
             ) : activeImage ? (
               <div className="image-viewer">
-                <Image src={activeImage.src} alt={activeImage.title} width={1600} height={900} />
+                <div className="image-viewer-stage">
+                  <button type="button" className="evidence-nav evidence-nav-prev" onClick={() => openAdjacentEvidence(-1)} aria-label="Previous evidence"><span>←</span></button>
+                  <Image src={activeImage.src} alt={activeImage.title} width={1600} height={900} />
+                  <button type="button" className="evidence-nav evidence-nav-next" onClick={() => openAdjacentEvidence(1)} aria-label="Next evidence"><span>→</span></button>
+                </div>
                 <div className="image-viewer-caption">
                   <span className="kicker">{activeImage.label}</span>
                   <h3>{activeImage.title}</h3>
                   <p>{activeImage.text}</p>
+                  <span className="image-viewer-index">{String(activeEvidenceIndex + 1).padStart(2, "0")} / {String(evidence.length).padStart(2, "0")}</span>
                 </div>
               </div>
             ) : null}
