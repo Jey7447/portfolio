@@ -305,10 +305,10 @@ export default async function CaseStudyPage({
             <span className="kicker">SYSTEM MAP</span>
             <span>{project.number} / {slug.toUpperCase()}</span>
           </div>
-          <div className="architecture-flow">
+          <div className="architecture-flow" role="list" aria-label="System architecture stages">
             {project.architecture.map((item, index) => (
-              <div className="architecture-node-wrap" key={item}>
-                <div className="architecture-node">
+              <div className="architecture-node-wrap" key={item} role="listitem">
+                <div className="architecture-node" tabIndex={0} title={flowDescriptions[slug as CaseKey]?.[index] ?? item}>
                   <span>0{index + 1}</span>
                   <strong>{item}</strong>
                   <small>{project.architectureLabels[index]}</small>
@@ -317,7 +317,7 @@ export default async function CaseStudyPage({
               </div>
             ))}
           </div>
-          <div className="architecture-status"><CheckCircle2 size={14} /> Architecture mapped from the project implementation</div>
+          <div className="architecture-status"><span className="architecture-live-dot" /> <CheckCircle2 size={14} /> Architecture mapped from the project implementation</div>
         </div>
       </section>
 
