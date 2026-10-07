@@ -98,6 +98,33 @@ const stackGroups = [
   ["AI", "LLM workflows · AI-assisted product features"],
 ];
 
+const systemLayers = [
+  {
+    number: "01",
+    title: "INTERFACE",
+    text: "The visible layer: responsive screens, forms, dashboards and interactions designed around what the user actually needs to do.",
+    tags: ["React", "Next.js", "TypeScript"],
+  },
+  {
+    number: "02",
+    title: "DATA",
+    text: "The source of truth underneath: records, authentication, relationships and application logic that keep the product coherent.",
+    tags: ["Supabase", "PostgreSQL", "SQL"],
+  },
+  {
+    number: "03",
+    title: "AUTOMATION",
+    text: "The connective layer: webhooks, APIs and workflows that move information between services and trigger the next action.",
+    tags: ["n8n", "APIs", "Webhooks"],
+  },
+  {
+    number: "04",
+    title: "OUTCOME",
+    text: "The reason the system exists: less manual work, clearer operations and a product that behaves like one connected thing.",
+    tags: ["Reliable", "Traceable", "Useful"],
+  },
+];
+
 function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
   if (project.image) {
     return (
@@ -158,6 +185,22 @@ function ProjectVisual({ project }: { project: (typeof projects)[number] }) {
 export default function Home() {
   const [menu, setMenu] = useState(false);
   const [activeService, setActiveService] = useState(0);
+  const [activeLayer, setActiveLayer] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+    return () => {
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
+    };
+  }, []);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -176,9 +219,10 @@ export default function Home() {
   return (
     <main className="home-page">
       <div className="noise" />
+      <div className="home-scroll-progress" aria-hidden="true"><span style={{ width: (scrollProgress + "%") }} /></div>
       <nav className="nav home-nav">
         <a href="#top" className="brand" aria-label="Jesse Briska home">J<span>.</span></a>
-        <div className="navlinks"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+        <div className="navlinks"><a href="#work">Work</a><a href="#system">System</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
         <div className="nav-actions">
           <ThemeToggle />
           <a href="#contact" className="navcta">Let&apos;s talk <ArrowUpRight size={15} /></a>
@@ -186,7 +230,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {menu && <div id="mobile-navigation" className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#faq" onClick={() => setMenu(false)}>FAQ</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
+      {menu && <div id="mobile-navigation" className="mobilemenu home-mobilemenu"><a href="#work" onClick={() => setMenu(false)}>Work</a><a href="#system" onClick={() => setMenu(false)}>System</a><a href="#services" onClick={() => setMenu(false)}>Services</a><a href="#about" onClick={() => setMenu(false)}>About</a><a href="#process" onClick={() => setMenu(false)}>Process</a><a href="#faq" onClick={() => setMenu(false)}>FAQ</a><a href="#contact" onClick={() => setMenu(false)}>Contact</a></div>}
 
       <section id="top" className="home-hero wrap">
         <div className="home-hero-topline"><span><i className="home-status-dot" /> AVAILABLE FOR SELECTED PROJECTS</span><span>PORTFOLIO / 2026</span></div>
@@ -214,6 +258,56 @@ export default function Home() {
       </section>
 
       <div className="home-marquee" aria-label="Software, automation, systems"><div className="home-marquee-track"><div className="home-marquee-group">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div><div className="home-marquee-group" aria-hidden="true">SOFTWARE <span>✦</span> AUTOMATION <span>✦</span> SYSTEMS <span>✦</span></div></div></div>
+
+      <section id="system" className="home-system-lab wrap">
+        <div className="home-system-lab-head">
+          <div>
+            <span className="home-kicker">SYSTEM VIEW / 001</span>
+            <h2>The interface is only one layer.</h2>
+          </div>
+          <p>Good software is a connected chain. Explore the layers to see how I think about the work beyond the screen.</p>
+        </div>
+
+        <div className="home-system-lab-grid">
+          <div className="home-system-lab-rail" role="tablist" aria-label="System layers">
+            {systemLayers.map((layer, index) => (
+              <button
+                key={layer.number}
+                type="button"
+                role="tab"
+                aria-selected={activeLayer === index}
+                className={activeLayer === index ? "home-system-layer active" : "home-system-layer"}
+                onClick={() => setActiveLayer(index)}
+              >
+                <span>{layer.number}</span>
+                <strong>{layer.title}</strong>
+                <ArrowRight size={15} />
+              </button>
+            ))}
+          </div>
+
+          <motion.div
+            className="home-system-lab-detail"
+            key={systemLayers[activeLayer].number}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="home-system-lab-orbit" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <b>{systemLayers[activeLayer].number}</b>
+            </div>
+            <div className="home-system-lab-copy">
+              <span>ACTIVE LAYER</span>
+              <h3>{systemLayers[activeLayer].title}</h3>
+              <p>{systemLayers[activeLayer].text}</p>
+              <div>{systemLayers[activeLayer].tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <section id="work" className="home-section wrap">
         <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 05</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
