@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
 
 export default function InteractiveSystemFlow({ architecture, architectureLabels, descriptions }: Props) {
   const [active, setActive] = useState<number | null>(null);
+  const detailId = useId();
 
   const descriptionFor = (index: number, item: string) =>
     descriptions?.[index] ?? `${item} is a defined stage in the system architecture, connecting the previous layer to the next part of the workflow.`;
@@ -28,6 +29,7 @@ export default function InteractiveSystemFlow({ architecture, architectureLabels
               className={active === index ? "flow-item flow-button active" : "flow-item flow-button"}
               onClick={() => setActive(active === index ? null : index)}
               aria-expanded={active === index}
+              aria-controls={`${detailId}-${index}`}
             >
               <span>0{index + 1}</span>
               <strong>{item}</strong>
@@ -35,7 +37,7 @@ export default function InteractiveSystemFlow({ architecture, architectureLabels
               {index < architecture.length - 1 && <ArrowUpRight size={15} />}
             </button>
             {active === index && (
-              <div className="flow-detail flow-detail-inline">
+              <div id={`${detailId}-${index}`} className="flow-detail flow-detail-inline">
                 <div className="flow-detail-top">
                   <div>
                     <span className="kicker">{architectureLabels?.[index] ?? `STAGE 0${index + 1}`}</span>
