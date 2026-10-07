@@ -455,9 +455,13 @@ export default async function CaseStudyPage({
       </section>
 
       <footer className="case-footer case-wrap">
+        <div className="case-footer-topline">
+          <span>END OF CASE / {project.number}</span>
+          <span>JESSE BRISKA · SOFTWARE · AUTOMATION · SYSTEMS</span>
+        </div>
         <div className="case-footer-nav">
           <Link href="/"><ArrowLeft size={15} /> Back to homepage</Link>
-          <div className="case-footer-center">Jesse Briska · Software · Automation · Systems</div>
+          <div className="case-footer-center">Selected work / {project.number}</div>
         </div>
         <div className="case-footer-next">
           {(() => {
