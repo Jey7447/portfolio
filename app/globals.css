@@ -4080,3 +4080,66 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:42px;
   }
 }
+
+/* Final consistency layer: shared rhythm and interaction language. */
+.home-project,
+.case-brief-grid article,
+.case-problem-block,
+.case-build-block,
+.case-flow-block{
+  scroll-margin-top:140px;
+}
+.home-project:focus-within{
+  border-color:color-mix(in srgb,var(--accent) 38%,var(--line));
+}
+.home-project-head,
+.case-hero-meta,
+.case-footer-topline{
+  font-family:monospace;
+}
+.home-project-head span,
+.case-hero-meta span,
+.case-footer-topline span{
+  letter-spacing:.12em;
+}
+.case-brief-head p,
+.evidence-head>p,
+.flow-intro{
+  max-width:680px;
+}
+.case-brief-grid article,
+.case-problem-block,
+.case-build-block{
+  transition:border-color .25s ease;
+}
+.case-brief-grid article:hover,
+.case-problem-block:hover,
+.case-build-block:hover{
+  border-color:color-mix(in srgb,var(--accent) 25%,var(--line));
+}
+.case-tags span,
+.home-tags span{
+  transition:border-color .2s ease,color .2s ease,background-color .2s ease;
+}
+.case-tags span:hover,
+.home-tags span:hover{
+  color:var(--paper);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--line));
+  background:color-mix(in srgb,var(--accent) 8%,transparent);
+}
+@media(max-width:760px){
+  .case-brief-head p,
+  .evidence-head>p,
+  .flow-intro{
+    max-width:none;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .case-brief-grid article,
+  .case-problem-block,
+  .case-build-block,
+  .case-tags span,
+  .home-tags span{
+    transition:none!important;
+  }
+}
