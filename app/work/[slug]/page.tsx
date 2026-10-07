@@ -272,7 +272,15 @@ export default async function CaseStudyPage({
         </div>
       </header>
 
-      <section className="case-brief case-wrap" aria-labelledby="case-brief-title">
+      <nav className="case-progress case-wrap" aria-label="Case study sections">
+        <span className="case-progress-label">CASE / {project.number}</span>
+        <a href="#case-brief"><span>01</span> Brief</a>
+        <a href="#system-map"><span>02</span> System</a>
+        {"evidence" in project && project.evidence && project.evidence.length > 0 && <a href="#visual-evidence"><span>03</span> Evidence</a>}
+        <a href="#case-build"><span>{("evidence" in project && project.evidence && project.evidence.length > 0) ? "04" : "03"}</span> Build</a>
+      </nav>
+
+      <section id="case-brief" className="case-brief case-wrap" aria-labelledby="case-brief-title">
         <div className="case-brief-head">
           <span className="kicker">PROJECT BRIEF</span>
           <h2 id="case-brief-title">The problem, in plain language.</h2>
@@ -290,7 +298,7 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <section className="case-visual case-wrap" aria-label="System architecture visual">
+      <section id="system-map" className="case-visual case-wrap" aria-label="System architecture visual">
         <div className="case-grid" />
         <div className="architecture-map">
           <div className="architecture-head">
@@ -392,7 +400,7 @@ export default async function CaseStudyPage({
         />
       )}
 
-      <section className="case-content case-wrap">
+      <section id="case-build" className="case-content case-wrap">
         <div className="case-main">
           <article>
             <span className="kicker">THE PROBLEM</span>
