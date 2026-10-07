@@ -385,7 +385,7 @@ export default function Home() {
             </div>
           </div>
           <div className="home-stack"><div className="home-stack-head"><span>STACK / WORKING LAYERS</span><span>2026</span></div>{stackGroups.map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
-          <div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering · University of Jos</small></div>
+          <div className="home-identity"><span>JESSE BRISKA</span><strong>Software · Automation · Systems</strong><small>Mechanical Engineering</small></div>
         </div>
       </section>
 
