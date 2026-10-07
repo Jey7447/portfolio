@@ -402,43 +402,55 @@ export default async function CaseStudyPage({
 
       <section id="case-build" className="case-content case-wrap">
         <div className="case-main">
-          <article>
+          <article className="case-problem-block">
+            <div className="case-section-index">01</div>
             <span className="kicker">THE PROBLEM</span>
             <h2>{project.problemHeading}</h2>
             <p>{project.problem}</p>
           </article>
 
-          <article>
+          <article className="case-build-block">
+            <div className="case-section-index">02</div>
             <span className="kicker">WHAT I BUILT</span>
             <h2>{project.builtHeading}</h2>
             <ul className="case-list">
-              {project.built.map((item) => (
-                <li key={item}><CheckCircle2 size={17} /> <span>{item}</span></li>
+              {project.built.map((item, index) => (
+                <li key={item}>
+                  <span className="case-list-number">{String(index + 1).padStart(2, "0")}</span>
+                  <CheckCircle2 size={17} />
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
           </article>
 
-          <InteractiveSystemFlow
-            architecture={project.architecture}
-            architectureLabels={project.architectureLabels}
-            descriptions={flowDescriptions[slug as CaseKey]}
-          />
+          <article className="case-flow-block">
+            <div className="case-section-index">03</div>
+            <InteractiveSystemFlow
+              architecture={project.architecture}
+              architectureLabels={project.architectureLabels}
+              descriptions={flowDescriptions[slug as CaseKey]}
+            />
+          </article>
         </div>
 
         <aside className="case-aside">
-          <div className="aside-card">
+          <div className="aside-card case-tech-card">
             <span className="kicker">TECHNOLOGY</span>
             <div className="case-tags">
               {project.stack.map((item) => <span key={item}>{item}</span>)}
             </div>
           </div>
-          <div className="aside-card">
-            <span className="kicker">HOW IT WORKS</span>
-            <div className="layer"><Workflow size={17} /><span>Automation & workflow</span></div>
-            <div className="layer"><Database size={17} /><span>Data & records</span></div>
-            <div className="layer"><GitBranch size={17} /><span>Connected services</span></div>
+          <div className="aside-card case-layers-card">
+            <span className="kicker">SYSTEM LAYERS</span>
+            <div className="layer"><Workflow size={17} /><span>Automation & workflow</span><small>Logic</small></div>
+            <div className="layer"><Database size={17} /><span>Data & records</span><small>State</small></div>
+            <div className="layer"><GitBranch size={17} /><span>Connected services</span><small>Integration</small></div>
           </div>
-          <div className="aside-note">{project.note}</div>
+          <div className="aside-note">
+            <span className="kicker">PROJECT NOTE</span>
+            <p>{project.note}</p>
+          </div>
         </aside>
       </section>
 
