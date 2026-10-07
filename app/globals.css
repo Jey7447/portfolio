@@ -3647,3 +3647,98 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     margin-top:12px;
   }
 }
+
+/* System architecture presentation layer. */
+.architecture-flow{
+  position:relative;
+}
+.architecture-flow:before{
+  content:"";
+  position:absolute;
+  left:5%;
+  right:5%;
+  top:50%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--line),var(--accent),var(--line),transparent);
+  opacity:.55;
+}
+.architecture-node-wrap{
+  position:relative;
+  z-index:2;
+}
+.architecture-node{
+  position:relative;
+  min-height:122px;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease,background .25s ease,box-shadow .25s ease;
+  cursor:default;
+  outline:none;
+}
+.architecture-node:after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border:1px solid transparent;
+  pointer-events:none;
+  transition:border-color .25s ease;
+}
+.architecture-node:hover,
+.architecture-node:focus-visible{
+  transform:translateY(-5px);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--line));
+  background:color-mix(in srgb,var(--panel) 90%,var(--accent));
+  box-shadow:0 18px 45px rgba(0,0,0,.14);
+}
+.architecture-node:hover:after,
+.architecture-node:focus-visible:after{
+  border-color:var(--accent);
+}
+.architecture-node span{
+  position:relative;
+  z-index:1;
+}
+.architecture-node strong{
+  position:relative;
+  z-index:1;
+}
+.architecture-node small{
+  position:relative;
+  z-index:1;
+}
+.architecture-arrow{
+  position:relative;
+  z-index:3;
+  transition:transform .25s ease,color .25s ease;
+}
+.architecture-node-wrap:hover .architecture-arrow{
+  color:var(--accent);
+  transform:translate(3px,-3px);
+}
+.architecture-status{
+  position:relative;
+}
+.architecture-live-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 35%,transparent);
+  animation:architecturePulse 2s infinite;
+}
+@keyframes architecturePulse{
+  0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 30%,transparent)}
+  50%{box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 0%,transparent)}
+}
+@media(max-width:760px){
+  .architecture-flow:before{display:none}
+  .architecture-node{
+    min-height:105px;
+  }
+  .architecture-node-wrap:hover .architecture-arrow{
+    transform:none;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .architecture-live-dot{animation:none}
+  .architecture-node,
+  .architecture-arrow{transition:none}
+}
