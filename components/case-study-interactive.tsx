@@ -45,6 +45,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
   const [activeNode, setActiveNode] = useState<WorkflowNode | null>(null);
   const [activeEvidenceIndex, setActiveEvidenceIndex] = useState(0);
   const evidenceGridRef = useRef<HTMLDivElement>(null);
+  const modalCloseRef = useRef<HTMLButtonElement>(null);
 
   const closeAll = useCallback(() => {
     setActiveImage(null);
@@ -72,9 +73,12 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeAll();
+      if (activeImage && event.key === "ArrowLeft") openAdjacentEvidence(-1);
+      if (activeImage && event.key === "ArrowRight") openAdjacentEvidence(1);
     };
 
     window.addEventListener("keydown", handleKeyDown);
+    modalCloseRef.current?.focus();
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
@@ -156,7 +160,7 @@ export default function CaseStudyInteractive({ evidence, workflowNodes }: Props)
           if (event.target === event.currentTarget) closeAll();
         }}>
           <div className={activeWorkflow ? "workflow-modal workflow-modal-wide" : "image-modal"}>
-            <button type="button" className="modal-close" onClick={closeAll} aria-label="Close evidence viewer">
+            <button ref={modalCloseRef} type="button" className="modal-close" onClick={closeAll} aria-label="Close evidence viewer">
               <X size={20} />
             </button>
 
