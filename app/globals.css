@@ -4007,3 +4007,76 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     padding:8px 9px;
   }
 }
+
+/* Mobile density and touch-flow polish. */
+@media(max-width:760px){
+  .home-section-head{
+    gap:0;
+  }
+  .home-section-head h2{
+    max-width:12ch;
+  }
+  .home-project-head{
+    gap:12px;
+    align-items:flex-start;
+  }
+  .home-project-head span:last-child{
+    text-align:right;
+  }
+  .home-project-info{
+    gap:18px;
+  }
+  .home-project-info h3{
+    line-height:1;
+  }
+  .home-tags{
+    margin-top:4px;
+  }
+  .home-services button{
+    min-height:62px;
+  }
+  .home-process-track{
+    overflow:visible;
+  }
+  .home-process-node{
+    min-width:0;
+  }
+  .home-process-arrow{
+    display:none;
+  }
+  .home-about-profile-grid{
+    grid-template-columns:1fr;
+  }
+  .home-stack>div{
+    grid-template-columns:78px 1fr;
+    gap:12px;
+  }
+  .home-faq summary{
+    min-height:58px;
+  }
+  .home-contact-card{
+    overflow:hidden;
+  }
+  .home-contact-card .email{
+    overflow-wrap:anywhere;
+  }
+}
+@media(max-width:420px){
+  .home-project-head{
+    font-size:8px;
+  }
+  .home-project-image-label{
+    left:9px;
+    right:9px;
+    gap:7px;
+  }
+  .home-system-case-link{
+    font-size:7px;
+  }
+  .home-section-head h2{
+    font-size:43px;
+  }
+  .home-about-intro h2{
+    font-size:42px;
+  }
+}
