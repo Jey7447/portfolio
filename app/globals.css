@@ -3438,3 +3438,91 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     transition:none;
   }
 }
+
+/* Premium case-study navigation rail. */
+.case-progress{
+  position:sticky;
+  top:76px;
+  z-index:25;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  gap:26px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(16px);
+}
+.case-progress-label{
+  margin-right:auto;
+  color:var(--soft);
+  font:8px monospace;
+  letter-spacing:.16em;
+}
+.case-progress a{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:20px 0;
+  color:var(--muted);
+  text-decoration:none;
+  font:9px monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:color .2s ease;
+}
+.case-progress a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-1px;
+  height:2px;
+  background:var(--accent);
+  transition:right .25s ease;
+}
+.case-progress a:hover,
+.case-progress a:focus-visible{
+  color:var(--paper);
+}
+.case-progress a:hover:after,
+.case-progress a:focus-visible:after{
+  right:0;
+}
+.case-progress a span{
+  color:var(--accent);
+  font-size:8px;
+}
+.case-progress + .case-brief{
+  padding-top:100px;
+}
+#system-map,
+#case-build,
+#visual-evidence,
+#case-brief{
+  scroll-margin-top:150px;
+}
+
+@media(max-width:760px){
+  .case-progress{
+    top:62px;
+    min-height:50px;
+    gap:18px;
+    padding:0 16px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .case-progress::-webkit-scrollbar{display:none}
+  .case-progress-label{
+    display:none;
+  }
+  .case-progress a{
+    flex:0 0 auto;
+    padding:17px 0;
+    font-size:8px;
+  }
+  .case-progress + .case-brief{
+    padding-top:75px;
+  }
+}
