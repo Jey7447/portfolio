@@ -75,6 +75,17 @@ const projects = [
     visual: "capstone",
     status: "Completed capstone",
   },
+  {
+    number: "06",
+    title: "The Juniper Table",
+    type: "Hospitality · Web Experience",
+    description: "A bold restaurant concept with a searchable menu, responsive shopping bag and complete sample ordering journey.",
+    stack: ["HTML", "CSS", "JavaScript", "Responsive UI"],
+    href: "/work/juniper-table",
+    image: "https://images.pexels.com/photos/37538487/pexels-photo-37538487.jpeg?cs=srgb",
+    visual: "juniper",
+    status: "Interactive prototype",
+  },
 ];
 
 const services = [
@@ -243,7 +254,7 @@ export default function Home() {
             <motion.h1 initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}>I build<br /><em>digital systems</em><br />that work.</motion.h1>
             <div className="home-hero-actions"><a className="home-button" href="#work">Explore selected work <ArrowDown size={16} /></a><a className="home-textlink" href="#contact">Start a project <ArrowUpRight size={16} /></a></div>
             <div className="home-hero-proof" aria-label="Portfolio proof points">
-              <div><strong>05</strong><span>SELECTED<br />SYSTEMS</span></div>
+              <div><strong>06</strong><span>SELECTED<br />SYSTEMS</span></div>
               <div><strong>08</strong><span>CAPSTONE<br />EVIDENCE VIEWS</span></div>
               <div><strong>03</strong><span>CORE<br />DISCIPLINES</span></div>
             </div>
@@ -313,7 +324,7 @@ export default function Home() {
       </section>
 
       <section id="work" className="home-section wrap">
-        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 05</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
+        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 06</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
         <div className="home-projects">
           {projects.map((project, i) => (
             <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : i === 4 ? "home-project-capstone" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
