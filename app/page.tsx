@@ -56,16 +56,6 @@ const projects = [
   },
   {
     number: "04",
-    title: "ProductForge AI",
-    type: "AI · Product",
-    description: "An AI product workflow for turning structured inputs into useful product output.",
-    stack: ["Next.js", "TypeScript", "AI"],
-    href: "/work/productforge",
-    visual: "productforge",
-    status: "System case study",
-  },
-  {
-    number: "05",
     title: "Reputation & Feedback Intelligence Engine",
     type: "AI · Automation · Operations",
     description: "A feedback intelligence system that analyzes customer feedback, routes issues and gives managers a structured review workflow.",
@@ -76,7 +66,7 @@ const projects = [
     status: "Completed capstone",
   },
   {
-    number: "06",
+    number: "05",
     title: "The Juniper Table",
     type: "Hospitality · Web Experience",
     description: "A bold restaurant concept with a searchable menu, responsive shopping bag and complete sample ordering journey.",
@@ -324,10 +314,10 @@ export default function Home() {
       </section>
 
       <section id="work" className="home-section wrap">
-        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 06</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
+        <div className="home-section-head"><div><span className="home-kicker">SELECTED WORK / 05</span><h2>Proof over promises.</h2></div><p>Projects built around real requirements, data, workflows and constraints. Start with a case study and go deeper into the system.</p></div>
         <div className="home-projects">
           {projects.map((project, i) => (
-            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-productforge" : i === 4 ? "home-project-capstone" : i === 5 ? "home-project-juniper" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
+            <motion.article className={"home-project " + (i === 0 ? "home-project-featured" : i === 3 ? "home-project-capstone" : i === 4 ? "home-project-juniper" : "home-project-standard")} key={project.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-70px" }} transition={{ duration: 0.55, delay: i * 0.06 }}>
               <div className="home-project-head"><span>{project.number} / {project.type}</span><span>{project.status}</span></div>
               <ProjectVisual project={project} />
               <div className="home-project-info"><div><div className="home-project-title-row"><h3>{project.title}</h3><ArrowUpRight className="home-project-title-arrow" size={19} aria-hidden="true" /></div><p>{project.description}</p></div><div className="home-tags">{project.stack.map((item) => <span key={item}>{item}</span>)}</div></div>
