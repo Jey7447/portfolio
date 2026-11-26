@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    ...["careplus", "dmda", "bakery", "productforge", "reputation-feedback", "juniper-table"].map(
+    ...["careplus", "dmda", "bakery", "reputation-feedback", "juniper-table"].map(
       (slug) => ({
         url: `${siteUrl}/work/${slug}`,
         lastModified: now,
