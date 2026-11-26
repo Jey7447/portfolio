@@ -4206,3 +4206,53 @@ a,button{transition:color .25s ease,background-color .25s ease,border-color .25s
     font-size:13px;
   }
 }
+
+
+/* Homepage hero refinement: preserve the oversized identity while improving first-screen balance. */
+@media(min-width:1101px){
+  .home-hero-grid{
+    gap:clamp(42px,4.2vw,64px);
+    padding:48px 0 34px;
+  }
+  .home-hero-copy h1{
+    font-size:clamp(68px,8.1vw,124px);
+    line-height:.84;
+  }
+  .home-hero-intro{
+    margin-bottom:25px;
+  }
+  .home-hero-actions{
+    margin-top:34px;
+  }
+  .home-hero-proof{
+    margin-top:28px;
+  }
+  .home-hero-diagram{
+    height:310px;
+    margin-top:32px;
+  }
+}
+@media(min-width:1101px) and (max-height:850px){
+  .home-hero{
+    min-height:calc(100vh - 76px);
+  }
+  .home-hero-grid{
+    padding:32px 0 24px;
+  }
+  .home-hero-copy h1{
+    font-size:clamp(64px,7.4vw,112px);
+  }
+  .home-hero-intro{
+    margin-bottom:20px;
+  }
+  .home-hero-actions{
+    margin-top:26px;
+  }
+  .home-hero-proof{
+    margin-top:22px;
+  }
+  .home-hero-diagram{
+    height:270px;
+    margin-top:24px;
+  }
+}
