@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Code2, ShoppingBag, Smartphone, Monitor, Github, ExternalLink } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
