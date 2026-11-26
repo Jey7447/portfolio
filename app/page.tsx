@@ -244,7 +244,7 @@ export default function Home() {
             <motion.h1 initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }}>I build<br /><em>digital systems</em><br />that work.</motion.h1>
             <div className="home-hero-actions"><a className="home-button" href="#work">Explore selected work <ArrowDown size={16} /></a><a className="home-textlink" href="#contact">Start a project <ArrowUpRight size={16} /></a></div>
             <div className="home-hero-proof" aria-label="Portfolio proof points">
-              <div><strong>06</strong><span>SELECTED<br />SYSTEMS</span></div>
+              <div><strong>05</strong><span>SELECTED<br />SYSTEMS</span></div>
               <div><strong>08</strong><span>CAPSTONE<br />EVIDENCE VIEWS</span></div>
               <div><strong>03</strong><span>CORE<br />DISCIPLINES</span></div>
             </div>
